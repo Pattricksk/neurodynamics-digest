@@ -1,0 +1,2851 @@
+[
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "The headline act",
+  "title": "Single Intranasal Administration of the Psychedelic Mebufotenin for Treatment-Resistant Depression",
+  "authors": [
+   "David Feifel",
+   "Mathieu Seynaeve",
+   "Wiesław Jerzy Cubała",
+   "Fiona Dunbar",
+   "Gerhard Gründer",
+   "Rosa María Dueñas Herrero",
+   "Chandni Hindocha",
+   "Paul Liknaitzky",
+   "Sean M. McGuigan",
+   "Sejal Mehta",
+   "Mimi Pierce",
+   "Dimitris Repantis",
+   "Claire Roberts",
+   "Frank Wiegand",
+   "Robert Conley"
+  ],
+  "venue": "JAMA",
+  "pub_date": "2026-10-26",
+  "doi": "10.1001/jama.2026.18380",
+  "url": "https://doi.org/10.1001/jama.2026.18380",
+  "item_type": "paper",
+  "modality": "none",
+  "drugs": [
+   "mebufotenin (5-MeO-DMT)"
+  ],
+  "populations": [
+   "adults with treatment-resistant depression"
+  ],
+  "methods": [
+   "phase 2b RCT"
+  ],
+  "topics": [
+   "TRD",
+   "short-acting psychedelic",
+   "clinical trial"
+  ],
+  "summary": "A double-blind phase 2b trial at 38 sites in Australia, Europe and the US (Sept 2023–Apr 2025): 193 adults with moderate-to-severe depression unresponsive to 2–5 antidepressants (mean age 41; 59.1% female) received one intranasal dose with psychological support: 8 mg (n = 46), 12 mg (n = 73) or a 0.3 mg comparator (n = 74).",
+  "caveats": "Industry-sponsored (several authors are affiliated with AtaiBeckley or Beckley Psytech; check the COI statement). Blinding a fast, intense psychedelic is hard even with an active low dose. The higher dose didn't beat the lower one, and follow-up is weeks, not long-term.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s01",
+  "relevance": 3,
+  "id": "001-0000",
+  "similar": [
+   "001-0045",
+   "001-0010",
+   "001-0041",
+   "001-0033"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "The headline act",
+  "title": "Sustained antidepressant-like effects of psychedelics through 5-HT2AR–β-arrestin signaling",
+  "authors": [
+   "Licong He",
+   "Lingjie Tang",
+   "Dongmei Cao",
+   "Wenwen Duan",
+   "Jing Yu",
+   "Pei Zhang",
+   "Huiqiong Li",
+   "Yumeng Wang",
+   "Bing Meng",
+   "Huan Wang",
+   "Yue Zhou",
+   "Wenhao Li",
+   "Xiaoyu Li",
+   "Zhijie Liu",
+   "Lei Zhang",
+   "Jianjun Cheng",
+   "Sheng Wang"
+  ],
+  "venue": "Nature Neuroscience",
+  "pub_date": "2026-10-23",
+  "doi": "10.1038/s41593-026-02497-5",
+  "url": "https://doi.org/10.1038/s41593-026-02497-5",
+  "item_type": "paper",
+  "modality": "preclinical",
+  "drugs": [
+   "5-HT2A agonists"
+  ],
+  "populations": [
+   "mice"
+  ],
+  "methods": [
+   "biased agonism",
+   "behaviour"
+  ],
+  "topics": [
+   "5-HT2A",
+   "beta-arrestin",
+   "non-hallucinogenic antidepressant"
+  ],
+  "summary": "Using structure-guided 5-HT2AR–β-arrestin-biased agonists, the authors argue that β-arrestin signalling, not Gαq, drives prolonged antidepressant-like effects in mice. The key is kinetics: LSD dissociates slowly, so repeated low doses can accumulate receptor engagement close to a single high dose without the peak, sustaining β-arrestin signalling while limiting Gαq-mediated Ca²⁺ responses.",
+  "caveats": "Animal behaviour stands in for both mood and subjective effects, and the absence of behavioural disruption doesn't mean the absence of altered experience. Funded by Chinese state and Shanghai sources (MOST, NSFC, CAS, ShanghaiTech). Several authors have filed patents on the new 5-HT2AR agonists through their universities (declared in the competing-interests statement), so the biased-agonist claims come from an interested party.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s01",
+  "relevance": 3,
+  "id": "001-0001",
+  "similar": [
+   "001-0002",
+   "001-0030",
+   "001-0031",
+   "001-0011"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "The headline act",
+  "title": "5-HT2A receptors in layer 5 pyramidal neurons mediate the neuroplastic but not the hallucinogenic effects of psilocybin",
+  "authors": [
+   "Jacob J. Baker",
+   "Emily Kogan",
+   "Shaorong Ma",
+   "Ju Lu",
+   "Yi Zuo"
+  ],
+  "venue": "Nature Neuroscience",
+  "pub_date": "2026-10-15",
+  "doi": "10.1038/s41593-026-02490-y",
+  "url": "https://doi.org/10.1038/s41593-026-02490-y",
+  "item_type": "paper",
+  "modality": "preclinical",
+  "drugs": [
+   "psychedelics"
+  ],
+  "populations": [
+   "mice"
+  ],
+  "methods": [
+   "plasticity assays"
+  ],
+  "topics": [
+   "5-HT2A",
+   "plasticity",
+   "head-twitch"
+  ],
+  "summary": "Baker, Kogan, Ma, Lu & Zuo. 5-HT2A signalling in layer 5 pyramidal neurons was necessary and sufficient for psilocybin's synaptic remodelling but not for the head-twitch response: a cell-type route to the separation He et al. pursue via signalling.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s01",
+  "relevance": 3,
+  "id": "001-0002",
+  "similar": [
+   "001-0001",
+   "001-0030",
+   "001-0032",
+   "001-0031",
+   "001-0013"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "EEG",
+  "title": "Context Shapes Alpha-Band Electrophysiological Signatures under Psilocybin",
+  "authors": [
+   "Vidushani Dhanawansa",
+   "Devon Stoliker",
+   "Leonardo Novelli",
+   "Mana Biabani",
+   "Adeel Razi",
+   "Levin Kuhlmann"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-16",
+  "doi": "10.64898/2026.10.06.757155",
+  "url": "https://doi.org/10.64898/2026.10.06.757155",
+  "item_type": "preprint",
+  "modality": "EEG",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "spectral power",
+   "connectivity"
+  ],
+  "topics": [
+   "pharmaco-EEG",
+   "set and setting",
+   "alpha"
+  ],
+  "summary": "Described by the authors as the largest psilocybin EEG dataset to date (n = 56), with matched pre-drug baselines, recorded during movie viewing, eyes-closed rest, guided meditation and music. Source-space power, alpha peak frequency and coherence were analysed within and between seven networks across six bands (1–80 Hz), with FDR-corrected permutation tests and drug × context mixed models.",
+  "caveats": "Preprint; effect sizes aren't in the abstract. Source-space coherence is still vulnerable to leakage (see Dimou, below); check dose and design in the full text.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s02",
+  "relevance": 3,
+  "id": "001-0003",
+  "similar": [
+   "001-0022",
+   "001-0015",
+   "001-0006",
+   "001-0004",
+   "001-0061"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "EEG",
+  "title": "Aperiodic neural activity predicts cortical excitability in TMS-EEG",
+  "authors": [
+   "Timo van Hattem",
+   "Juliana R. Hougland",
+   "Juha Gogulski",
+   "Pedro C. Gordon",
+   "Paolo Belardinelli",
+   "Ulf Ziemann"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-19",
+  "doi": "10.64898/2026.10.18.759941",
+  "url": "https://doi.org/10.64898/2026.10.18.759941",
+  "item_type": "preprint",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "TMS-EEG",
+   "aperiodic exponent"
+  ],
+  "topics": [
+   "E/I balance",
+   "cortical excitability"
+  ],
+  "summary": "van Hattem … Ziemann (Tübingen). With TMS to M1 (n = 29) or DLPFC (n = 11), a steeper pre-stimulus 1/f exponent predicted smaller early TEPs in both; alpha and beta power were inconsistent.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s02",
+  "relevance": 3,
+  "id": "001-0004",
+  "similar": [
+   "001-0019",
+   "001-0003",
+   "001-0026",
+   "001-0039"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "EEG",
+  "title": "How well does EEG source imaging recover time series? Not very",
+  "authors": [
+   "M. Dimou",
+   "S. Beumer",
+   "A. Pigorini",
+   "E. Mikulan",
+   "A. Calcagno",
+   "L. Spinelli",
+   "S. Momjian",
+   "M. Seeck",
+   "S. Vulliemoz",
+   "N. Roehri"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-27",
+  "doi": "10.64898/2026.10.26.761837",
+  "url": "https://doi.org/10.64898/2026.10.26.761837",
+  "item_type": "preprint",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "epilepsy patients (intracranial ground truth)"
+  ],
+  "methods": [
+   "electrical source imaging",
+   "validation"
+  ],
+  "topics": [
+   "EEG methods",
+   "source imaging"
+  ],
+  "summary": "Dimou … Vulliemoz & Roehri (Geneva). Simultaneous high-density scalp and intracranial EEG in 34 patients: best reconstructed–recorded correlation 0.126, about 3 cm localisation error, heavy leakage.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s02",
+  "relevance": 3,
+  "id": "001-0005",
+  "similar": [
+   "001-0007"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "EEG",
+  "title": "Stimulus overlap confounds generalization in EEG foundation-model benchmarks",
+  "authors": [
+   "Han Cui",
+   "Yuge Zhu",
+   "Shaojia Huang",
+   "Tao Xu"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-14",
+  "doi": "10.64898/2026.10.07.757228",
+  "url": "https://doi.org/10.64898/2026.10.07.757228",
+  "item_type": "preprint",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "EEG foundation models",
+   "benchmarking"
+  ],
+  "topics": [
+   "ML",
+   "decoding"
+  ],
+  "summary": "Cui, Zhu, Xu & Huang. Across ten tasks from seven EEG emotion datasets, reusing stimuli across train and test inflated cross-participant accuracy every time (77% of above-chance performance on FACED-9).",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s02",
+  "relevance": 3,
+  "id": "001-0006",
+  "similar": [
+   "001-0003"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "EEG",
+  "title": "Clinically unresponsive patients with acute brain injury activate a brain-computer interface",
+  "authors": [
+   "Qi Shen",
+   "Andrey Eliseyev",
+   "Vedant Kansara",
+   "Joel Neves Briard",
+   "You Lim Song",
+   "Jerina Carmona",
+   "Ian Jerome Gonzales",
+   "Angela Velazquez",
+   "Alex J Klein",
+   "Sachin Agarwal",
+   "Soojin Park",
+   "Shivani Ghoshal",
+   "David Roh",
+   "E Sander Connolly",
+   "Jan Claassen"
+  ],
+  "venue": "Brain",
+  "pub_date": "2026-10-22",
+  "doi": "10.1093/brain/awag210",
+  "url": "https://doi.org/10.1093/brain/awag210",
+  "item_type": "paper",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "patients with disorders of consciousness"
+  ],
+  "methods": [
+   "BCI"
+  ],
+  "topics": [
+   "consciousness",
+   "covert awareness"
+  ],
+  "summary": "Shen … Claassen (Columbia). 13 of 41 (32%) unresponsive patients with acute brain injury achieved BCI control; consciousness recovered by discharge in 4/13 vs 1/28 without control (OR 21.2, 95% CI 2.3–930.7, very wide).",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s02",
+  "relevance": 3,
+  "id": "001-0007",
+  "similar": [
+   "001-0014",
+   "001-0059",
+   "001-0005"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "EEG",
+  "title": "Artefact-free EEG during temporal interference stimulation reveals phase-specific modulation of the human visual cortex",
+  "authors": [
+   "Edward Rhodes",
+   "Thomas Deegan",
+   "Ketevan Alania",
+   "Julia Borella",
+   "Mischa Sabathy",
+   "Myles Capstick",
+   "Niels Kuster",
+   "Jonathan Howard",
+   "David Bono",
+   "Nir Grossman"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-19",
+  "doi": "10.64898/2026.10.13.757892",
+  "url": "https://doi.org/10.64898/2026.10.13.757892",
+  "item_type": "preprint",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "temporal interference stimulation",
+   "artefact removal"
+  ],
+  "topics": [
+   "brain stimulation",
+   "TI"
+  ],
+  "summary": "Rhodes … Bono & Grossman. A front-end analogue low-pass filter (7th order, 90 Hz) keeps TI's difference-frequency artefact out of the EEG (22 participants; 4 recordings excluded).",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s02",
+  "relevance": 3,
+  "id": "001-0008",
+  "similar": [
+   "001-0025",
+   "001-0027",
+   "001-0032",
+   "001-0013"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "EEG",
+  "title": "Tuning in together: LSD enhances inter-brain synchrony and felt connectedness in romantic couples",
+  "authors": [
+   "NL Mason",
+   "A Czeszumski",
+   "I Totomanova",
+   "F. Trbusek",
+   "M Cavarra",
+   "S. M. Ashton",
+   "SW. Toennes",
+   "EL Theunissen",
+   "J.T. Reckweg",
+   "P. L. Lockwood",
+   "M. DeWitte",
+   "K.H. Preller",
+   "KPC Kuypers",
+   "G Dumas",
+   "P Mallaroni",
+   "JG Ramaekers"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-08-18",
+  "doi": "10.64898/2026.08.13.744639",
+  "url": "https://doi.org/10.64898/2026.08.13.744639",
+  "item_type": "preprint",
+  "modality": "EEG",
+  "drugs": [
+   "LSD"
+  ],
+  "populations": [
+   "couples"
+  ],
+  "methods": [
+   "hyperscanning",
+   "inter-brain synchrony"
+  ],
+  "topics": [
+   "social",
+   "biorxiv-top"
+  ],
+  "summary": "Mason, Czeszumski … (Maastricht). EEG hyperscanning of romantic couples (N = 25) on LSD 50 µg or placebo together: LSD raised felt connectedness, outlasting plasma levels, and increased inter-brain synchrony during shared rest.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s02",
+  "relevance": 3,
+  "id": "001-0009",
+  "similar": [
+   "001-0016",
+   "001-0036"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Your own corner",
+  "title": "Sex-related differences in outcomes following psilocybin or escitalopram: a Bayesian secondary analysis",
+  "authors": [
+   "Aline Frick",
+   "Grace Blest-Hopley",
+   "Manesh Girn",
+   "David Erritzoe",
+   "David Nutt",
+   "Robin Carhart-Harris"
+  ],
+  "venue": "Psychopharmacology",
+  "pub_date": "2026-10-26",
+  "doi": "10.1007/s00213-026-07177-7",
+  "url": "https://doi.org/10.1007/s00213-026-07177-7",
+  "item_type": "paper",
+  "modality": "none",
+  "drugs": [
+   "psilocybin",
+   "escitalopram"
+  ],
+  "populations": [
+   "adults with depression"
+  ],
+  "methods": [
+   "Bayesian reanalysis"
+  ],
+  "topics": [
+   "sex differences",
+   "Imperial trial"
+  ],
+  "summary": "A post hoc Bayesian secondary analysis of the six-week double-blind psilocybin vs escitalopram RCT (N = 59, 20 female; psilocybin n = 30 with 11 female, escitalopram n = 29 with 9 female). There was no overall sex difference on any outcome, and none on the depression scales.",
+  "caveats": "A secondary analysis of a trial that wasn't powered for sex effects, with 9–11 women per arm. Results are prior-sensitive, so treat them as hypothesis-generating.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s03",
+  "relevance": 3,
+  "id": "001-0010",
+  "similar": [
+   "001-0011",
+   "001-0000",
+   "001-0045",
+   "001-0061",
+   "001-0033"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Your own corner",
+  "title": "Sex Differences in Acute Responses to Psychedelics: Evidence for Greater Subjective Intensity and Impairment in Female Participants",
+  "authors": [
+   "Natasha L Mason",
+   "Eline CHM Haijen-Bongers",
+   "Kim PC Kuypers",
+   "Aline Frick",
+   "Stefan W Toennes",
+   "Pablo Mallaroni",
+   "Johannes G Ramaekers"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-07-13",
+  "doi": "10.64898/2026.07.08.737179",
+  "url": "https://doi.org/10.64898/2026.07.08.737179",
+  "item_type": "preprint",
+  "modality": "none",
+  "drugs": [
+   "psychedelics"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "pooled analysis"
+  ],
+  "topics": [
+   "sex differences",
+   "acute effects"
+  ],
+  "summary": "Mason … Ramaekers. Pooled placebo-controlled data (94 drug observations, 51 female; psilocybin, 2C-B, LSD): women reported stronger effects on five measures (medium-to-large), with no difference in peak drug levels.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s03",
+  "relevance": 3,
+  "id": "001-0011",
+  "similar": [
+   "001-0010",
+   "001-0029",
+   "001-0043",
+   "001-0014",
+   "001-0013",
+   "001-0028"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Your own corner",
+  "title": "A scalable estimator of higher-order information in complex dynamical systems",
+  "authors": [
+   "Alberto Liardi",
+   "George Blackburne",
+   "Hardik Rajpal",
+   "Fernando E. Rosas",
+   "Pedro A.M. Mediano"
+  ],
+  "venue": "Cell Reports Physical Science",
+  "pub_date": "2026-10",
+  "doi": "10.1016/j.xcrp.2026.103550",
+  "url": "https://doi.org/10.1016/j.xcrp.2026.103550",
+  "item_type": "paper",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "higher-order information estimator"
+  ],
+  "topics": [
+   "information theory",
+   "Mediano group"
+  ],
+  "summary": "Liardi, Blackburne, Rajpal, Rosas & Mediano, Cell Reports Physical Science. 'M-information', via convex optimisation, scales with system size, is robust to noise, and indexes criticality, anaesthesia and task performance. A candidate for higher-order measures on many-channel EEG. doi:10.1016/j.xcrp.2026.103550 ·",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s03",
+  "relevance": 3,
+  "id": "001-0012",
+  "similar": [
+   "001-0013",
+   "001-0021",
+   "001-0020"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Your own corner",
+  "title": "Psychedelics restructure information in the human brain",
+  "authors": [
+   "George Blackburne",
+   "Alberto Liardi",
+   "Pablo Mallaroni",
+   "Rosalind McAlpine",
+   "Robin Carhart-Harris",
+   "Christopher Timmermann",
+   "Suresh Daniel Muthukumaraswamy",
+   "Jeremy I Skipper",
+   "Pedro A.M. Mediano"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-08",
+  "doi": "10.64898/2026.10.01.755915",
+  "url": "https://doi.org/10.64898/2026.10.01.755915",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [
+   "psychedelics"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "information decomposition"
+  ],
+  "topics": [
+   "information theory",
+   "Imperial"
+  ],
+  "summary": "With Liardi, Mallaroni … Carhart-Harris, Timmermann, Muthukumaraswamy, Skipper & Mediano. Phi-ID across five psychedelics (N = 80) accounts for major prior results and is reproduced by a minimal model with reduced self-coupling: populations 'become alike, but not necessarily together'.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s03",
+  "relevance": 3,
+  "id": "001-0013",
+  "similar": [
+   "001-0014",
+   "001-0012",
+   "001-0032",
+   "001-0011",
+   "001-0015",
+   "001-0043"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Your own corner",
+  "title": "Psychedelics Restructure the Global Workspace of Consciousness",
+  "authors": [
+   "Parsa Yousefi",
+   "Kenneth Shinozuka",
+   "Patrick Vizeli",
+   "Friederike Holze",
+   "Anna M. Becker",
+   "Felix Müller",
+   "Matthias E. Liechti",
+   "Gregor Hasler",
+   "Carolyn I. Rodríguez",
+   "Andrea Luppi",
+   "Pedro A.M. Mediano"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-05",
+  "doi": "10.64898/2026.09.28.755172",
+  "url": "https://doi.org/10.64898/2026.09.28.755172",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [
+   "psychedelics"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "global workspace analysis"
+  ],
+  "topics": [
+   "consciousness",
+   "network dynamics"
+  ],
+  "summary": "Yousefi, Shinozuka … Luppi & Mediano. Across five drugs' fMRI, classic psychedelics added synergistic 'gateway' regions in frontoparietal and dorsal attention networks; MDMA and amphetamine reduced visual and somatomotor gateways.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s03",
+  "relevance": 3,
+  "id": "001-0014",
+  "similar": [
+   "001-0013",
+   "001-0007",
+   "001-0060",
+   "001-0015",
+   "001-0011",
+   "001-0043"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Psychedelic neuroimaging",
+  "title": "Language-associated brain representations covary with disruption of selfhood under psilocybin",
+  "authors": [
+   "Greg Cooper",
+   "Devon Stoliker",
+   "Vincent Sebastian Astl Delgado",
+   "George Blackburne",
+   "Leonardo Novelli",
+   "David W. Green",
+   "Ravi Das",
+   "Adeel Razi",
+   "Jeremy I. Skipper"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-14",
+  "doi": "10.64898/2026.10.06.757069",
+  "url": "https://doi.org/10.64898/2026.10.06.757069",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [
+   "psychedelics"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "inter-subject similarity",
+   "naturalistic fMRI"
+  ],
+  "topics": [
+   "language network",
+   "ego dissolution"
+  ],
+  "summary": "Participants heard music and watched moving clouds in the scanner at baseline and after 19 mg psilocybin. The authors tested whether inter-subject similarity of brain activity increased with each pair's summed Ego Dissolution Inventory (EDI) score (N = 43), using elementary visual imagery (N = 49) and baseline as comparators.",
+  "caveats": "Preprint. The brain–EDI correlation only just survives correction, and decoding with Neurosynth maps is a reverse inference.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s04",
+  "relevance": 3,
+  "id": "001-0015",
+  "similar": [
+   "001-0024",
+   "001-0014",
+   "001-0013",
+   "001-0003",
+   "001-0011"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Psychedelic neuroimaging",
+  "title": "Serotonergic psychedelics delay resting state neurovascular coupling dynamics",
+  "authors": [
+   "Lautaro Mundel",
+   "Vicente Medel",
+   "Christopher Timmermann",
+   "Patricio Orio",
+   "Josephine Cruzat",
+   "Carla Pallavicini",
+   "Gustavo Deco",
+   "Agustín Ibáñez",
+   "Robin Carhart-Harris",
+   "Yonatan Sanz Perl",
+   "Enzo Tagliazucchi",
+   "Enzo Tagliazucchi"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-16",
+  "doi": "10.64898/2026.10.09.758082",
+  "url": "https://doi.org/10.64898/2026.10.09.758082",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [
+   "LSD",
+   "DMT"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "HRF modelling"
+  ],
+  "topics": [
+   "haemodynamic confound",
+   "methods"
+  ],
+  "summary": "Blind deconvolution of resting BOLD showed that both LSD and DMT increased estimated haemodynamic delays, in regions overlapping serotonin receptors involved in both psychedelic action and vascular regulation.",
+  "caveats": "Preprint. Haemodynamic delay is estimated, not directly measured, and sample sizes aren't in the abstract.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s04",
+  "relevance": 3,
+  "id": "001-0016",
+  "similar": [
+   "001-0029",
+   "001-0021",
+   "001-0009",
+   "001-0032",
+   "001-0014",
+   "001-0019"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Complexity and dynamics",
+  "title": "Inferring brain structural complexity from dynamical measures",
+  "authors": [
+   "Gianluca Gaglioti",
+   "Anna Cattani",
+   "Thierry Nieus",
+   "Davide Momi",
+   "Renzo Comolatti",
+   "Leonardo Dalla Porta",
+   "Simone Sarasso",
+   "Marcello Massimini"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-22",
+  "doi": "10.64898/2026.10.21.760743",
+  "url": "https://doi.org/10.64898/2026.10.21.760743",
+  "item_type": "preprint",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "perturbational complexity",
+   "modelling"
+  ],
+  "topics": [
+   "complexity",
+   "PCI",
+   "LZc"
+  ],
+  "summary": "They simulated Wilson–Cowan mean-field networks, rewiring connectivity step by step to grade the structural balance of integration and differentiation, and asked which complexity metrics track it.",
+  "caveats": "A simulation study, so the conclusions hold only as far as the model class generalises. Preprint (v2 posted 26 Oct; numbers from the v1 full text).",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s05",
+  "relevance": 3,
+  "id": "001-0017",
+  "similar": [
+   "001-0032",
+   "001-0022"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Complexity and dynamics",
+  "title": "Brain dynamics exhibit scale-dependent reversibility during consciousness transitions",
+  "authors": [
+   "Nanyin Zhang",
+   "Xu Han",
+   "Xiaoai Chen",
+   "Samuel Cramer",
+   "Yizhuo Ding"
+  ],
+  "venue": "Research Square (preprint)",
+  "pub_date": "2026-10-27",
+  "doi": "10.21203/rs.3.rs-11194430/v1",
+  "url": "https://doi.org/10.21203/rs.3.rs-11194430/v1",
+  "item_type": "preprint",
+  "modality": "intracranial",
+  "drugs": [
+   "propofol"
+  ],
+  "populations": [
+   "anaesthesia"
+  ],
+  "methods": [
+   "LFP",
+   "fMRI",
+   "scale-dependent analysis"
+  ],
+  "topics": [
+   "anaesthesia",
+   "reversibility",
+   "travelling waves"
+  ],
+  "summary": "Rats under graded propofol were recorded with simultaneous local electrophysiology, whole-brain fMRI and pupillometry. LFPs, regional BOLD and pairwise FC changed largely reversibly between loss and recovery of consciousness.",
+  "caveats": "Preprint, rodents, one anaesthetic; sample and effect sizes aren't in the abstract.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s05",
+  "relevance": 3,
+  "id": "001-0018",
+  "similar": [
+   "001-0014"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Complexity and dynamics",
+  "title": "Brain state sets the spatial scale at which cortical geometry constrains human cortical dynamics",
+  "authors": [
+   "Alejandro Salinas-Medina",
+   "Anisleidy Gonzalez-Mitjans",
+   "Paule-Joanne Toussaint",
+   "Xue Liu",
+   "Alan Evans"
+  ],
+  "venue": "Research Square (preprint)",
+  "pub_date": "2026-10-20",
+  "doi": "10.21203/rs.3.rs-11120584/v1",
+  "url": "https://doi.org/10.21203/rs.3.rs-11120584/v1",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "geometric eigenmodes",
+   "connectome models"
+  ],
+  "topics": [
+   "brain geometry",
+   "state dependence"
+  ],
+  "summary": "Salinas-Medina … Liu & Evans (McGill). Histology-based neural field models suggest connectivity explains the broadest cortical patterns and geometry the finer ones, with brain state setting the scale.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s05",
+  "relevance": 3,
+  "id": "001-0019",
+  "similar": [
+   "001-0061",
+   "001-0004",
+   "001-0016"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Complexity and dynamics",
+  "title": "Arousal-informed neuronal avalanches operate near criticality",
+  "authors": [
+   "Cédric Stefens",
+   "Hardik Rajpal",
+   "Joe S. Canzano",
+   "Meghdad Saeedian",
+   "Michael G. Kareithi",
+   "Henrik Jeldtoft Jensen",
+   "Mauricio Barahona",
+   "Spencer LaVere Smith",
+   "Simon R. Schultz"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-13",
+  "doi": "10.64898/2026.10.12.757995",
+  "url": "https://doi.org/10.64898/2026.10.12.757995",
+  "item_type": "preprint",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "criticality measures"
+  ],
+  "topics": [
+   "criticality",
+   "Imperial"
+  ],
+  "summary": "Stefens, Rajpal, … Barahona, Smith & Schultz. Two-photon imaging of thousands of neurons in awake mouse visual cortex (convNMF to separate avalanches) shows multiple subnetworks at different distances from criticality; arousal-linked avalanches sit nearest it, with the largest dynamic range.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s05",
+  "relevance": 3,
+  "id": "001-0020",
+  "similar": [
+   "001-0013",
+   "001-0012"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Complexity and dynamics",
+  "title": "A metric for comparing complex systems by their dynamics",
+  "authors": [
+   "Mitchell Ostrow",
+   "Adam J. Eisen",
+   "Leo Kozachkov",
+   "William T. Redman",
+   "Ila Fiete"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-07-21",
+  "doi": "10.64898/2026.07.16.738953",
+  "url": "https://doi.org/10.64898/2026.07.16.738953",
+  "item_type": "preprint",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "dynamical similarity analysis"
+  ],
+  "topics": [
+   "dynamics",
+   "methods",
+   "biorxiv-top"
+  ],
+  "summary": "Ostrow … Fiete (MIT). Dynamical Similarity Analysis compares Koopman operators estimated from data; fast, robust to noise and partial observation.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s05",
+  "relevance": 3,
+  "id": "001-0021",
+  "similar": [
+   "001-0012",
+   "001-0016",
+   "001-0060",
+   "001-0036",
+   "001-0061",
+   "001-0059"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Complexity and dynamics",
+  "title": "Whole-brain normative modeling across multiple functional connectivity metrics in MEG",
+  "authors": [
+   "Janus R. L. Kobbersmed",
+   "Chetan Gohil",
+   "Mark W Woolrich",
+   "Diego Vidaurre"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-26",
+  "doi": "10.64898/2026.10.21.760411",
+  "url": "https://doi.org/10.64898/2026.10.21.760411",
+  "item_type": "preprint",
+  "modality": "MEG",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "normative modelling",
+   "connectivity"
+  ],
+  "topics": [
+   "MEG",
+   "individual differences"
+  ],
+  "summary": "Kobbersmed, Gohil, Woolrich & Vidaurre. M/EEG-FUNCOIN finds age and sex dimensions across several connectivity metrics in Cam-CAN MEG and flags individual deviations linked to cognition.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s05",
+  "relevance": 3,
+  "id": "001-0022",
+  "similar": [
+   "001-0035",
+   "001-0003",
+   "001-0017"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Addiction",
+  "title": "Effect of dulaglutide on functional and structural MRI changes during cigarette smoking cessation",
+  "authors": [
+   "Clara O Sailer",
+   "Sophia Lengsfeld",
+   "David Coynel",
+   "Davide Zanchi",
+   "Nica Jeanloz",
+   "Fabienne Baur",
+   "Cemile Bathelt",
+   "Katja Bologna",
+   "Tanja Vukajlovic",
+   "Sandrine A Urwyler",
+   "Mirjam Christ-Crain",
+   "Bettina Winzeler"
+  ],
+  "venue": "Brain Communications",
+  "pub_date": "2026-10-27",
+  "doi": "10.1093/braincomms/fcag410",
+  "url": "https://doi.org/10.1093/braincomms/fcag410",
+  "item_type": "paper",
+  "modality": "fMRI",
+  "drugs": [
+   "dulaglutide",
+   "varenicline"
+  ],
+  "populations": [
+   "smokers"
+  ],
+  "methods": [
+   "RCT substudy"
+  ],
+  "topics": [
+   "nicotine",
+   "GLP-1",
+   "addiction neuroimaging"
+  ],
+  "summary": "A predefined imaging substudy of an RCT (parent n = 255): 71 smokers were randomised to 1.5 mg dulaglutide (n = 35) or placebo (n = 36) for 12 weeks on top of varenicline and counselling, with structural and functional MRI at baseline and week 12 (59 completed).",
+  "caveats": "An add-on design against strong standard care, so a ceiling effect is plausible. Modest sample size for a between-group imaging comparison.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s07",
+  "relevance": 2,
+  "id": "001-0023",
+  "similar": [
+   "001-0024"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Addiction",
+  "title": "The path from brain to words is rerouted in opioid addiction",
+  "authors": [
+   "Shani Pais",
+   "Refael Tikochinski",
+   "Sarah G King",
+   "Nitay Calderon",
+   "Rita Z Goldstein",
+   "Roi Reichart"
+  ],
+  "venue": "medRxiv (preprint)",
+  "pub_date": "2026-10-26",
+  "doi": "10.64898/2026.10.24.26366318",
+  "url": "https://doi.org/10.64898/2026.10.24.26366318",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [],
+  "populations": [
+   "people with opioid use disorder",
+   "controls"
+  ],
+  "methods": [
+   "naturalistic fMRI",
+   "language models"
+  ],
+  "topics": [
+   "opioids",
+   "drug cues",
+   "addiction neuroimaging"
+  ],
+  "summary": "82 people with opioid use disorder (OUD) and 34 controls watched the opening of Trainspotting in fMRI, then retold it; people with OUD showed a speech bias toward the drug scenes.",
+  "caveats": "Preprint; imaging subsample of 65, cross-sectional, small control group, no test statistics in the abstract.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s07",
+  "relevance": 2,
+  "id": "001-0024",
+  "similar": [
+   "001-0015",
+   "001-0026",
+   "001-0023",
+   "001-0025"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Addiction",
+  "title": "Theta-Band Temporal Interference Stimulation Modulates Food Reward Prediction Error Encoding in Individuals with Elevated Food Addiction Symptoms",
+  "authors": [
+   "Yatong Wen",
+   "Mo Wang",
+   "Xinwen Dong",
+   "Mateusz Gola",
+   "Quanying Liu",
+   "Yiheng Tu",
+   "Yonghui Li"
+  ],
+  "venue": "Neuroscience Bulletin",
+  "pub_date": "2026-10-20",
+  "doi": "10.1007/s12264-026-01738-8",
+  "url": "https://doi.org/10.1007/s12264-026-01738-8",
+  "item_type": "paper",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "people with elevated food-addiction symptoms"
+  ],
+  "methods": [
+   "temporal interference stimulation",
+   "FRN",
+   "computational modelling"
+  ],
+  "topics": [
+   "food addiction",
+   "prediction error",
+   "brain stimulation"
+  ],
+  "summary": "A single-blind, sham-controlled pre–post study in people with elevated food-addiction symptoms, who did a food incentive-delay task with EEG during theta-band TI stimulation targeting a dACC-centred network.",
+  "caveats": "Single-blind, N = 34, with key effects right at p ≈ .05, so preliminary. Numbers are from the preprint; the journal version is paywalled and I couldn't check whether they changed. 'Food addiction' is a symptom-scale definition, not a diagnosis. No competing interests declared. Full text paywalled; numbers from the preprint.",
+  "verified": false,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s07",
+  "relevance": 3,
+  "id": "001-0025",
+  "similar": [
+   "001-0038",
+   "001-0008",
+   "001-0024"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Brain–body coupling",
+  "title": "Altered brain-body activity during emotional mental imagery in major depressive disorder",
+  "authors": [
+   "Alna Reem Al Latheef",
+   "Vera Flasbeck",
+   "Georg Juckel"
+  ],
+  "venue": "Scientific Reports",
+  "pub_date": "2026-10-24",
+  "doi": "10.1038/s41598-026-75968-1",
+  "url": "https://doi.org/10.1038/s41598-026-75968-1",
+  "item_type": "paper",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "adults with MDD",
+   "controls"
+  ],
+  "methods": [
+   "EEG + ECG",
+   "HRV"
+  ],
+  "topics": [
+   "brain-body",
+   "depression"
+  ],
+  "summary": "37 controls and 35 patients with MDD did an emotional imagery paradigm with simultaneous EEG and ECG. Patients differed in alpha, gamma and delta activity (not ERPs), linked to worse cognition and symptoms, and HRV pointed to higher sympathetic activity.",
+  "caveats": "Modest sample, cross-sectional, and coupling assessed by correlation rather than directional measures. Medication status isn't reported in the abstract.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s08",
+  "relevance": 3,
+  "id": "001-0026",
+  "similar": [
+   "001-0029",
+   "001-0034",
+   "001-0024",
+   "001-0004"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Brain–body coupling",
+  "title": "Functional architecture of the human insula",
+  "authors": [
+   "Julian Quabs",
+   "Sofia Pantis",
+   "Guanpeng Chen",
+   "Weichen Huang",
+   "Eileen Ma",
+   "Maria del Vecchio",
+   "Dian Lyu",
+   "Chloe Wang",
+   "Pietro Avanzini",
+   "Vivek Buch",
+   "Ashwin G. Ramayya",
+   "Svenja Caspers",
+   "Hannes Vogel",
+   "Josef Parvizi"
+  ],
+  "venue": "Nature",
+  "pub_date": "2026-10-21",
+  "doi": "10.1038/s41586-026-11175-2",
+  "url": "https://doi.org/10.1038/s41586-026-11175-2",
+  "item_type": "paper",
+  "modality": "fMRI",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "parcellation"
+  ],
+  "topics": [
+   "insula",
+   "interoception"
+  ],
+  "summary": "Quabs … Vogel & Parvizi. Intracranial stimulation and recordings in 87 patients define four regions (dorsal–posterior, ventral–posterior, mid-anterior, anterior–polar), with the anterior one driving the others.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s08",
+  "relevance": 2,
+  "id": "001-0027",
+  "similar": [
+   "001-0028",
+   "001-0008",
+   "001-0035"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Brain–body coupling",
+  "title": "Stress, Heartbeats, and Biases: Cardiac phase and acute stress modulate affective and spatial response bias.",
+  "authors": [
+   "Leon von Haugwitz",
+   "Romina Sadr",
+   "Edmund Wascher",
+   "Mauro F. Larra"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-22",
+  "doi": "10.64898/2026.10.18.759627",
+  "url": "https://doi.org/10.64898/2026.10.18.759627",
+  "item_type": "preprint",
+  "modality": "behavioural",
+  "drugs": [],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "cardiac phase analysis"
+  ],
+  "topics": [
+   "interoception",
+   "stress",
+   "decision-making"
+  ],
+  "summary": "von Haugwitz … Larra (IfADo). In 31 participants, systole-timed targets and cold-pressor stress both strengthened emotional-prime effects on weapon/tool classification.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s08",
+  "relevance": 2,
+  "id": "001-0028",
+  "similar": [
+   "001-0029",
+   "001-0011",
+   "001-0027"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Brain–body coupling",
+  "title": "Multimodal autonomic arousal tracks dose-dependent affective dynamics during the acute effects of DMT",
+  "authors": [
+   "Tomás Ariel D’Amelio",
+   "Tomás Gil Garbagnoli",
+   "Jerónimo Rodríguez Cuello",
+   "Evan Lewis-Healey",
+   "Carla Pallavicini",
+   "Federico Cavanna",
+   "Nicolás Marcelo Bruno",
+   "Laura Alethia De La Fuente",
+   "Stephanie Müller",
+   "Débora Copa",
+   "Tristan Bekinschtein",
+   "Diego Vidaurre",
+   "Enzo Tagliazucchi"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-05-04",
+  "doi": "10.64898/2026.04.30.721872",
+  "url": "https://doi.org/10.64898/2026.04.30.721872",
+  "item_type": "preprint",
+  "modality": "none",
+  "drugs": [
+   "DMT"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "autonomic physiology"
+  ],
+  "topics": [
+   "brain-body",
+   "emotion",
+   "biorxiv-top"
+  ],
+  "summary": "D'Amelio … (Tagliazucchi group). Heart rate, electrodermal and respiratory signals in 19 people inhaling 20 or 40 mg DMT; a combined index tracked subjective emotional intensity.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s08",
+  "relevance": 3,
+  "id": "001-0029",
+  "similar": [
+   "001-0016",
+   "001-0011",
+   "001-0026",
+   "001-0032",
+   "001-0028",
+   "001-0036"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Preclinical",
+  "title": "Investigation of the pharmacological and circuit basis for psychedelic drug effects on interval timing in mice",
+  "authors": [
+   "Landon M. Klein",
+   "Jared Kopelman",
+   "Richard F. Sharp",
+   "Susan B. Powell",
+   "Mark A. Geyer",
+   "Jared W. Young",
+   "Adam L. Halberstadt"
+  ],
+  "venue": "Psychopharmacology",
+  "pub_date": "2026-10-19",
+  "doi": "10.1007/s00213-026-07181-x",
+  "url": "https://doi.org/10.1007/s00213-026-07181-x",
+  "item_type": "paper",
+  "modality": "preclinical",
+  "drugs": [
+   "psilocin"
+  ],
+  "populations": [
+   "mice"
+  ],
+  "methods": [
+   "interval timing task",
+   "5-HT2A pharmacology"
+  ],
+  "topics": [
+   "time perception",
+   "mPFC"
+  ],
+  "summary": "Male C57BL/6J mice judged whether a light lasted shorter or longer than 6.5 s. Psilocin (0.8 mg/kg SC) altered timing accuracy and precision; the 5-HT2A antagonist M100907 blocked this, the 5-HT1A antagonist WAY-100,635 didn't.",
+  "caveats": "Male mice only, one psilocin dose, and a task far from human subjective time. No competing interests declared (NIDA funded).",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s09",
+  "relevance": 3,
+  "id": "001-0030",
+  "similar": [
+   "001-0031",
+   "001-0002",
+   "001-0001"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Preclinical",
+  "title": "Brain-wide reconfiguration of burst firing by psilocybin reveals 5-HT2A-dependent circuit dynamics",
+  "authors": [
+   "D. Momi",
+   "Y. Nahas",
+   "D. Wyrick",
+   "L. C. Marks",
+   "L. D. Claar",
+   "R. De Filippo",
+   "P. Seyfourian",
+   "D. A. Pizzagalli",
+   "M. Buice",
+   "T. Ott",
+   "C. Koch",
+   "I. Rembado"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-08-19",
+  "doi": "10.64898/2026.08.14.744865",
+  "url": "https://doi.org/10.64898/2026.08.14.744865",
+  "item_type": "preprint",
+  "modality": "preclinical",
+  "drugs": [
+   "psilocybin",
+   "ketanserin"
+  ],
+  "populations": [
+   "mice"
+  ],
+  "methods": [
+   "Neuropixels",
+   "scalp EEG"
+  ],
+  "topics": [
+   "firing patterns",
+   "biorxiv-top"
+  ],
+  "summary": "Momi … Rembado. Neuropixels (46,360 units, 35 mice) plus scalp EEG: psilocybin reshaped burst firing; ketanserin abolished most effects.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s09",
+  "relevance": 3,
+  "id": "001-0031",
+  "similar": [
+   "001-0061",
+   "001-0030",
+   "001-0002",
+   "001-0001",
+   "001-0036",
+   "001-0060"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Critiques and nulls",
+  "title": "Neurite Complexity and Plasticity Markers Track Synaptic Vesicle Density in the Living Human Brain: A Multimodal PET-MRI-EEG Study",
+  "authors": [
+   "Claudio Agnorelli",
+   "Joseph Peill",
+   "Danielle L Kurtin",
+   "Orla Mallon",
+   "Gabriela Sawicka",
+   "Ekaterina Shatalina",
+   "Kate Godfrey",
+   "Robin Murphy",
+   "Kirran Ahmad",
+   "Lena K L Oestreich",
+   "Rachael Sumner",
+   "Manfredi Alberti",
+   "Matthew Wall",
+   "Natalie Ertl",
+   "Graham Searle",
+   "Mica Clarke",
+   "Katie Zhou",
+   "Martin Osugo",
+   "Usman Sarem",
+   "Brandon Weiss",
+   "Kyle Greenway",
+   "Sameer Jauhar",
+   "Andrea Fagiolini",
+   "Robin Carhart-Harris",
+   "Paul M Matthews",
+   "Eugenii Rabiner",
+   "David Nutt",
+   "David Erritzoe"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-13",
+  "doi": "10.64898/2026.10.12.758444",
+  "url": "https://doi.org/10.64898/2026.10.12.758444",
+  "item_type": "preprint",
+  "modality": "PET",
+  "drugs": [
+   "DMT",
+   "ketamine"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "SV2A PET",
+   "diffusion MRI",
+   "EEG (MMN/vLTP)"
+  ],
+  "topics": [
+   "plasticity",
+   "null result",
+   "Imperial"
+  ],
+  "summary": "18 healthy volunteers underwent [11C]-UCB-J PET (SV2A synaptic density), diffusion MRI with NODDI, resting-state fMRI and EEG plasticity tasks (roving mismatch negativity and visual LTP), before and after ketamine (n = 11) or DMT (n = 7).",
+  "caveats": "Very small groups (11 and 7), so 'no significant change' isn't 'no change'. Healthy volunteers, one 1–8 day window. Preprint.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s10",
+  "relevance": 3,
+  "id": "001-0032",
+  "similar": [
+   "001-0029",
+   "001-0013",
+   "001-0002",
+   "001-0034",
+   "001-0016",
+   "001-0017"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Critiques and nulls",
+  "title": "Substantial Treatment-Seeking Interest, Narrow Eligibility: Diagnostic Heterogeneity and External Validity in the PRIDE Psilocybin Trial—Relevance to Precision Psychiatry",
+  "authors": [
+   "Antonio Inserra",
+   "Luca Persico",
+   "Arianna Rosati",
+   "Mara Fabale",
+   "Clara Cavallotto",
+   "Giacomo D’Andrea",
+   "Francesca Zoratto",
+   "Mauro Pettorruso",
+   "Luisa De Risio",
+   "Antonio Ventriglio",
+   "Antonello Bellomo",
+   "Giuseppe Nicolò",
+   "Giovanni Martinotti"
+  ],
+  "venue": "Behavioral Sciences",
+  "pub_date": "2026-10-26",
+  "doi": "10.3390/bs16111997",
+  "url": "https://doi.org/10.3390/bs16111997",
+  "item_type": "paper",
+  "modality": "none",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [
+   "trial participants"
+  ],
+  "methods": [
+   "eligibility review"
+  ],
+  "topics": [
+   "trial diversity",
+   "generalisability"
+  ],
+  "summary": "Inserra … Martinotti, Behavioral Sciences. At PRIDE's coordinating site (phase II, psilocybin vs personalised neuromodulation for TRD), 54 of 67 screened candidates (80.6%) were excluded and 8 treated, mainly for not meeting protocol TRD or another diagnosis (50%), age (18.5%), suicidal ideation (13%) and SUD (9.3%).",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s10",
+  "relevance": 3,
+  "id": "001-0033",
+  "similar": [
+   "001-0045",
+   "001-0041",
+   "001-0000",
+   "001-0010",
+   "001-0061"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Critiques and nulls",
+  "title": "Multimodal Machine Learning–Based Prediction of Relapse in Major Depressive Disorder",
+  "authors": [
+   "Lea Teutenberg",
+   "Nils R. Winter",
+   "Paula Usemann",
+   "Frederike Stein",
+   "Florian Thomas-Odenthal",
+   "Kira Flinkenflügel",
+   "Tiana Borgers",
+   "Susanne Meinert",
+   "Elisabeth J. Leehr",
+   "Dominik Grotegerd",
+   "Sara Papenbrock",
+   "Sabrina Teckentrup",
+   "Anne Hildebrand",
+   "Sarah Wellms",
+   "Keyvan Mahjoory",
+   "Maximilian Konowski",
+   "Jennifer Spanagel",
+   "Leon Fehse",
+   "Dominik Heider",
+   "Till F. M. Andlauer",
+   "Friederike S. David",
+   "Andreas J. Forstner",
+   "Philipp Schöppner",
+   "Harald Renz",
+   "Corinna Bang",
+   "Andre Franke",
+   "Stephanie H. Witt",
+   "Marcella Rietschel",
+   "Fabian Streit",
+   "Nina Alexander",
+   "Andreas Jansen",
+   "Igor Nenadić",
+   "Benjamin Straube",
+   "Hamidreza Jamalabadi",
+   "Udo Dannlowski",
+   "Tim Hahn",
+   "Tilo Kircher"
+  ],
+  "venue": "JAMA Psychiatry",
+  "pub_date": "2026-10-21",
+  "doi": "10.1001/jamapsychiatry.2026.3232",
+  "url": "https://doi.org/10.1001/jamapsychiatry.2026.3232",
+  "item_type": "paper",
+  "modality": "fMRI",
+  "drugs": [],
+  "populations": [
+   "adults with remitted depression"
+  ],
+  "methods": [
+   "multimodal machine learning"
+  ],
+  "topics": [
+   "relapse prediction",
+   "null result"
+  ],
+  "summary": "Teutenberg … Kircher, 21 Oct. In 564 patients (270 relapsed), balanced accuracy was 47.2–64.4%; the best model used a few clinical risk factors, and adding modalities didn't help.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s10",
+  "relevance": 2,
+  "id": "001-0034",
+  "similar": [
+   "001-0026",
+   "001-0032",
+   "001-0045"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Critiques and nulls",
+  "title": "What drives apparent dynamic functional connectivity in resting-state fMRI?",
+  "authors": [
+   "Ben Griffin",
+   "Yiming Wei",
+   "Chetan Gohil",
+   "Rukuang Huang",
+   "Stephen Smith",
+   "Diego Vidaurre",
+   "Mark Woolrich"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-16",
+  "doi": "10.64898/2026.10.14.759083",
+  "url": "https://doi.org/10.64898/2026.10.14.759083",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "dynamic functional connectivity"
+  ],
+  "topics": [
+   "methods critique",
+   "dFC"
+  ],
+  "summary": "Griffin … Vidaurre & Woolrich (Oxford). On HCP resting fMRI, HMM states varying in mean and variance explained most apparent dynamics, with little gain from state-varying FC or for behaviour prediction.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s10",
+  "relevance": 2,
+  "id": "001-0035",
+  "similar": [
+   "001-0022",
+   "001-0016",
+   "001-0027",
+   "001-0061"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Wildcards",
+  "title": "Most-read neuro preprints, October 2026 to date (biorxiv-top)",
+  "authors": null,
+  "venue": "biorxiv-top (RobertoDF)",
+  "pub_date": "2026-10-27",
+  "doi": null,
+  "url": "https://robertodf.github.io/biorxiv-top/",
+  "item_type": "news",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "biorxiv-top ranking"
+  ],
+  "topics": [
+   "most-read preprints",
+   "biorxiv-top"
+  ],
+  "summary": "#1 is Aizenbud's 'What can a neuron compute'. Picks for you: surface electrophysiology toward a whole-brain interface (Ho, #3), Ostrow (#7, above), global brain dynamics (Kochalka, #12), Momi (#33), Mason on LSD (#72, EEG), psilocybin and visual change detection (De Filippo, #98), D'Amelio on DMT (#124).",
+  "caveats": "Ho, Kochalka and Aizenbud verified by title and rank only.",
+  "verified": false,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s11",
+  "relevance": 1,
+  "id": "001-0036",
+  "similar": [
+   "001-0059",
+   "001-0061",
+   "001-0060",
+   "001-0029",
+   "001-0021",
+   "001-0031"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Datasets and tools",
+  "title": "pybemobil, first public release",
+  "authors": [
+   "Roy Eric Wieske"
+  ],
+  "venue": "Zenodo",
+  "pub_date": "2026-10-20",
+  "doi": "10.5281/zenodo.23480659",
+  "url": "https://doi.org/10.5281/zenodo.23480659",
+  "item_type": "tool",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "MoBI preprocessing",
+   "MNE-Python"
+  ],
+  "topics": [
+   "mobile EEG",
+   "toolbox"
+  ],
+  "summary": "Python/MNE port of the BeMoBIL mobile brain/body pipeline: XDF loading, ECG/EMG/EDA alignment, EEG preprocessing (ZapLine-plus, ASR, ICLabel), BIDS export.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s12",
+  "relevance": 3,
+  "id": "001-0037",
+  "similar": [
+   "001-0039",
+   "001-0040"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Datasets and tools",
+  "title": "Open data from the food-addiction EEG study",
+  "authors": [
+   "Yatong Wen"
+  ],
+  "venue": "OSF",
+  "pub_date": null,
+  "doi": "10.17605/OSF.IO/N28A6",
+  "url": "https://doi.org/10.17605/OSF.IO/N28A6",
+  "item_type": "dataset",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "people with elevated food-addiction symptoms"
+  ],
+  "methods": [
+   "EEG + TI"
+  ],
+  "topics": [
+   "open data",
+   "food addiction"
+  ],
+  "summary": "Wen et al.'s de-identified behavioural and ERP data; scripts promised on publication.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s12",
+  "relevance": 3,
+  "id": "001-0038",
+  "similar": [
+   "001-0025"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Datasets and tools",
+  "title": "ICYMI: mne-denoise 0.0.3",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://pypi.org/project/mne-denoise/",
+  "item_type": "tool",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "denoising"
+  ],
+  "topics": [
+   "MNE-Python",
+   "toolbox"
+  ],
+  "summary": "An EEG/MEG denoising toolbox including DSS, ASR, ZapLine and SSP-SIR for TMS-EEG artefacts.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s12",
+  "relevance": 3,
+  "id": "001-0039",
+  "similar": [
+   "001-0040",
+   "001-0037",
+   "001-0004"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Datasets and tools",
+  "title": "ICYMI: MNE-ICALabel v0.10.0",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://github.com/mne-tools/mne-icalabel",
+  "item_type": "tool",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "ICA component labelling"
+  ],
+  "topics": [
+   "MNE-Python",
+   "toolbox"
+  ],
+  "summary": "Automatic labelling of ICA components for EEG, MEG and iEEG in MNE-Python.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s12",
+  "relevance": 3,
+  "id": "001-0040",
+  "similar": [
+   "001-0039",
+   "001-0037"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Policy pulse",
+  "title": "ICER will assess COMP360 psilocybin for TRD",
+  "authors": null,
+  "venue": "ICER",
+  "pub_date": null,
+  "doi": null,
+  "url": "https://icer.org/news-insights/press-releases/institute-for-clinical-and-economic-review-to-assess-therapy-for-treatment-resistant-depression/",
+  "item_type": "policy",
+  "modality": "none",
+  "drugs": [
+   "COMP360 psilocybin"
+  ],
+  "populations": [
+   "TRD"
+  ],
+  "methods": [],
+  "topics": [
+   "health economics",
+   "US policy"
+  ],
+  "summary": "Comparators: esketamine/IV ketamine and rTMS. Draft-scope comments due 5 pm ET, 10 Nov (publiccomments@icer.org); CEPAC meeting 20 May 2027.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s13",
+  "relevance": 2,
+  "id": "001-0041",
+  "similar": [
+   "001-0043",
+   "001-0000",
+   "001-0042",
+   "001-0033"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Policy pulse",
+  "title": "FDA request for information on ibogaine trials",
+  "authors": null,
+  "venue": "FDA",
+  "pub_date": null,
+  "doi": null,
+  "url": "https://www.fda.gov/news-events/press-announcements/fda-seeks-public-input-support-ibogaine-research",
+  "item_type": "policy",
+  "modality": "none",
+  "drugs": [
+   "ibogaine"
+  ],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "FDA",
+   "US policy"
+  ],
+  "summary": "FDA wants input on early ibogaine trial design and safety, including a starting dose of no more than 10 mg/kg; HHS is funding trials in OUD and PTSD. Docket FDA-2026-N-10429.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s13",
+  "relevance": 2,
+  "id": "001-0042",
+  "similar": [
+   "001-0043",
+   "001-0041",
+   "001-0013",
+   "001-0045",
+   "001-0055"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Policy pulse",
+  "title": "Stakeholder responses to FDA's psychedelics docket",
+  "authors": null,
+  "venue": "Psychedelic Alpha",
+  "pub_date": null,
+  "doi": null,
+  "url": "https://psychedelicalpha.com/news/mostly-supportive-somewhat-divided-stakeholders-respond-to-fdas-psychedelics-docket/",
+  "item_type": "news",
+  "modality": "none",
+  "drugs": [
+   "psychedelics"
+  ],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "FDA",
+   "US policy"
+  ],
+  "summary": "Psychedelic Alpha's analysis of comments to FDA's psychedelics Part 15 docket (closed 5 Oct): mostly supportive, somewhat divided.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s13",
+  "relevance": 2,
+  "id": "001-0043",
+  "similar": [
+   "001-0042",
+   "001-0041",
+   "001-0011",
+   "001-0048",
+   "001-0014",
+   "001-0044"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Policy pulse",
+  "title": "Why pharma firms are betting billions on psychedelic drugs despite setbacks",
+  "authors": [
+   "Lynne Peeples"
+  ],
+  "venue": "Nature",
+  "pub_date": "2026-10-27",
+  "doi": "10.1038/d41586-026-03390-8",
+  "url": "https://doi.org/10.1038/d41586-026-03390-8",
+  "item_type": "news",
+  "modality": "none",
+  "drugs": [
+   "psychedelics"
+  ],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "industry"
+  ],
+  "summary": "'Why pharma firms are betting billions on psychedelic drugs despite setbacks' (title only verified).",
+  "caveats": "Verified by title only.",
+  "verified": false,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s13",
+  "relevance": 2,
+  "id": "001-0044",
+  "similar": [
+   "001-0048",
+   "001-0014",
+   "001-0043"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Policy pulse",
+  "title": "New on ClinicalTrials.gov: psilocybin for depression in veterans (first posted 26 Oct)",
+  "authors": null,
+  "venue": "ClinicalTrials.gov",
+  "pub_date": null,
+  "doi": null,
+  "url": "https://clinicaltrials.gov/study/NCT07895134",
+  "item_type": "policy",
+  "modality": "none",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [
+   "veterans with depression"
+  ],
+  "methods": [
+   "clinical trial registration"
+  ],
+  "topics": [
+   "new trials"
+  ],
+  "summary": "NCT07895134 (VA ORD). Phase 2, 150 planned, start Jan 2027: one psilocybin dose plus brief ACT, with arms adding modafinil, zolpidem and/or pimavanserin.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s13",
+  "relevance": 2,
+  "id": "001-0045",
+  "similar": [
+   "001-0000",
+   "001-0010",
+   "001-0033",
+   "001-0061",
+   "001-0031",
+   "001-0042"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Conferences on the horizon",
+  "title": "OHBM 2027, Toronto, 26–30 June 2027",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://humanbrainmapping.org/ohbm-2027/",
+  "item_type": "conference",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "neuroimaging"
+  ],
+  "summary": "Abstracts open 2 Nov, close 14 Dec 2026 (650 words, up to 2 figures, $45).",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s14",
+  "relevance": 1,
+  "id": "001-0046",
+  "similar": [
+   "001-0048",
+   "001-0051",
+   "001-0047"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Conferences on the horizon",
+  "title": "Breaking Convention 2027, University of Exeter, 15–17 April 2027",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://breakingconvention.substack.com/p/woohoo-dates-for-bc-2026-and-2027",
+  "item_type": "conference",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "psychedelics"
+  ],
+  "summary": "Dates confirmed on Breaking Convention's Substack; no 2027 call for participation yet.",
+  "caveats": "Call for papers not yet published.",
+  "verified": false,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s14",
+  "relevance": 1,
+  "id": "001-0047",
+  "similar": [
+   "001-0048",
+   "001-0049",
+   "001-0043",
+   "001-0056",
+   "001-0013",
+   "001-0014"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Conferences on the horizon",
+  "title": "Psychedelic Science 2027 (MAPS), Denver, 3–7 May 2027",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://psychedelicscience.org/",
+  "item_type": "conference",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "psychedelics"
+  ],
+  "summary": "Early-bird registration is open, with adult registration from $799.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s14",
+  "relevance": 2,
+  "id": "001-0048",
+  "similar": [
+   "001-0047",
+   "001-0043",
+   "001-0044",
+   "001-0049",
+   "001-0056",
+   "001-0046"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Conferences on the horizon",
+  "title": "ECNP Congress 2027, Barcelona, 25–28 Sept 2027",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://www.ecnp.eu/Congress2027",
+  "item_type": "conference",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "psychopharmacology"
+  ],
+  "summary": "40th ECNP Congress, CCIB Barcelona. Abstract and registration dates aren't published yet.",
+  "caveats": "2027 dates and deadlines not yet published.",
+  "verified": false,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s14",
+  "relevance": 1,
+  "id": "001-0049",
+  "similar": [
+   "001-0047",
+   "001-0048"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Summer schools and training",
+  "title": "Neuromatch Computational Neuroscience, online, 5–23 July 2027",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://neuromatch.io/courses/",
+  "item_type": "training",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "computational neuroscience"
+  ],
+  "summary": "Applications 10 Feb–17 Mar 2027.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s15",
+  "relevance": 1,
+  "id": "001-0050",
+  "similar": [
+   "001-0052",
+   "001-0051"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Summer schools and training",
+  "title": "CAJAL NeuroAI, Champalimaud, Lisbon, 5–23 July 2027",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://cajal-training.org/on-site/neuroai-neuroscience-and-ai/",
+  "item_type": "training",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "NeuroAI"
+  ],
+  "summary": "Course fee €3,500. Applications open in 2027.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s15",
+  "relevance": 1,
+  "id": "001-0051",
+  "similar": [
+   "001-0050",
+   "001-0052",
+   "001-0048",
+   "001-0046"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Summer schools and training",
+  "title": "MBL Methods in Computational Neuroscience, Woods Hole, 24 July–21 Aug 2027",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://www.mbl.edu/education/advanced-research-training-courses/course-offerings/methods-computational-neuroscience",
+  "item_type": "training",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "computational neuroscience"
+  ],
+  "summary": "Applications due 10 Mar 2027. Directors Stefano Fusi (Columbia) and Roozbeh Kiani (NYU); financial aid available.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s15",
+  "relevance": 1,
+  "id": "001-0052",
+  "similar": [
+   "001-0050",
+   "001-0051"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Funding radar",
+  "title": "NOW · Guarantors of Brain travel grants (UK)",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://guarantorsofbrain.org/grants/travel-grants/",
+  "item_type": "funding",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "travel grant",
+   "UK"
+  ],
+  "summary": "UK PhD students presenting original work: up to £500 (UK), £800 (Europe), £1,200 (elsewhere), co-funding expected. Rolling; submit ≥8 weeks before the meeting.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s16",
+  "relevance": 1,
+  "id": "001-0053",
+  "similar": [
+   "001-0055",
+   "001-0054",
+   "001-0058"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Funding radar",
+  "title": "PLAN · Wellcome Early-Career Awards (UK)",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://wellcome.org/research-funding/schemes/wellcome-early-career-awards",
+  "item_type": "funding",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "fellowship",
+   "UK"
+  ],
+  "summary": "Salary plus up to £400k expenses over about 5 years; no fixed deadlines (interviews May and Sept 2027). Needs a completed PhD, normally ≤3 years postdoc, and from 29 Oct 2026 a UK or eligible LMIC base.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s16",
+  "relevance": 1,
+  "id": "001-0054",
+  "similar": [
+   "001-0055",
+   "001-0057",
+   "001-0056",
+   "001-0053",
+   "001-0058",
+   "001-0048"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Funding radar",
+  "title": "PLAN · Leverhulme Early Career Fellowships (UK)",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://www.leverhulme.ac.uk/early-career-fellowships",
+  "item_type": "funding",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "fellowship",
+   "UK"
+  ],
+  "summary": "Closes 4 pm, 18 Feb 2027. Your thesis must be submitted for viva by the deadline and no more than 4 years before it, so the 2028 round is the realistic target.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s16",
+  "relevance": 1,
+  "id": "001-0055",
+  "similar": [
+   "001-0056",
+   "001-0054",
+   "001-0057",
+   "001-0058",
+   "001-0053",
+   "001-0042"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Funding radar",
+  "title": "PLAN · MSCA Postdoctoral Fellowships (EU, any nationality)",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-PF-01-01",
+  "item_type": "funding",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "fellowship",
+   "EU"
+  ],
+  "summary": "2027 call planned to open 7 Apr 2027, deadline 8 Sep 2027 (may change). Needs a PhD by the deadline, ≤8 years' research experience and ≤12 months in the host country in the previous 36.",
+  "caveats": "Call dates are planned dates and may change.",
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s16",
+  "relevance": 1,
+  "id": "001-0056",
+  "similar": [
+   "001-0055",
+   "001-0054",
+   "001-0057",
+   "001-0048",
+   "001-0058",
+   "001-0047"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Funding radar",
+  "title": "PLAN · NIH K99/R00 Pathway to Independence (US)",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://grants.nih.gov/grants/guide/pa-files/PA-24-194.html",
+  "item_type": "funding",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "fellowship",
+   "US"
+  ],
+  "summary": "For mentored postdocs, generally ≤4 years of postdoc experience; non-US citizens eligible. Deadlines 12 Feb, 12 Jun and 12 Oct.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s16",
+  "relevance": 1,
+  "id": "001-0057",
+  "similar": [
+   "001-0054",
+   "001-0055",
+   "001-0056",
+   "001-0058"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Funding radar",
+  "title": "WATCH · NHMRC Investigator Grants, EL1 (Australia)",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://www.nhmrc.gov.au/funding/find-funding/investigator-grants",
+  "item_type": "funding",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "fellowship",
+   "Australia"
+  ],
+  "summary": "2027 round closed 29 Jul 2026; EL1 is typically 0–5 years post-PhD. Per the 2027 guidelines (s4.1.1), the lead must be an Australian/NZ citizen, permanent resident or hold a suitable work visa, and spend ≥50% of the grant, including the final year, in Australia.",
+  "caveats": "Rules read from a third-party PDF copy of the guidelines.",
+  "verified": false,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s16",
+  "relevance": 1,
+  "id": "001-0058",
+  "similar": [
+   "001-0055",
+   "001-0054",
+   "001-0053",
+   "001-0056",
+   "001-0057"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Wildcards",
+  "title": "Toward A Whole-Brain Interface Enabled by High-Resolution Surface Electrophysiology",
+  "authors": [
+   "Elton Ho",
+   "Katrina Barth",
+   "Jacqueline Dister",
+   "Aneil Srivastava",
+   "Adam J. Poole",
+   "Federico Claudi",
+   "Molly V. Lucas",
+   "Joshua S. Miller",
+   "Mark Hettick",
+   "Yoon Woo Byun",
+   "Ramin Anushiravani",
+   "Mark Murphy",
+   "Peter Konrad",
+   "Sanjay Bhatia",
+   "Geoffrey Adams",
+   "Steven Carte",
+   "Dominique Ottonello",
+   "Joshua Bederson",
+   "Ignacio Saez",
+   "Christopher Kellner",
+   "Gelana Tostaeva",
+   "Brian H. Kopell",
+   "Daniel D. Cummins",
+   "Sedat Ulkatan",
+   "Saadi Ghatan",
+   "Iahn Cajigas",
+   "Bijan Pesaran",
+   "Pedro G. Borges",
+   "Qasim Qureshi",
+   "Jarl Haggerty",
+   "Zhengjia Wang",
+   "Nathan Crone",
+   "Chetan Bettegowda",
+   "Kurt Lehner",
+   "Steve Luo",
+   "Miguel Angrick",
+   "Rebecca Greene",
+   "Youssef Comair",
+   "Joshua P. Aronson",
+   "Michael Lawton",
+   "Prashanth Prakash",
+   "Tianhao Lei",
+   "Joon Hei Lee",
+   "Marc W. Slutzky",
+   "Matthew Tate",
+   "Angelique Paulk",
+   "Gavin Dunn",
+   "Benjamin Grannan",
+   "Mijail D. Serruya",
+   "Kevin Hines",
+   "Chengyuan Wu",
+   "Robert Rosenwasser",
+   "Assaf Berger",
+   "Elad I. Levy",
+   "Adnan H. Siddiqui",
+   "Jonathan Riley",
+   "Jason M. Davies",
+   "Jayme Strauss",
+   "Michael J. Mager",
+   "Craig H. Mermel",
+   "Benjamin I. Rapoport"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-01",
+  "doi": "10.64898/2026.09.24.754261",
+  "url": "https://doi.org/10.64898/2026.09.24.754261",
+  "item_type": "preprint",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "brain-computer interface",
+   "surface electrophysiology",
+   "biorxiv-top"
+  ],
+  "summary": "#3 most-read neuro preprint in October 2026 on biorxiv-top.",
+  "caveats": "Listed by title and rank only. Ho, Kochalka and Aizenbud verified by title and rank only.",
+  "verified": false,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s11",
+  "relevance": 1,
+  "id": "001-0059",
+  "similar": [
+   "001-0036",
+   "001-0061",
+   "001-0060",
+   "001-0007",
+   "001-0021"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Wildcards",
+  "title": "Causal and directional elements of global brain dynamics",
+  "authors": [
+   "John Kochalka",
+   "Anish Mitra",
+   "Alexander D White",
+   "Yu Wang",
+   "Kaiwen Sheng",
+   "Yukun Alex Hao",
+   "Chandan Kadur",
+   "Charu Ramakrishnan",
+   "Melissa Hernandez",
+   "Wendy Wenderski",
+   "Ki Eun Po",
+   "Nadya Andini",
+   "Thomas R Clandinin",
+   "Michael Z Lin",
+   "Shaul Druckmann",
+   "Karl Deisseroth"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-05-28",
+  "doi": "10.64898/2026.05.27.726039",
+  "url": "https://doi.org/10.64898/2026.05.27.726039",
+  "item_type": "preprint",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "global brain dynamics",
+   "biorxiv-top"
+  ],
+  "summary": "#12 most-read neuro preprint in October 2026 on biorxiv-top.",
+  "caveats": "Listed by title and rank only.",
+  "verified": false,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s11",
+  "relevance": 1,
+  "id": "001-0060",
+  "similar": [
+   "001-0036",
+   "001-0061",
+   "001-0059",
+   "001-0014",
+   "001-0021",
+   "001-0029"
+  ]
+ },
+ {
+  "issue": "001",
+  "issue_date": "2026-10-27",
+  "section": "Wildcards",
+  "title": "Psilocybin collapses visual change detection and drives cortical dynamics toward a state of surprise",
+  "authors": [
+   "Roberto De Filippo",
+   "Ryan Gillis",
+   "David Wyrick",
+   "Mikayla Carlson",
+   "Severine Durand",
+   "R. Carter Peene",
+   "Ahad Bawany",
+   "Avalon Amaya",
+   "Hannah Belski",
+   "Conor Grasso",
+   "Warren Han",
+   "Jaimie Kenney",
+   "Carly Kiselycznyk",
+   "Henry Loeffler",
+   "Lydia C. Marks",
+   "Robyn Naidoo",
+   "Benjamin Ouellette",
+   "Lucas Suarez",
+   "Jackie Swapp",
+   "Tye Johnson",
+   "Julie Weber",
+   "Joshua Wilkes",
+   "Peter Groblewski",
+   "Allison Williford",
+   "Michael Buice",
+   "Christof Koch",
+   "Irene Rembado",
+   "Jérôme A. Lecoq",
+   "Torben Ott"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-08-25",
+  "doi": "10.64898/2026.08.21.745777",
+  "url": "https://doi.org/10.64898/2026.08.21.745777",
+  "item_type": "preprint",
+  "modality": "preclinical",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "visual change detection",
+   "biorxiv-top"
+  ],
+  "summary": "#98 most-read neuro preprint in October 2026 on biorxiv-top.",
+  "caveats": null,
+  "verified": true,
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/001.html#s11",
+  "relevance": 2,
+  "id": "001-0061",
+  "similar": [
+   "001-0036",
+   "001-0060",
+   "001-0059",
+   "001-0031",
+   "001-0019",
+   "001-0021"
+  ]
+ }
+]
