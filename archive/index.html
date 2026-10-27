@@ -100,7 +100,7 @@ function init(){
   let v=Object.keys(n);v=ord?ord.filter(x=>n[x]):v.sort((a,b)=>(a==="Healthy volunteers")-(b==="Healthy volunteers")||(a==="Non-hal")-(b==="Non-hal")||n[b]-n[a]||a.localeCompare(b));
   return v.length?`<div class="row"><span class="lab">${l}</span>${v.map(x=>`<button class="chip" data-c="${k}|${esc(x)}">${esc(x)}<span class="m">${n[x]}</span></button>`).join("")}</div>`:""}).join("");
  $("selects").innerHTML=SELECTS.map(([k,l,g])=>{const v=[...new Set(ITEMS.flatMap(g))].sort((a,b)=>a.localeCompare(b));return `<label class="m">${l}<br><select data-k="${k}"><option value="">Any</option>${v.map(x=>`<option>${esc(x)}</option>`).join("")}</select></label>`}).join("");
- document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+ document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;if(d.zot){const it=BYID[d.zot];if(it)zotOpen(it);return}
   if(d.t!==undefined)S.tab=d.t; else if(d.v)S.view=d.v;
   else if(d.c){const k=d.c.split("|")[0],v=d.c.slice(k.length+1),st=S.ch[k];st.has(v)?st.delete(v):st.add(v)}
   else if(d.f){const k=d.f.split("|")[0],v=d.f.slice(k.length+1);S.sel[k]=v;document.querySelector(`select[data-k="${k}"]`).value=v;$("more").open=true}
@@ -131,12 +131,19 @@ function match(i){
  for(const[k,,g]of SELECTS){const v=S.sel[k];if(v&&!g(i).includes(v))return false}
  if(S.q&&!S.q.split(/\s+/).every(w=>i._s.includes(w)))return false;
  return true}
+// ---- Zotero: COinS spans (read by the Zotero Connector) + Add-to-Zotero button ----
+function coins(i){const k=(a,b)=>a+"="+encodeURIComponent(b),q=["ctx_ver=Z39.88-2004","rft_val_fmt="+encodeURIComponent("info:ofi/fmt:kev:mtx:journal"),k("rft.genre","article"),k("rft.atitle",i.title||"")];
+ if(i.venue_clean)q.push(k("rft.jtitle",i.venue_clean));(i.authors||[]).forEach(a=>q.push(k("rft.au",a)));if(i.pub_date)q.push(k("rft.date",i.pub_date));
+ if(i.doi)q.push(k("rft_id","info:doi/"+i.doi));if(i.url)q.push(k("rft_id",i.url));return q.join("&")}
+function zotOpen(i){window.open(i.doi?"https://doi.org/"+i.doi:i.detail_url,"_blank","noopener");
+ if(!localStorage.getItem("zotTip")){localStorage.setItem("zotTip","1");const t=$("toast");t.textContent="Click the Zotero button in your browser on the paper page to save it (with PDF)";t.style.display="block";setTimeout(()=>t.style.display="none",7000)}}
+let zotPing=0;function zotRefresh(){clearTimeout(zotPing);zotPing=setTimeout(()=>{try{history.replaceState(history.state,"",location.href)}catch(e){}},300)}
 function card(i){const s=secOf(i.section);
  const tag=(k,v)=>`<button class="chip" data-f="${k}|${esc(v)}">${esc(v)}</button>`;
  const dd=i.drug_display||i.drugs||[];
  const tags=[...(i.drugs||[]).map((d,n)=>`<button class="chip" data-c="drug|${esc((i.drug_labels||[])[n]||d)}">${esc(dd[n]||d)}</button>`),...(i.modality_groups||[]).map(v=>`<button class="chip" data-c="mod|${esc(v)}">${esc(v)}</button>`),...(i.disorders||[]).map(v=>`<button class="chip" data-c="dis|${esc(v)}">${esc(v)}</button>`),...(i.stage?[`<button class="chip" data-c="stage|${esc(i.stage)}">${esc(i.stage)}</button>`]:[]),...(i.methods||[]).map(v=>tag("method",v)),...(i.populations||[]).map(v=>tag("pop",v)),...(i.topics||[]).map(v=>`<button class="chip" data-q="${esc(v)}">#${esc(v)}</button>`)].join("");
  const au=i.authors||[];const auT=au.length>6?au.slice(0,6).join(", ")+` +${au.length-6} more`:au.join(", ");const r=i.relevance||0;
- return `<article class="card" style="--c:${s[3]}"><span class="badge">${s[2]} ${esc(s[1])}</span><span class="ty">${esc(i.item_type||"")}${(i.modality_groups||[]).length?" · "+esc(i.modality_groups.join(", ")):i.modality&&i.modality!=="none"?" · "+esc(i.modality):""}</span><span class="rel" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
+ return `<article class="card" style="--c:${s[3]}">${i.zotero&&(i.doi||i.url)?`<span class="Z3988" title="${esc(coins(i))}"></span>`:""}<span class="badge">${s[2]} ${esc(s[1])}</span><span class="ty">${esc(i.item_type||"")}${(i.modality_groups||[]).length?" · "+esc(i.modality_groups.join(", ")):i.modality&&i.modality!=="none"?" · "+esc(i.modality):""}</span><span class="rel" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
  <h3>${i.url?`<a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}</a>`:esc(i.title)}</h3>
  ${auT?`<div class="au">${esc(auT)}</div>`:""}<div class="m">${esc(i.venue||"")}${i.pub_date?" · "+esc(i.pub_date):""}${i.verified===false?' · <span style="color:var(--red)">UNVERIFIED</span>':""}</div>
  <div class="tags">${tags}</div>${i.summary?`<p>${esc(i.summary)}</p>`:""}${i.caveats?`<div class="cav"><b>CAVEATS</b> ${esc(i.caveats)}</div>`:""}
@@ -145,7 +152,7 @@ function card(i){const s=secOf(i.section);
  <button data-st="${i.id}|toread" class="${P.status[i.id]==="toread"?"on":""}">To read</button><button data-st="${i.id}|read" class="${P.status[i.id]==="read"?"on":""}">Read</button>
  ${(i.similar||[]).length?`<button data-sim="${i.id}" title="Show related items, and tell Mochi you want more like this">More like this${P.more[i.id]?" ·"+P.more[i.id]:""}</button>`:""}
  ${P.ni[i.id]?"":`<button class="ni" data-ni="${i.id}" title="Hide this item (moves to Quarantined) and tell Mochi you want less like it">⊘ Not interested</button>`}
- ${i.issue_url?`<a href="${esc(i.issue_url)}">In issue #${esc(i.issue)} →</a>`:""}</div></article>`}
+ ${i.zotero?`<button class="zot" data-zot="${i.id}" title="Opens the paper in a new tab; save it there with your Zotero browser button">＋ Add to Zotero</button>`:""}${i.detail_url?`<a class="det" href="${esc(i.detail_url)}">details</a>`:""}${i.issue_url?`<a href="${esc(i.issue_url)}">In issue #${esc(i.issue)} →</a>`:""}</div></article>`}
 function render(){
  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.t===S.tab));
  document.querySelectorAll(".view").forEach(b=>b.classList.toggle("on",b.dataset.v===S.view));
@@ -158,7 +165,7 @@ function render(){
  document.querySelector('.view[data-v="quar"]').textContent=`⊘ Quarantined (${nq})`;document.querySelectorAll(".view").forEach(b=>b.classList.toggle("on",b.dataset.v===S.view));
  $("pcount").textContent=Object.entries(P.ts).filter(([k,t])=>t>P.sentAt&&live(k)).length;
  $("list").innerHTML=(S.view==="quar"&&!S.sim?'<div class="qnote">Items you marked <b>Not interested</b>. They are hidden everywhere else. Use <b>Undo / restore</b> to bring one back.</div>':"")+(r.length?r.map(card).join(""):'<div class="empty">Nothing matches. Try clearing a filter.</div>');
- document.querySelectorAll(".chip[data-c]").forEach(b=>{const k=b.dataset.c.split("|")[0];b.classList.toggle("on",S.ch[k].has(b.dataset.c.slice(k.length+1)))});}
+ document.querySelectorAll(".chip[data-c]").forEach(b=>{const k=b.dataset.c.split("|")[0];b.classList.toggle("on",S.ch[k].has(b.dataset.c.slice(k.length+1)))});zotRefresh();}
 // ---- Preference signals ----
 function live(k){const[kind,id]=[k.split("|")[0],k.slice(k.indexOf("|")+1)];return kind==="star"?!!P.star[id]:kind==="read"?P.status[id]==="read":kind==="ni"?!!P.ni[id]:kind==="more"?!!P.more[id]:false}
 function line(i,x){const t=i.title.length>90?i.title.slice(0,87)+"...":i.title;return `- ${t}${x||""} | ${i.section} | ${(i.drugs||[]).join(", ")||"-"} | ${(i.methods||[]).join(", ")||"-"} | ${i.modality&&i.modality!=="none"?i.modality:"-"}`}
@@ -216,4 +223,4 @@ addEventListener("resize",()=>{size();draw()});
 if(!RM){raf=requestAnimationFrame(loop);document.addEventListener("visibilitychange",()=>{cancelAnimationFrame(raf);last=0;acc=0;if(!document.hidden)raf=requestAnimationFrame(loop)})}
 })();
 </script>
-</body></html>
+<div id="toast" role="status"></div></body></html>

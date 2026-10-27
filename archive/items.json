@@ -68,7 +68,10 @@
    "001-0010",
    "001-0041",
    "001-0033"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "JAMA",
+  "detail_url": "item/001-0000.html"
  },
  {
   "issue": "001",
@@ -140,7 +143,10 @@
    "001-0030",
    "001-0031",
    "001-0011"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Nature Neuroscience",
+  "detail_url": "item/001-0001.html"
  },
  {
   "issue": "001",
@@ -200,7 +206,10 @@
    "001-0032",
    "001-0031",
    "001-0013"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Nature Neuroscience",
+  "detail_url": "item/001-0002.html"
  },
  {
   "issue": "001",
@@ -266,7 +275,10 @@
    "001-0006",
    "001-0004",
    "001-0061"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0003.html"
  },
  {
   "issue": "001",
@@ -322,7 +334,10 @@
    "001-0003",
    "001-0026",
    "001-0039"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0004.html"
  },
  {
   "issue": "001",
@@ -379,7 +394,10 @@
   "stage": "Clinical",
   "similar": [
    "001-0007"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0005.html"
  },
  {
   "issue": "001",
@@ -430,7 +448,10 @@
   "stage": "Clinical",
   "similar": [
    "001-0003"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0006.html"
  },
  {
   "issue": "001",
@@ -493,7 +514,10 @@
    "001-0014",
    "001-0059",
    "001-0005"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Brain",
+  "detail_url": "item/001-0007.html"
  },
  {
   "issue": "001",
@@ -553,7 +577,10 @@
    "001-0027",
    "001-0032",
    "001-0013"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0008.html"
  },
  {
   "issue": "001",
@@ -623,7 +650,10 @@
   "similar": [
    "001-0016",
    "001-0036"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0009.html"
  },
  {
   "issue": "001",
@@ -689,7 +719,10 @@
    "001-0045",
    "001-0061",
    "001-0033"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Psychopharmacology",
+  "detail_url": "item/001-0010.html"
  },
  {
   "issue": "001",
@@ -753,7 +786,10 @@
    "001-0014",
    "001-0013",
    "001-0028"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0011.html"
  },
  {
   "issue": "001",
@@ -800,7 +836,10 @@
    "001-0013",
    "001-0021",
    "001-0020"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Cell Reports Physical Science",
+  "detail_url": "item/001-0012.html"
  },
  {
   "issue": "001",
@@ -868,7 +907,10 @@
    "001-0011",
    "001-0015",
    "001-0043"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0013.html"
  },
  {
   "issue": "001",
@@ -938,7 +980,10 @@
    "001-0015",
    "001-0011",
    "001-0043"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0014.html"
  },
  {
   "issue": "001",
@@ -1006,7 +1051,10 @@
    "001-0013",
    "001-0003",
    "001-0011"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0015.html"
  },
  {
   "issue": "001",
@@ -1081,7 +1129,10 @@
    "001-0032",
    "001-0014",
    "001-0019"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0016.html"
  },
  {
   "issue": "001",
@@ -1132,7 +1183,10 @@
   "similar": [
    "001-0032",
    "001-0022"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0017.html"
  },
  {
   "issue": "001",
@@ -1192,7 +1246,10 @@
   "stage": "Pre-clinical",
   "similar": [
    "001-0014"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Research Square",
+  "detail_url": "item/001-0018.html"
  },
  {
   "issue": "001",
@@ -1242,7 +1299,10 @@
    "001-0061",
    "001-0004",
    "001-0016"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Research Square",
+  "detail_url": "item/001-0019.html"
  },
  {
   "issue": "001",
@@ -1292,7 +1352,10 @@
   "similar": [
    "001-0013",
    "001-0012"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0020.html"
  },
  {
   "issue": "001",
@@ -1343,7 +1406,10 @@
    "001-0036",
    "001-0061",
    "001-0059"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0021.html"
  },
  {
   "issue": "001",
@@ -1392,7 +1458,10 @@
    "001-0035",
    "001-0003",
    "001-0017"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0022.html"
  },
  {
   "issue": "001",
@@ -1463,7 +1532,10 @@
   "stage": "Clinical",
   "similar": [
    "001-0024"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Brain Communications",
+  "detail_url": "item/001-0023.html"
  },
  {
   "issue": "001",
@@ -1521,7 +1593,10 @@
    "001-0026",
    "001-0023",
    "001-0025"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "medRxiv",
+  "detail_url": "item/001-0024.html"
  },
  {
   "issue": "001",
@@ -1579,7 +1654,10 @@
    "001-0038",
    "001-0008",
    "001-0024"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Neuroscience Bulletin",
+  "detail_url": "item/001-0025.html"
  },
  {
   "issue": "001",
@@ -1633,7 +1711,10 @@
    "001-0034",
    "001-0024",
    "001-0004"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Scientific Reports",
+  "detail_url": "item/001-0026.html"
  },
  {
   "issue": "001",
@@ -1691,7 +1772,10 @@
    "001-0028",
    "001-0008",
    "001-0035"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Nature",
+  "detail_url": "item/001-0027.html"
  },
  {
   "issue": "001",
@@ -1742,7 +1826,10 @@
    "001-0029",
    "001-0011",
    "001-0027"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0028.html"
  },
  {
   "issue": "001",
@@ -1813,7 +1900,10 @@
    "001-0032",
    "001-0028",
    "001-0036"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0029.html"
  },
  {
   "issue": "001",
@@ -1873,7 +1963,10 @@
    "001-0031",
    "001-0002",
    "001-0001"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Psychopharmacology",
+  "detail_url": "item/001-0030.html"
  },
  {
   "issue": "001",
@@ -1947,7 +2040,10 @@
    "001-0001",
    "001-0036",
    "001-0060"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0031.html"
  },
  {
   "issue": "001",
@@ -2043,7 +2139,10 @@
    "001-0034",
    "001-0016",
    "001-0017"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0032.html"
  },
  {
   "issue": "001",
@@ -2110,7 +2209,10 @@
    "001-0000",
    "001-0010",
    "001-0061"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Behavioral Sciences",
+  "detail_url": "item/001-0033.html"
  },
  {
   "issue": "001",
@@ -2195,7 +2297,10 @@
    "001-0026",
    "001-0032",
    "001-0045"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "JAMA Psychiatry",
+  "detail_url": "item/001-0034.html"
  },
  {
   "issue": "001",
@@ -2247,7 +2352,10 @@
    "001-0016",
    "001-0027",
    "001-0061"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0035.html"
  },
  {
   "issue": "001",
@@ -2291,7 +2399,10 @@
    "001-0029",
    "001-0021",
    "001-0031"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "biorxiv-top (RobertoDF)",
+  "detail_url": "item/001-0036.html"
  },
  {
   "issue": "001",
@@ -2336,7 +2447,10 @@
   "similar": [
    "001-0039",
    "001-0040"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Zenodo",
+  "detail_url": "item/001-0037.html"
  },
  {
   "issue": "001",
@@ -2383,7 +2497,10 @@
   "stage": "Clinical",
   "similar": [
    "001-0025"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "OSF",
+  "detail_url": "item/001-0038.html"
  },
  {
   "issue": "001",
@@ -2426,7 +2543,10 @@
    "001-0040",
    "001-0037",
    "001-0004"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0039.html"
  },
  {
   "issue": "001",
@@ -2468,7 +2588,10 @@
   "similar": [
    "001-0039",
    "001-0037"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0040.html"
  },
  {
   "issue": "001",
@@ -2520,7 +2643,10 @@
    "001-0000",
    "001-0042",
    "001-0033"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "ICER",
+  "detail_url": "item/001-0041.html"
  },
  {
   "issue": "001",
@@ -2569,7 +2695,10 @@
    "001-0013",
    "001-0045",
    "001-0055"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "FDA",
+  "detail_url": "item/001-0042.html"
  },
  {
   "issue": "001",
@@ -2619,7 +2748,10 @@
    "001-0048",
    "001-0014",
    "001-0044"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "Psychedelic Alpha",
+  "detail_url": "item/001-0043.html"
  },
  {
   "issue": "001",
@@ -2667,7 +2799,10 @@
    "001-0048",
    "001-0014",
    "001-0043"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "Nature",
+  "detail_url": "item/001-0044.html"
  },
  {
   "issue": "001",
@@ -2722,7 +2857,10 @@
    "001-0061",
    "001-0031",
    "001-0042"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "ClinicalTrials.gov",
+  "detail_url": "item/001-0045.html"
  },
  {
   "issue": "001",
@@ -2760,7 +2898,10 @@
    "001-0048",
    "001-0051",
    "001-0047"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0046.html"
  },
  {
   "issue": "001",
@@ -2801,7 +2942,10 @@
    "001-0056",
    "001-0013",
    "001-0014"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0047.html"
  },
  {
   "issue": "001",
@@ -2842,7 +2986,10 @@
    "001-0049",
    "001-0056",
    "001-0046"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0048.html"
  },
  {
   "issue": "001",
@@ -2879,7 +3026,10 @@
   "similar": [
    "001-0047",
    "001-0048"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0049.html"
  },
  {
   "issue": "001",
@@ -2916,7 +3066,10 @@
   "similar": [
    "001-0052",
    "001-0051"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0050.html"
  },
  {
   "issue": "001",
@@ -2955,7 +3108,10 @@
    "001-0052",
    "001-0048",
    "001-0046"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0051.html"
  },
  {
   "issue": "001",
@@ -2992,7 +3148,10 @@
   "similar": [
    "001-0050",
    "001-0051"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0052.html"
  },
  {
   "issue": "001",
@@ -3031,7 +3190,10 @@
    "001-0055",
    "001-0054",
    "001-0058"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0053.html"
  },
  {
   "issue": "001",
@@ -3073,7 +3235,10 @@
    "001-0053",
    "001-0058",
    "001-0048"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0054.html"
  },
  {
   "issue": "001",
@@ -3115,7 +3280,10 @@
    "001-0058",
    "001-0053",
    "001-0042"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0055.html"
  },
  {
   "issue": "001",
@@ -3157,7 +3325,10 @@
    "001-0048",
    "001-0058",
    "001-0047"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0056.html"
  },
  {
   "issue": "001",
@@ -3197,7 +3368,10 @@
    "001-0055",
    "001-0056",
    "001-0058"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0057.html"
  },
  {
   "issue": "001",
@@ -3238,7 +3412,10 @@
    "001-0053",
    "001-0056",
    "001-0057"
-  ]
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/001-0058.html"
  },
  {
   "issue": "001",
@@ -3342,7 +3519,10 @@
    "001-0060",
    "001-0007",
    "001-0021"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0059.html"
  },
  {
   "issue": "001",
@@ -3401,7 +3581,10 @@
    "001-0014",
    "001-0021",
    "001-0029"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0060.html"
  },
  {
   "issue": "001",
@@ -3481,6 +3664,9 @@
    "001-0031",
    "001-0019",
    "001-0021"
-  ]
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/001-0061.html"
  }
 ]
