@@ -1,1 +1,76 @@
-[]
+[
+ {
+  "issue": "",
+  "issue_date": "2026-10-27",
+  "section": "Shortlist",
+  "title": "Psilocybin’s lasting action requires pyramidal cell types and 5-HT2A receptors",
+  "authors": [
+   "Ling-Xiao Shao",
+   "Clara Liao",
+   "Pasha A. Davoudian",
+   "Neil K. Savalia",
+   "Quan Jiang",
+   "Cassandra Wojtasiewicz",
+   "Diran Tan",
+   "Jack D. Nothnagel",
+   "Rong-Jian Liu",
+   "Samuel C. Woodburn",
+   "Olesia M. Bilash",
+   "Hail Kim",
+   "Alicia Che",
+   "Alex C. Kwan"
+  ],
+  "venue": "Nature",
+  "pub_date": "2025-04-02",
+  "doi": "10.1038/s41586-025-08813-6",
+  "url": "https://www.nature.com/articles/s41586-025-08813-6",
+  "item_type": "paper",
+  "modality": "preclinical",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [
+   "mice"
+  ],
+  "methods": [
+   "two-photon imaging",
+   "chemogenetics",
+   "cell-type-specific electrophysiology",
+   "conditional 5-HT2A knockout"
+  ],
+  "topics": [
+   "structural plasticity",
+   "dendritic spines",
+   "medial frontal cortex",
+   "pyramidal tract neurons",
+   "5-HT2A receptor",
+   "stress",
+   "mechanism of action"
+  ],
+  "summary": "In mouse medial frontal cortex, one dose of psilocybin grew dendritic spines on both pyramidal-tract (subcortical-projecting) and intratelencephalic neurons, but only the pyramidal-tract cells mattered for behaviour: silencing them abolished psilocybin's anti-stress effects, and only they showed boosted synaptic calcium signals and firing acutely. Knocking out 5-HT2A receptors in this region wiped out both the plasticity and the behavioural benefit.",
+  "caveats": "Mouse-only, with stress-related behaviours as a stand-in for depression; one brain region and cell-type silencing rather than human data. Strong mechanistic evidence that 5-HT2A matters for the lasting effects in mice, but doesn't settle whether the trip itself is needed in humans.",
+  "verified": true,
+  "stage": "Pre-clinical",
+  "relevance": 2,
+  "source": "shortlist",
+  "added_date": "2026-10-27",
+  "seed": "",
+  "notes": "",
+  "status": "shortlist",
+  "id": "sl-0000",
+  "drug_groups": [
+   "Psilocybin"
+  ],
+  "drug_labels": [
+   "Psilocybin"
+  ],
+  "drug_display": [
+   "Psilocybin"
+  ],
+  "modality_groups": [],
+  "disorders": [],
+  "zotero": true,
+  "venue_clean": "Nature",
+  "detail_url": "item/sl-0000.html"
+ }
+]
