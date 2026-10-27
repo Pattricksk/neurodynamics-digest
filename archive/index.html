@@ -29,6 +29,13 @@ select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);pad
 .note{background:#1f2a1f;border-left:2px solid #a6dc8f;padding:6px 8px;font-size:13px;margin-top:8px}
 .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}.acts button{cursor:pointer;background:var(--panel2);border:1px solid var(--line);color:var(--mut);font-size:12px;padding:4px 8px}
 .acts button.on{color:var(--tx);border-color:#e8c15a}.acts a{font-size:12px;margin-left:auto}
+.acts button.ni{margin-left:0}.acts button.ni:hover{border-color:var(--red);color:var(--tx)}.acts button.restore{color:var(--tx);border-color:#a6dc8f}
+#prefbar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:6px 0}#prefbar button{cursor:pointer;background:var(--panel2);border:1px solid var(--line);color:var(--tx);font-size:12px;padding:5px 9px}
+#sendp{border-color:var(--red)!important}#sendp .n{font-family:var(--mono);background:var(--red);color:#fff;border-radius:8px;padding:0 6px;margin-left:4px;font-size:11px}
+#ppanel{display:none;background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--red);padding:10px 12px;margin:8px 0;font-size:13px}
+#ppanel textarea{width:100%;height:180px;background:var(--bg);color:var(--tx);border:1px solid var(--line);font-family:var(--mono);font-size:11px;margin:6px 0}
+#ppanel a.b,#ppanel button{display:inline-block;cursor:pointer;background:var(--panel);border:1px solid var(--line);color:var(--tx);font-size:12px;padding:4px 8px;margin-right:6px}
+.qnote{background:#2a1d1f;border:1px solid var(--red);padding:8px 12px;font-size:13px;margin:8px 0}
 .empty{color:var(--mut);padding:30px;text-align:center;border:1px dashed var(--line)}
 </style></head><body><main>
 <div class="wave" id="wave"></div>
@@ -37,11 +44,13 @@ select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);pad
 <input id="q" type="search" placeholder="Search titles, authors, summaries, caveats, tags, notes…" autocomplete="off">
 <div class="tabs" id="tabs"></div>
 <div class="row" id="views"></div>
+<div id="prefbar"><button id="sendp" title="Email your stars, More-like-this clicks, Not-interested and Read items to Mochi so future issues learn your taste">✉ Send my preferences to Mochi<span class="n" id="pcount">0</span></button><button id="expj">Export preferences (JSON)</button></div>
+<div id="ppanel"></div>
 <div class="row" id="drugs"><span class="lab">Drug</span></div>
 <details id="more"><summary>More filters · method, population, date &amp; venue, PhD relevance</summary><div class="grid" id="selects"></div></details>
 <div id="simbar"></div>
 <div id="bar"><span id="count"></span><button id="clear">Clear all</button></div><div id="list"></div>
-<p class="m">Stars and read status are saved in this browser only.</p>
+<p class="m">Stars, read status, "Not interested" and "More like this" signals are saved in this browser only. Use "Send my preferences to Mochi" to feed them into future issues.</p>
 </main>
 <script>
 // ---- Config ----
@@ -56,11 +65,13 @@ const SELECTS=[ // [key, label, getter returning array of values]
 ["method","Method / analysis",i=>i.methods||[]],["pop","Population / condition",i=>i.populations||[]],
 ["date","Publication month",i=>i.pub_date?[i.pub_date.slice(0,7)]:[]],["venue","Venue",i=>i.venue?[i.venue]:[]],
 ["issue","Issue",i=>i.issue?["#"+i.issue]:[]],["rel","Relevance to my PhD",i=>[{3:"High",2:"Medium",1:"Low"}[i.relevance]||"Unscored"]]];
-const VIEWS=[["all","All items"],["star","★ Starred"],["toread","To read"],["read","Read"]];
+const VIEWS=[["all","All items"],["star","★ Starred"],["toread","To read"],["read","Read"],["quar","⊘ Quarantined"]];
 const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,(i.drugs||[]).join(" "),(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" "),i.modality,i.item_type].join(" ").toLowerCase();
 // ---- Personal state (this browser only) ----
 const store={get(){try{return JSON.parse(localStorage.getItem("ndd-archive")||"{}")}catch(e){return{}}},set(s){try{localStorage.setItem("ndd-archive",JSON.stringify(s))}catch(e){}}};
-let P=store.get();P.star=P.star||{};P.status=P.status||{};
+let P=store.get();P.star=P.star||{};P.status=P.status||{};P.ni=P.ni||{};P.more=P.more||{};P.ts=P.ts||{};P.sentAt=P.sentAt||0;
+const mark=(k,id)=>{P.ts[k+"|"+id]=Date.now()};
+const MAIL="pk-neuro-digest@mail.grokbot.com",SUBJ="Digest preferences update",MAXB=1800;
 const S={tab:"All",view:"all",q:"",drug:new Set(),sel:{},sim:null};
 const secOf=n=>SECTIONS.find(s=>s[0]===n)||[n,n,"◆","#c3a6f0"];
 const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -82,9 +93,16 @@ function init(){
   else if(d.d!==undefined){S.drug.has(d.d)?S.drug.delete(d.d):S.drug.add(d.d)}
   else if(d.f){const k=d.f.split("|")[0],v=d.f.slice(k.length+1);S.sel[k]=v;document.querySelector(`select[data-k="${k}"]`).value=v;$("more").open=true}
   else if(d.q){$("q").value=d.q;S.q=d.q.toLowerCase()}
-  else if(d.star){P.star[d.star]?delete P.star[d.star]:P.star[d.star]=1;store.set(P)}
-  else if(d.st){const[id,v]=d.st.split("|");P.status[id]===v?delete P.status[id]:P.status[id]=v;store.set(P)}
-  else if(d.sim){S.sim=d.sim;S.tab="All";window.scrollTo(0,0)}
+  else if(d.star){P.star[d.star]?delete P.star[d.star]:(P.star[d.star]=1,mark("star",d.star));store.set(P)}
+  else if(d.st){const[id,v]=d.st.split("|");P.status[id]===v?delete P.status[id]:(P.status[id]=v,v==="read"&&mark("read",id));store.set(P)}
+  else if(d.ni){P.ni[d.ni]=Date.now();mark("ni",d.ni);store.set(P)}
+  else if(d.restore){delete P.ni[d.restore];delete P.ts["ni|"+d.restore];store.set(P)}
+  else if(d.sim){S.sim=d.sim;S.tab="All";P.more[d.sim]=(P.more[d.sim]||0)+1;mark("more",d.sim);store.set(P);window.scrollTo(0,0)}
+  else if(b.id==="sendp")openPrefs();
+  else if(b.id==="expj")exportJSON();
+  else if(b.id==="copyp"){copyPrefs();return}
+  else if(b.id==="sentp"){P.sentAt=Date.now();store.set(P);$("ppanel").style.display="none"}
+  else if(b.id==="closep"){$("ppanel").style.display="none";return}
   else if(d.unsim!==undefined)S.sim=null;
   else if(b.id==="clear"){S.tab="All";S.view="all";S.q="";S.drug.clear();S.sel={};S.sim=null;$("q").value="";document.querySelectorAll("select").forEach(s=>s.value="")}
   else return; render()});
@@ -92,6 +110,8 @@ function init(){
  $("q").addEventListener("input",e=>{S.q=e.target.value.trim().toLowerCase();render()});
  render()}
 function match(i){
+ if(S.view==="quar")return !!P.ni[i.id]&&(S.tab==="All"||i.section===S.tab);
+ if(P.ni[i.id])return false;
  if(S.tab!=="All"&&i.section!==S.tab)return false;
  if(S.view==="star"&&!P.star[i.id])return false;
  if((S.view==="toread"||S.view==="read")&&P.status[i.id]!==S.view)return false;
@@ -108,18 +128,41 @@ function card(i){const s=secOf(i.section);
  ${auT?`<div class="au">${esc(auT)}</div>`:""}<div class="m">${esc(i.venue||"")}${i.pub_date?" · "+esc(i.pub_date):""}${i.verified===false?' · <span style="color:var(--red)">UNVERIFIED</span>':""}</div>
  <div class="tags">${tags}</div>${i.summary?`<p>${esc(i.summary)}</p>`:""}${i.caveats?`<div class="cav"><b>CAVEATS</b> ${esc(i.caveats)}</div>`:""}
  ${i.notes?`<div class="note"><b>My notes:</b> ${esc(i.notes)}</div>`:""}
- <div class="acts"><button data-star="${i.id}" class="${P.star[i.id]?"on":""}">${P.star[i.id]?"★ Starred":"☆ Star"}</button>
+ <div class="acts">${P.ni[i.id]?`<button class="restore" data-restore="${i.id}">↺ Undo / restore</button>`:""}<button data-star="${i.id}" class="${P.star[i.id]?"on":""}">${P.star[i.id]?"★ Starred":"☆ Star"}</button>
  <button data-st="${i.id}|toread" class="${P.status[i.id]==="toread"?"on":""}">To read</button><button data-st="${i.id}|read" class="${P.status[i.id]==="read"?"on":""}">Read</button>
- ${(i.similar||[]).length?`<button data-sim="${i.id}">More like this</button>`:""}
+ ${(i.similar||[]).length?`<button data-sim="${i.id}" title="Show related items, and tell Mochi you want more like this">More like this${P.more[i.id]?" ·"+P.more[i.id]:""}</button>`:""}
+ ${P.ni[i.id]?"":`<button class="ni" data-ni="${i.id}" title="Hide this item (moves to Quarantined) and tell Mochi you want less like it">⊘ Not interested</button>`}
  ${i.issue_url?`<a href="${esc(i.issue_url)}">In issue #${esc(i.issue)} →</a>`:""}</div></article>`}
 function render(){
  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.t===S.tab));
  document.querySelectorAll(".view").forEach(b=>b.classList.toggle("on",b.dataset.v===S.view));
  document.querySelectorAll("#drugs .chip").forEach(b=>b.classList.toggle("on",S.drug.has(b.dataset.d)));
  let r;
- if(S.sim&&BYID[S.sim]){const src=BYID[S.sim];r=[src,...(src.similar||[]).map(k=>BYID[k]).filter(Boolean)];
+ if(S.sim&&BYID[S.sim]){const src=BYID[S.sim];r=[src,...(src.similar||[]).map(k=>BYID[k]).filter(x=>x&&!P.ni[x.id])];
   $("simbar").style.display="block";$("simbar").innerHTML=`Showing items similar to <b>${esc(src.title)}</b> <button data-unsim="">Back to all</button>`}
  else{$("simbar").style.display="none";r=ITEMS.filter(match).sort((a,b)=>(b.issue_date||"").localeCompare(a.issue_date||"")||(b.relevance||0)-(a.relevance||0))}
- $("count").textContent=S.sim?`${r.length-1} similar items`:`${r.length} of ${ITEMS.length} items`;
- $("list").innerHTML=r.length?r.map(card).join(""):'<div class="empty">Nothing matches. Try clearing a filter.</div>'}
+ const nq=Object.keys(P.ni).filter(k=>BYID[k]).length;
+ $("count").textContent=S.sim?`${r.length-1} similar items`:S.view==="quar"?`${r.length} quarantined items`:`${r.length} of ${ITEMS.length-nq} items`+(nq?` · ${nq} quarantined`:"");
+ document.querySelector('.view[data-v="quar"]').textContent=`⊘ Quarantined (${nq})`;document.querySelectorAll(".view").forEach(b=>b.classList.toggle("on",b.dataset.v===S.view));
+ $("pcount").textContent=Object.entries(P.ts).filter(([k,t])=>t>P.sentAt&&live(k)).length;
+ $("list").innerHTML=(S.view==="quar"&&!S.sim?'<div class="qnote">Items you marked <b>Not interested</b>. They are hidden everywhere else. Use <b>Undo / restore</b> to bring one back.</div>':"")+(r.length?r.map(card).join(""):'<div class="empty">Nothing matches. Try clearing a filter.</div>')}
+// ---- Preference signals ----
+function live(k){const[kind,id]=[k.split("|")[0],k.slice(k.indexOf("|")+1)];return kind==="star"?!!P.star[id]:kind==="read"?P.status[id]==="read":kind==="ni"?!!P.ni[id]:kind==="more"?!!P.more[id]:false}
+function line(i,x){const t=i.title.length>90?i.title.slice(0,87)+"...":i.title;return `- ${t}${x||""} | ${i.section} | ${(i.drugs||[]).join(", ")||"-"} | ${(i.methods||[]).join(", ")||"-"} | ${i.modality&&i.modality!=="none"?i.modality:"-"}`}
+function prefText(){const g=(h,ids,x)=>{const L=ids.filter(id=>BYID[id]).map(id=>line(BYID[id],x?x(id):""));return L.length?`${h} (${L.length})\n${L.join("\n")}\n`:""};
+ const body=[g("STARRED",Object.keys(P.star)),g("MORE LIKE THIS",Object.keys(P.more).sort((a,b)=>P.more[b]-P.more[a]),id=>` [x${P.more[id]}]`),g("NOT INTERESTED",Object.keys(P.ni)),g("READ",Object.keys(P.status).filter(k=>P.status[k]==="read"))].filter(Boolean).join("\n");
+ return body?`Neurodynamics Digest preferences (${new Date().toISOString().slice(0,10)})\nFormat: title | section | drugs | methods | modality\n\n${body}`:""}
+function openPrefs(){const t=prefText(),pp=$("ppanel");pp.style.display="block";
+ if(!t){pp.innerHTML='No signals yet. Star items, click More like this, or mark Not interested first. <button id="closep">Close</button>';return}
+ const long=t.length>MAXB,mb=long?"My full preferences list is too long for a mail link, so it's pasted below:\n\n[PASTE HERE]\n":t;
+ const href=`mailto:${MAIL}?subject=${encodeURIComponent(SUBJ)}&body=${encodeURIComponent(mb)}`;
+ pp.innerHTML=(long?`<b>Your list is long (${t.length} characters), too long for an email link.</b> Click <b>Copy to clipboard</b>, then <b>Open email to Mochi</b> and paste it into the body (or paste it into chat with Mochi).`:`Send this from psk21@ic.ac.uk or patrickkleine4@gmail.com. Mochi logs it and uses it to tune future issues.`)+
+ `<textarea id="ptext" readonly>${esc(t)}</textarea><a class="b" id="mailp" href="${href}">✉ Open email to Mochi</a><button id="copyp">Copy to clipboard</button><button id="sentp" title="Resets the unsent counter">Mark as sent</button><button id="closep">Close</button> <span class="m" id="pmsg"></span>`;
+ if(!long)location.href=href}
+function copyPrefs(){const ta=$("ptext");const ok=()=>{$("pmsg").textContent="Copied. Paste it into an email to "+MAIL+" (subject: "+SUBJ+") or into chat."};
+ if(navigator.clipboard)navigator.clipboard.writeText(ta.value).then(ok,()=>{ta.select();document.execCommand("copy");ok()});else{ta.select();document.execCommand("copy");ok()}}
+function exportJSON(){const pick=id=>BYID[id]?{id,title:BYID[id].title,section:BYID[id].section,drugs:BYID[id].drugs||[],methods:BYID[id].methods||[],modality:BYID[id].modality||""}:{id};
+ const o={exported:new Date().toISOString(),starred:Object.keys(P.star).map(pick),more_like_this:Object.entries(P.more).map(([id,n])=>({...pick(id),count:n})),not_interested:Object.keys(P.ni).map(pick),
+  status:Object.entries(P.status).map(([id,s])=>({...pick(id),status:s})),raw:P};
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(o,null,1)],{type:"application/json"}));a.download=`digest-preferences-${o.exported.slice(0,10)}.json`;document.body.appendChild(a);a.click();a.remove()}
 </script></body></html>
