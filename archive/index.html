@@ -13,7 +13,7 @@ h1{font-size:32px;margin:8px 0 2px}.m{font-family:var(--mono);color:var(--mut);f
 .tab,.chip,.view{cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--mut);font-size:13px;padding:5px 9px;white-space:nowrap;font-family:inherit}
 .tab.on{color:var(--bg);background:var(--c);border-color:var(--c)}.tab .ic{color:var(--c);font-family:var(--mono);margin-right:4px}.tab.on .ic,.tab.on .m{color:var(--bg)}
 .row{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.lab{font-family:var(--mono);font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;width:100%}
-.chip.on,.view.on{border-color:var(--red);color:var(--tx);background:#2a1d1f}
+.chip .m{font-size:10px;color:var(--dim);margin-left:3px}.chip.on,.view.on{border-color:var(--red);color:var(--tx);background:#2a1d1f}
 details{background:var(--panel);border:1px solid var(--line);padding:8px 12px;margin:8px 0}summary{cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--mut)}
 select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);padding:5px;font-size:13px;width:100%}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
@@ -46,7 +46,7 @@ select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);pad
 <div class="row" id="views"></div>
 <div id="prefbar"><button id="sendp" title="Email your stars, More-like-this clicks, Not-interested and Read items to Mochi so future issues learn your taste">✉ Send my preferences to Mochi<span class="n" id="pcount">0</span></button><button id="expj">Export preferences (JSON)</button></div>
 <div id="ppanel"></div>
-<div class="row" id="drugs"><span class="lab">Drug</span></div>
+<div id="chiprows"></div>
 <details id="more"><summary>More filters · method, population, date &amp; venue, PhD relevance</summary><div class="grid" id="selects"></div></details>
 <div id="simbar"></div>
 <div id="bar"><span id="count"></span><button id="clear">Clear all</button></div><div id="list"></div>
@@ -61,18 +61,22 @@ const SECTIONS=[ // [name in data, tab label, icon, accent]
 ["Preclinical","Preclinical","⚗\uFE0E","#7ddcae"],["Critiques and nulls","Critiques","∅","#d0b090"],["Wildcards","Wildcards","✦","#e3a5e0"],
 ["Datasets and tools","Datasets","⚙\uFE0E","#9fb4f2"],["Policy pulse","Policy","⚖\uFE0E","#a8d8e8"],["Conferences on the horizon","Conferences","◎","#e6d27a"],
 ["Summer schools and training","Summer schools","✎\uFE0E","#a6dc8f"],["Funding radar","Funding","£","#e7b97a"],["Sent by Patrick","Sent by Patrick","✉\uFE0E","#e0453b"]];
+const CHIPS=[ // [state key, row label, field in items.json, fixed order (else by count)]
+["drug","Drug","drug_groups",null],["mod","Modality","modality_groups",["EEG","MEG (+ OPM)","fMRI","DTI","PET"]],
+["dis","Disorder / population","disorders",null],["stage","Clinical / Pre-clinical","stage",["Clinical","Pre-clinical"]]];
+const cv=(i,f)=>{const v=i[f];return Array.isArray(v)?v:v?[v]:[]};
 const SELECTS=[ // [key, label, getter returning array of values]
 ["method","Method / analysis",i=>i.methods||[]],["pop","Population / condition",i=>i.populations||[]],
 ["date","Publication month",i=>i.pub_date?[i.pub_date.slice(0,7)]:[]],["venue","Venue",i=>i.venue?[i.venue]:[]],
 ["issue","Issue",i=>i.issue?["#"+i.issue]:[]],["rel","Relevance to my PhD",i=>[{3:"High",2:"Medium",1:"Low"}[i.relevance]||"Unscored"]]];
 const VIEWS=[["all","All items"],["star","★ Starred"],["toread","To read"],["read","Read"],["quar","⊘ Quarantined"]];
-const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,(i.drugs||[]).join(" "),(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" "),i.modality,i.item_type].join(" ").toLowerCase();
+const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,(i.drugs||[]).join(" "),(i.drug_groups||[]).join(" "),(i.disorders||[]).join(" "),(i.modality_groups||[]).join(" "),i.stage||"",(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" "),i.modality,i.item_type].join(" ").toLowerCase();
 // ---- Personal state (this browser only) ----
 const store={get(){try{return JSON.parse(localStorage.getItem("ndd-archive")||"{}")}catch(e){return{}}},set(s){try{localStorage.setItem("ndd-archive",JSON.stringify(s))}catch(e){}}};
 let P=store.get();P.star=P.star||{};P.status=P.status||{};P.ni=P.ni||{};P.more=P.more||{};P.ts=P.ts||{};P.sentAt=P.sentAt||0;
 const mark=(k,id)=>{P.ts[k+"|"+id]=Date.now()};
 const MAIL="pk-neuro-digest@mail.grokbot.com",SUBJ="Digest preferences update",MAXB=1800;
-const S={tab:"All",view:"all",q:"",drug:new Set(),sel:{},sim:null};
+const S={tab:"All",view:"all",q:"",ch:Object.fromEntries(CHIPS.map(c=>[c[0],new Set()])),sel:{},sim:null};
 const secOf=n=>SECTIONS.find(s=>s[0]===n)||[n,n,"◆","#c3a6f0"];
 const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $=id=>document.getElementById(id);
@@ -85,12 +89,13 @@ function init(){
  const tabs=[["All","All","◇","#e6e9ec"],...SECTIONS.filter(s=>present.has(s[0])||s[0]==="Sent by Patrick")];
  $("tabs").innerHTML=tabs.map(t=>`<button class="tab" style="--c:${t[3]}" data-t="${esc(t[0])}"><span class="ic">${t[2]}</span>${esc(t[1])} <span class="m">${t[0]==="All"?ITEMS.length:ITEMS.filter(i=>i.section===t[0]).length}</span></button>`).join("");
  $("views").innerHTML=VIEWS.map(v=>`<button class="view" data-v="${v[0]}">${v[1]}</button>`).join("");
- const drugs=[...new Set(ITEMS.flatMap(i=>i.drugs||[]))].sort((a,b)=>a.localeCompare(b));
- $("drugs").insertAdjacentHTML("beforeend",drugs.map(d=>`<button class="chip" data-d="${esc(d)}">${esc(d)}</button>`).join(""));
+ $("chiprows").innerHTML=CHIPS.map(([k,l,f,ord])=>{const n={};ITEMS.forEach(i=>cv(i,f).forEach(v=>n[v]=(n[v]||0)+1));
+  let v=Object.keys(n);v=ord?ord.filter(x=>n[x]):v.sort((a,b)=>(a==="Healthy volunteers")-(b==="Healthy volunteers")||(a==="Non-hal")-(b==="Non-hal")||n[b]-n[a]||a.localeCompare(b));
+  return v.length?`<div class="row"><span class="lab">${l}</span>${v.map(x=>`<button class="chip" data-c="${k}|${esc(x)}">${esc(x)}<span class="m">${n[x]}</span></button>`).join("")}</div>`:""}).join("");
  $("selects").innerHTML=SELECTS.map(([k,l,g])=>{const v=[...new Set(ITEMS.flatMap(g))].sort((a,b)=>a.localeCompare(b));return `<label class="m">${l}<br><select data-k="${k}"><option value="">Any</option>${v.map(x=>`<option>${esc(x)}</option>`).join("")}</select></label>`}).join("");
  document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;
   if(d.t!==undefined)S.tab=d.t; else if(d.v)S.view=d.v;
-  else if(d.d!==undefined){S.drug.has(d.d)?S.drug.delete(d.d):S.drug.add(d.d)}
+  else if(d.c){const k=d.c.split("|")[0],v=d.c.slice(k.length+1),st=S.ch[k];st.has(v)?st.delete(v):st.add(v)}
   else if(d.f){const k=d.f.split("|")[0],v=d.f.slice(k.length+1);S.sel[k]=v;document.querySelector(`select[data-k="${k}"]`).value=v;$("more").open=true}
   else if(d.q){$("q").value=d.q;S.q=d.q.toLowerCase()}
   else if(d.star){P.star[d.star]?delete P.star[d.star]:(P.star[d.star]=1,mark("star",d.star));store.set(P)}
@@ -104,7 +109,7 @@ function init(){
   else if(b.id==="sentp"){P.sentAt=Date.now();store.set(P);$("ppanel").style.display="none"}
   else if(b.id==="closep"){$("ppanel").style.display="none";return}
   else if(d.unsim!==undefined)S.sim=null;
-  else if(b.id==="clear"){S.tab="All";S.view="all";S.q="";S.drug.clear();S.sel={};S.sim=null;$("q").value="";document.querySelectorAll("select").forEach(s=>s.value="")}
+  else if(b.id==="clear"){S.tab="All";S.view="all";S.q="";Object.values(S.ch).forEach(x=>x.clear());S.sel={};S.sim=null;$("q").value="";document.querySelectorAll("select").forEach(s=>s.value="")}
   else return; render()});
  $("selects").addEventListener("change",e=>{S.sel[e.target.dataset.k]=e.target.value;render()});
  $("q").addEventListener("input",e=>{S.q=e.target.value.trim().toLowerCase();render()});
@@ -115,15 +120,16 @@ function match(i){
  if(S.tab!=="All"&&i.section!==S.tab)return false;
  if(S.view==="star"&&!P.star[i.id])return false;
  if((S.view==="toread"||S.view==="read")&&P.status[i.id]!==S.view)return false;
- if(S.drug.size&&!(i.drugs||[]).some(d=>S.drug.has(d)))return false;
+ for(const[k,,f]of CHIPS){const st=S.ch[k];if(st.size&&!cv(i,f).some(v=>st.has(v)))return false}
  for(const[k,,g]of SELECTS){const v=S.sel[k];if(v&&!g(i).includes(v))return false}
  if(S.q&&!S.q.split(/\s+/).every(w=>i._s.includes(w)))return false;
  return true}
 function card(i){const s=secOf(i.section);
  const tag=(k,v)=>`<button class="chip" data-f="${k}|${esc(v)}">${esc(v)}</button>`;
- const tags=[...(i.drugs||[]).map(d=>`<button class="chip" data-d="${esc(d)}">${esc(d)}</button>`),...(i.methods||[]).map(v=>tag("method",v)),...(i.populations||[]).map(v=>tag("pop",v)),...(i.topics||[]).map(v=>`<button class="chip" data-q="${esc(v)}">#${esc(v)}</button>`)].join("");
+ const dd=i.drug_display||i.drugs||[];
+ const tags=[...(i.drugs||[]).map((d,n)=>`<button class="chip" data-c="drug|${esc((i.drug_labels||[])[n]||d)}">${esc(dd[n]||d)}</button>`),...(i.modality_groups||[]).map(v=>`<button class="chip" data-c="mod|${esc(v)}">${esc(v)}</button>`),...(i.disorders||[]).map(v=>`<button class="chip" data-c="dis|${esc(v)}">${esc(v)}</button>`),...(i.stage?[`<button class="chip" data-c="stage|${esc(i.stage)}">${esc(i.stage)}</button>`]:[]),...(i.methods||[]).map(v=>tag("method",v)),...(i.populations||[]).map(v=>tag("pop",v)),...(i.topics||[]).map(v=>`<button class="chip" data-q="${esc(v)}">#${esc(v)}</button>`)].join("");
  const au=i.authors||[];const auT=au.length>6?au.slice(0,6).join(", ")+` +${au.length-6} more`:au.join(", ");const r=i.relevance||0;
- return `<article class="card" style="--c:${s[3]}"><span class="badge">${s[2]} ${esc(s[1])}</span><span class="ty">${esc(i.item_type||"")}${i.modality&&i.modality!=="none"?" · "+esc(i.modality):""}</span><span class="rel" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
+ return `<article class="card" style="--c:${s[3]}"><span class="badge">${s[2]} ${esc(s[1])}</span><span class="ty">${esc(i.item_type||"")}${(i.modality_groups||[]).length?" · "+esc(i.modality_groups.join(", ")):i.modality&&i.modality!=="none"?" · "+esc(i.modality):""}</span><span class="rel" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
  <h3>${i.url?`<a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}</a>`:esc(i.title)}</h3>
  ${auT?`<div class="au">${esc(auT)}</div>`:""}<div class="m">${esc(i.venue||"")}${i.pub_date?" · "+esc(i.pub_date):""}${i.verified===false?' · <span style="color:var(--red)">UNVERIFIED</span>':""}</div>
  <div class="tags">${tags}</div>${i.summary?`<p>${esc(i.summary)}</p>`:""}${i.caveats?`<div class="cav"><b>CAVEATS</b> ${esc(i.caveats)}</div>`:""}
@@ -136,8 +142,7 @@ function card(i){const s=secOf(i.section);
 function render(){
  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.t===S.tab));
  document.querySelectorAll(".view").forEach(b=>b.classList.toggle("on",b.dataset.v===S.view));
- document.querySelectorAll("#drugs .chip").forEach(b=>b.classList.toggle("on",S.drug.has(b.dataset.d)));
- let r;
+  let r;
  if(S.sim&&BYID[S.sim]){const src=BYID[S.sim];r=[src,...(src.similar||[]).map(k=>BYID[k]).filter(x=>x&&!P.ni[x.id])];
   $("simbar").style.display="block";$("simbar").innerHTML=`Showing items similar to <b>${esc(src.title)}</b> <button data-unsim="">Back to all</button>`}
  else{$("simbar").style.display="none";r=ITEMS.filter(match).sort((a,b)=>(b.issue_date||"").localeCompare(a.issue_date||"")||(b.relevance||0)-(a.relevance||0))}
@@ -145,7 +150,8 @@ function render(){
  $("count").textContent=S.sim?`${r.length-1} similar items`:S.view==="quar"?`${r.length} quarantined items`:`${r.length} of ${ITEMS.length-nq} items`+(nq?` · ${nq} quarantined`:"");
  document.querySelector('.view[data-v="quar"]').textContent=`⊘ Quarantined (${nq})`;document.querySelectorAll(".view").forEach(b=>b.classList.toggle("on",b.dataset.v===S.view));
  $("pcount").textContent=Object.entries(P.ts).filter(([k,t])=>t>P.sentAt&&live(k)).length;
- $("list").innerHTML=(S.view==="quar"&&!S.sim?'<div class="qnote">Items you marked <b>Not interested</b>. They are hidden everywhere else. Use <b>Undo / restore</b> to bring one back.</div>':"")+(r.length?r.map(card).join(""):'<div class="empty">Nothing matches. Try clearing a filter.</div>')}
+ $("list").innerHTML=(S.view==="quar"&&!S.sim?'<div class="qnote">Items you marked <b>Not interested</b>. They are hidden everywhere else. Use <b>Undo / restore</b> to bring one back.</div>':"")+(r.length?r.map(card).join(""):'<div class="empty">Nothing matches. Try clearing a filter.</div>');
+ document.querySelectorAll(".chip[data-c]").forEach(b=>{const k=b.dataset.c.split("|")[0];b.classList.toggle("on",S.ch[k].has(b.dataset.c.slice(k.length+1)))});}
 // ---- Preference signals ----
 function live(k){const[kind,id]=[k.split("|")[0],k.slice(k.indexOf("|")+1)];return kind==="star"?!!P.star[id]:kind==="read"?P.status[id]==="read":kind==="ni"?!!P.ni[id]:kind==="more"?!!P.more[id]:false}
 function line(i,x){const t=i.title.length>90?i.title.slice(0,87)+"...":i.title;return `- ${t}${x||""} | ${i.section} | ${(i.drugs||[]).join(", ")||"-"} | ${(i.methods||[]).join(", ")||"-"} | ${i.modality&&i.modality!=="none"?i.modality:"-"}`}
