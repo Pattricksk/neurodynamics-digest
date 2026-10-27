@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shortlist · Neurodynamics Digest</title>
+<style>
+:root{--bg:#11161b;--panel:#171e24;--panel2:#1c252e;--line:#2a333c;--tx:#e6e9ec;--mut:#9aa7b2;--dim:#5f7180;--red:#e0453b;--link:#a9c7e0;--grn:#a6dc8f;--amb:#e8c15a;--mono:Consolas,Menlo,monospace}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.45}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 60px}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+.m{font-family:var(--mono);color:var(--mut);font-size:12px}
+#hdr{border:1px solid var(--line);border-left:4px solid var(--amb);background:#0d1216;padding:12px 16px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}#hdr h1{font-size:22px;margin:0}
+.intro{background:var(--panel);border:1px solid var(--line);padding:10px 14px;margin:12px 0;font-size:13px;color:var(--mut)}
+#q{width:100%;padding:10px 12px;margin:4px 0 8px;background:var(--panel);border:1px solid var(--line);color:var(--tx);font-size:15px}
+.views{display:flex;gap:6px;flex-wrap:wrap}.views button{cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--mut);font-size:13px;padding:5px 9px;font-family:inherit}.views button.on{border-color:var(--red);color:var(--tx);background:#2a1d1f}
+#count{font-family:var(--mono);color:var(--mut);font-size:12px;margin:10px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--amb);padding:14px 16px;margin:0 0 12px}
+.card h3{margin:6px 0 4px;font-size:17px}.card h3 a{color:var(--tx)}.au{color:var(--mut);font-size:13px}
+.badge{font-family:var(--mono);font-size:11px;color:var(--amb);border:1px solid var(--amb);padding:1px 6px}.ty{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:6px;text-transform:uppercase}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}.tags span{border:1px solid var(--line);background:var(--panel2);color:var(--mut);font-size:11px;padding:2px 6px}
+.cav{color:var(--mut);font-size:13px;border-left:2px solid var(--dim);padding-left:8px}.cav b{color:var(--red);font-family:var(--mono);font-size:11px}
+.note{background:#1f2a1f;border-left:2px solid var(--grn);padding:6px 8px;font-size:13px;margin-top:8px}
+.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}.acts a,.acts button{cursor:pointer;background:var(--panel2);border:1px solid var(--line);color:var(--mut);font-size:12px;padding:4px 8px;font-family:inherit}
+.acts a:hover,.acts button:hover{color:var(--tx);text-decoration:none}.acts button.on{color:var(--tx);border-color:var(--amb)}.acts .prom{border-color:var(--grn);color:var(--grn)}.acts .rm:hover{border-color:var(--red)}
+.empty{color:var(--mut);padding:30px;text-align:center;border:1px dashed var(--line)}
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"></head><body><main>
+<header id="hdr"><div><h1>☆ Shortlist</h1><p class="m" style="margin:2px 0 0">Papers you sent to Mochi, waiting for your vetting. Kept separate from the archive.</p></div>
+<p class="m" style="margin:0"><a href="./">← Archive</a> · <a href="search.html">⌕ Literature search</a> · <a href="../">Digest home</a></p></header>
+<div class="intro">Nothing here appears in the archive, its tabs, filters, "More like this" or search badges. When a paper earns its place, press <b>Add to archive</b> (an email to Mochi with your reason). <b>Remove from shortlist</b> drops it. Stars and "Not interested" are saved in this browser only.</div>
+<input id="q" type="search" placeholder="Search the shortlist: titles, authors, summaries, notes, tags…" autocomplete="off">
+<div class="views" id="views"></div><div id="count"></div><div id="list"></div>
+</main>
+<script>
+const MAIL="pk-neuro-digest@mail.grokbot.com";
+const $=id=>document.getElementById(id),esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const st=(()=>{try{return JSON.parse(localStorage.getItem("ndd-shortlist")||"{}")}catch(e){return{}}})();st.star=st.star||{};st.ni=st.ni||{};
+const save=()=>{try{localStorage.setItem("ndd-shortlist",JSON.stringify(st))}catch(e){}};
+const VIEWS=[["all","All"],["star","★ Starred"],["ni","⊘ Not interested"]];let V="all",Q="",ITEMS=[];
+const auT=a=>(a||[]).length>6?a.slice(0,6).join(", ")+` +${a.length-6} more`:(a||[]).join(", ");
+const ref=i=>i.doi?"https://doi.org/"+i.doi:(i.url||"");
+const mail=(subj,lines)=>`mailto:${MAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(lines.join("\n"))}`;
+const cut=(s,n)=>String(s||"").length>n?String(s).slice(0,n-1)+"…":String(s||"");
+function coins(i){const k=(a,b)=>a+"="+encodeURIComponent(b),q=["ctx_ver=Z39.88-2004","rft_val_fmt="+encodeURIComponent("info:ofi/fmt:kev:mtx:journal"),k("rft.genre","article"),k("rft.atitle",i.title||"")];
+ if(i.venue_clean)q.push(k("rft.jtitle",i.venue_clean));(i.authors||[]).forEach(a=>q.push(k("rft.au",a)));if(i.pub_date)q.push(k("rft.date",i.pub_date));if(i.doi)q.push(k("rft_id","info:doi/"+i.doi));if(i.url)q.push(k("rft_id",i.url));return q.join("&")}
+const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,i.seed,(i.drug_groups||[]).join(" "),(i.modality_groups||[]).join(" "),(i.disorders||[]).join(" "),(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" ")].join(" ").toLowerCase();
+function card(i){const tags=[...(i.drug_display||[]),...(i.modality_groups||[]),...(i.disorders||[]),...(i.stage?[i.stage]:[]),...(i.methods||[]),...(i.populations||[]),...(i.topics||[]).map(t=>"#"+t)];const r=i.relevance||0;
+ return `<article class="card">${i.zotero&&(i.doi||i.url)?`<span class="Z3988" title="${esc(coins(i))}"></span>`:""}<span class="badge">☆ Shortlist${i.added_date?" · added "+esc(i.added_date):""}</span><span class="ty">${esc(i.item_type||"")}${i.status&&i.status!=="shortlisted"?" · "+esc(i.status):""}</span><span class="ty" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
+ <h3>${i.url?`<a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}</a>`:esc(i.title)}</h3>
+ ${(i.authors||[]).length?`<div class="au">${esc(auT(i.authors))}</div>`:""}<div class="m">${esc(i.venue||"")}${i.pub_date?" · "+esc(i.pub_date):""}${i.doi?" · doi:"+esc(i.doi):""}${i.verified===false?' · <span style="color:var(--red)">UNVERIFIED</span>':""}</div>
+ ${i.seed?`<div class="m" style="margin-top:3px">found via: ${esc(i.seed)}</div>`:""}
+ ${tags.length?`<div class="tags">${tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>`:""}${i.summary?`<p>${esc(i.summary)}</p>`:""}${i.caveats?`<div class="cav"><b>CAVEATS</b> ${esc(i.caveats)}</div>`:""}
+ ${i.notes?`<div class="note"><b>My notes:</b> ${esc(i.notes)}</div>`:""}
+ <div class="acts"><button data-star="${i.id}" class="${st.star[i.id]?"on":""}">${st.star[i.id]?"★ Starred":"☆ Star"}</button>
+ ${st.ni[i.id]?`<button data-ni="${i.id}">↺ Restore</button>`:`<button data-ni="${i.id}" title="Hide it here (this browser only)">⊘ Not interested</button>`}
+ <a class="prom" href="${esc(mail("Archive promote request",[`Title: ${cut(i.title,300)}`,`DOI/URL: ${ref(i)}`,`Shortlist id: ${i.id}`,"","Why it earns a place: "]))}" title="Email Mochi to move this into the archive">⇧ Add to archive</a>
+ <a class="rm" href="${esc(mail("Shortlist remove request",[`Title: ${cut(i.title,300)}`,`DOI/URL: ${ref(i)}`,`Shortlist id: ${i.id}`,"","Reason (optional): "]))}">✕ Remove from shortlist</a>
+ ${i.zotero?`<a href="search.html?seed=${encodeURIComponent(i.doi||i.id)}" target="_blank" rel="noopener">⌕ Search for more like this</a>`:""}
+ ${i.detail_url?`<a href="${esc(i.detail_url)}">details</a>`:""}</div></article>`}
+function render(){$("views").innerHTML=VIEWS.map(v=>`<button data-v="${v[0]}" class="${V===v[0]?"on":""}">${v[1]}${v[0]==="ni"?` (${Object.keys(st.ni).length})`:""}</button>`).join("");
+ const r=ITEMS.filter(i=>(V==="ni"?st.ni[i.id]:!st.ni[i.id])&&(V!=="star"||st.star[i.id])&&(!Q||Q.split(/\s+/).every(w=>i._s.includes(w))))
+  .sort((a,b)=>String(b.added_date||"").localeCompare(String(a.added_date||"")));
+ $("count").textContent=`${r.length} of ${ITEMS.length} shortlisted`;
+ $("list").innerHTML=r.length?r.map(card).join(""):`<div class="empty">${ITEMS.length?"Nothing matches.":'Your shortlist is empty. Use <a href="search.html">Literature search</a> (or "Search for more like this" on an archive card) and press <b>Send to Mochi</b> on a result.'}</div>`}
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+ if(d.v)V=d.v;else if(d.star){st.star[d.star]?delete st.star[d.star]:st.star[d.star]=Date.now();save()}else if(d.ni){st.ni[d.ni]?delete st.ni[d.ni]:st.ni[d.ni]=Date.now();save()}else return;render()});
+$("q").addEventListener("input",e=>{Q=e.target.value.trim().toLowerCase();render()});
+fetch("shortlist.json").then(r=>r.json()).then(d=>{ITEMS=d.map(i=>({...i,_s:TEXT(i)}));render()}).catch(()=>{$("list").innerHTML='<div class="empty">Could not load the shortlist.</div>'});
+</script></body></html>

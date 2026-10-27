@@ -28,7 +28,7 @@ select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);pad
 .cav{color:var(--mut);font-size:13px;border-left:2px solid var(--dim);padding-left:8px}.cav b{color:var(--red);font-family:var(--mono);font-size:11px}
 .note{background:#1f2a1f;border-left:2px solid #a6dc8f;padding:6px 8px;font-size:13px;margin-top:8px}
 .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}.acts button{cursor:pointer;background:var(--panel2);border:1px solid var(--line);color:var(--mut);font-size:12px;padding:4px 8px}
-.acts button.on{color:var(--tx);border-color:#e8c15a}.acts a{font-size:12px;margin-left:auto}
+.acts button.on{color:var(--tx);border-color:#e8c15a}.acts a{font-size:12px;margin-left:auto}.acts a.srch{margin-left:0;background:var(--panel2);border:1px solid var(--line);color:var(--mut);padding:4px 8px}.acts a.srch:hover{color:var(--tx);border-color:var(--red);text-decoration:none}
 .acts button.ni{margin-left:0}.acts button.ni:hover{border-color:var(--red);color:var(--tx)}.acts button.restore{color:var(--tx);border-color:#a6dc8f}
 #prefbar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:6px 0}#prefbar button{cursor:pointer;background:var(--panel2);border:1px solid var(--line);color:var(--tx);font-size:12px;padding:5px 9px}
 #sendp{border-color:var(--red)!important}#sendp .n{font-family:var(--mono);background:var(--red);color:#fff;border-radius:8px;padding:0 6px;margin-left:4px;font-size:11px}
@@ -48,7 +48,7 @@ select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);pad
 <header id="hdr" aria-label="The Archive"><canvas id="eeg" aria-hidden="true"></canvas>
 <div class="ro" aria-hidden="true"><span class="rd">Fz · Cz · Pz · 1/f + <b>α</b> 8–12 Hz<br></span><span id="apow">α power ▁</span></div>
 <div class="ht"><h1>The Archive</h1>
-<p class="m" style="margin:0"><a href="../">Neurodynamics Digest</a> · every newsletter item, papers sent in chat, and personal notes</p></div></header>
+<p class="m" style="margin:0"><a href="../">Neurodynamics Digest</a> · every vetted newsletter item and Patrick's picks · <a href="shortlist.html" id="sllink">Shortlist</a> · <a href="search.html">⌕ Literature search</a></p></div></header>
 <input id="q" type="search" placeholder="Search titles, authors, summaries, caveats, tags, notes…" autocomplete="off">
 <div class="tabs" id="tabs"></div>
 <div class="row" id="views"></div>
@@ -68,7 +68,7 @@ const SECTIONS=[ // [name in data, tab label, icon, accent]
 ["Weekly explainer","Explainer","Φ","#b9d86a"],["Addiction","Addiction","⟳","#f095ad"],["Brain–body coupling","Brain–body","♥\uFE0E","#f39a85"],
 ["Preclinical","Preclinical","⚗\uFE0E","#7ddcae"],["Critiques and nulls","Critiques","∅","#d0b090"],["Wildcards","Wildcards","✦","#e3a5e0"],
 ["Datasets and tools","Datasets","⚙\uFE0E","#9fb4f2"],["Policy pulse","Policy","⚖\uFE0E","#a8d8e8"],["Conferences on the horizon","Conferences","◎","#e6d27a"],
-["Summer schools and training","Summer schools","✎\uFE0E","#a6dc8f"],["Funding radar","Funding","£","#e7b97a"],["Sent by Patrick","Sent by Patrick","✉\uFE0E","#e0453b"]];
+["Summer schools and training","Summer schools","✎\uFE0E","#a6dc8f"],["Funding radar","Funding","£","#e7b97a"],["Patrick's picks","Patrick's picks","✉\uFE0E","#e0453b"]];
 const CHIPS=[ // [state key, row label, field in items.json, fixed order (else by count)]
 ["drug","Drug","drug_groups",null],["mod","Modality","modality_groups",["EEG","MEG (+ OPM)","fMRI","DTI","PET"]],
 ["dis","Disorder / population","disorders",null],["stage","Clinical / Pre-clinical","stage",["Clinical","Pre-clinical"]]];
@@ -89,18 +89,19 @@ const secOf=n=>SECTIONS.find(s=>s[0]===n)||[n,n,"◆","#c3a6f0"];
 const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $=id=>document.getElementById(id);
 let ITEMS=[],BYID={};
+fetch("shortlist.json").then(r=>r.json()).then(d=>{$("sllink").textContent=`Shortlist (${d.length})`}).catch(()=>{});
 fetch("items.json").then(r=>r.json()).then(d=>{ITEMS=d.map(i=>({...i,_s:TEXT(i)}));ITEMS.forEach(i=>BYID[i.id]=i);init()})
  .catch(()=>{$("list").innerHTML='<div class="empty">Could not load the archive data.</div>'});
 function init(){
  const present=new Set(ITEMS.map(i=>i.section));
- const tabs=[["All","All","◇","#e6e9ec"],...SECTIONS.filter(s=>present.has(s[0])||s[0]==="Sent by Patrick")];
+ const tabs=[["All","All","◇","#e6e9ec"],...SECTIONS.filter(s=>present.has(s[0]))];
  $("tabs").innerHTML=tabs.map(t=>`<button class="tab" style="--c:${t[3]}" data-t="${esc(t[0])}"><span class="ic">${t[2]}</span>${esc(t[1])} <span class="m">${t[0]==="All"?ITEMS.length:ITEMS.filter(i=>i.section===t[0]).length}</span></button>`).join("");
  $("views").innerHTML=VIEWS.map(v=>`<button class="view" data-v="${v[0]}">${v[1]}</button>`).join("");
  $("chiprows").innerHTML=CHIPS.map(([k,l,f,ord])=>{const n={};ITEMS.forEach(i=>cv(i,f).forEach(v=>n[v]=(n[v]||0)+1));
   let v=Object.keys(n);v=ord?ord.filter(x=>n[x]):v.sort((a,b)=>(a==="Healthy volunteers")-(b==="Healthy volunteers")||(a==="Non-hal")-(b==="Non-hal")||n[b]-n[a]||a.localeCompare(b));
   return v.length?`<div class="row"><span class="lab">${l}</span>${v.map(x=>`<button class="chip" data-c="${k}|${esc(x)}">${esc(x)}<span class="m">${n[x]}</span></button>`).join("")}</div>`:""}).join("");
  $("selects").innerHTML=SELECTS.map(([k,l,g])=>{const v=[...new Set(ITEMS.flatMap(g))].sort((a,b)=>a.localeCompare(b));return `<label class="m">${l}<br><select data-k="${k}"><option value="">Any</option>${v.map(x=>`<option>${esc(x)}</option>`).join("")}</select></label>`}).join("");
- document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;if(d.zot){const it=BYID[d.zot];if(it)zotOpen(it);return}
+ document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;
   if(d.t!==undefined)S.tab=d.t; else if(d.v)S.view=d.v;
   else if(d.c){const k=d.c.split("|")[0],v=d.c.slice(k.length+1),st=S.ch[k];st.has(v)?st.delete(v):st.add(v)}
   else if(d.f){const k=d.f.split("|")[0],v=d.f.slice(k.length+1);S.sel[k]=v;document.querySelector(`select[data-k="${k}"]`).value=v;$("more").open=true}
@@ -131,12 +132,10 @@ function match(i){
  for(const[k,,g]of SELECTS){const v=S.sel[k];if(v&&!g(i).includes(v))return false}
  if(S.q&&!S.q.split(/\s+/).every(w=>i._s.includes(w)))return false;
  return true}
-// ---- Zotero: COinS spans (read by the Zotero Connector) + Add-to-Zotero button ----
+// ---- Zotero: COinS spans (read by the Zotero Connector toolbar icon) ----
 function coins(i){const k=(a,b)=>a+"="+encodeURIComponent(b),q=["ctx_ver=Z39.88-2004","rft_val_fmt="+encodeURIComponent("info:ofi/fmt:kev:mtx:journal"),k("rft.genre","article"),k("rft.atitle",i.title||"")];
  if(i.venue_clean)q.push(k("rft.jtitle",i.venue_clean));(i.authors||[]).forEach(a=>q.push(k("rft.au",a)));if(i.pub_date)q.push(k("rft.date",i.pub_date));
  if(i.doi)q.push(k("rft_id","info:doi/"+i.doi));if(i.url)q.push(k("rft_id",i.url));return q.join("&")}
-function zotOpen(i){window.open(i.doi?"https://doi.org/"+i.doi:i.detail_url,"_blank","noopener");
- if(!localStorage.getItem("zotTip")){localStorage.setItem("zotTip","1");const t=$("toast");t.textContent="Click the Zotero button in your browser on the paper page to save it (with PDF)";t.style.display="block";setTimeout(()=>t.style.display="none",7000)}}
 let zotPing=0;function zotRefresh(){clearTimeout(zotPing);zotPing=setTimeout(()=>{try{history.replaceState(history.state,"",location.href)}catch(e){}},300)}
 function card(i){const s=secOf(i.section);
  const tag=(k,v)=>`<button class="chip" data-f="${k}|${esc(v)}">${esc(v)}</button>`;
@@ -152,7 +151,7 @@ function card(i){const s=secOf(i.section);
  <button data-st="${i.id}|toread" class="${P.status[i.id]==="toread"?"on":""}">To read</button><button data-st="${i.id}|read" class="${P.status[i.id]==="read"?"on":""}">Read</button>
  ${(i.similar||[]).length?`<button data-sim="${i.id}" title="Show related items, and tell Mochi you want more like this">More like this${P.more[i.id]?" ·"+P.more[i.id]:""}</button>`:""}
  ${P.ni[i.id]?"":`<button class="ni" data-ni="${i.id}" title="Hide this item (moves to Quarantined) and tell Mochi you want less like it">⊘ Not interested</button>`}
- ${i.zotero?`<button class="zot" data-zot="${i.id}" title="Opens the paper in a new tab; save it there with your Zotero browser button">＋ Add to Zotero</button>`:""}${i.detail_url?`<a class="det" href="${esc(i.detail_url)}">details</a>`:""}${i.issue_url?`<a href="${esc(i.issue_url)}">In issue #${esc(i.issue)} →</a>`:""}</div></article>`}
+ ${i.zotero?`<a class="srch" href="search.html?seed=${encodeURIComponent(i.doi||i.id)}" target="_blank" rel="noopener" title="Find similar papers in the wider literature (free search, opens in a new tab)">⌕ Search for more like this</a>`:""}${i.detail_url?`<a class="det" href="${esc(i.detail_url)}">details</a>`:""}${i.issue_url?`<a href="${esc(i.issue_url)}">In issue #${esc(i.issue)} →</a>`:""}</div></article>`}
 function render(){
  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.t===S.tab));
  document.querySelectorAll(".view").forEach(b=>b.classList.toggle("on",b.dataset.v===S.view));
@@ -223,4 +222,4 @@ addEventListener("resize",()=>{size();draw()});
 if(!RM){raf=requestAnimationFrame(loop);document.addEventListener("visibilitychange",()=>{cancelAnimationFrame(raf);last=0;acc=0;if(!document.hidden)raf=requestAnimationFrame(loop)})}
 })();
 </script>
-<div id="toast" role="status"></div></body></html>
+</body></html>
