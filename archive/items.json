@@ -62,12 +62,21 @@
   "disorders": [
    "Depression (incl. TRD/MDD)"
   ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0045",
    "001-0010",
    "001-0041",
    "001-0033"
+  ],
+  "similar_w": [
+   0.09,
+   0.086,
+   0.08,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "JAMA",
@@ -137,12 +146,21 @@
   ],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Pre-clinical / invasive"
+  ],
   "stage": "Pre-clinical",
   "similar": [
    "001-0002",
    "001-0030",
    "001-0031",
    "001-0011"
+  ],
+  "similar_w": [
+   0.174,
+   0.102,
+   0.074,
+   0.056
   ],
   "zotero": true,
   "venue_clean": "Nature Neuroscience",
@@ -199,6 +217,9 @@
   ],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Pre-clinical / invasive"
+  ],
   "stage": "Pre-clinical",
   "similar": [
    "001-0001",
@@ -206,6 +227,13 @@
    "001-0032",
    "001-0031",
    "001-0013"
+  ],
+  "similar_w": [
+   0.174,
+   0.111,
+   0.095,
+   0.09,
+   0.058
   ],
   "zotero": true,
   "venue_clean": "Nature Neuroscience",
@@ -268,6 +296,10 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Spectral / aperiodic / waveform",
+   "Connectivity / synchrony"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0022",
@@ -275,6 +307,13 @@
    "001-0006",
    "001-0004",
    "001-0061"
+  ],
+  "similar_w": [
+   0.078,
+   0.074,
+   0.062,
+   0.058,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -328,12 +367,22 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Spectral / aperiodic / waveform",
+   "Brain stimulation"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0019",
    "001-0003",
    "001-0026",
    "001-0039"
+  ],
+  "similar_w": [
+   0.074,
+   0.058,
+   0.054,
+   0.053
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -391,9 +440,15 @@
   "disorders": [
    "Epilepsy"
   ],
+  "method_groups": [
+   "Preprocessing / source / tools"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0007"
+  ],
+  "similar_w": [
+   0.055
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -445,9 +500,15 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Machine learning / AI"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0003"
+  ],
+  "similar_w": [
+   0.062
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -509,11 +570,19 @@
   "disorders": [
    "Disorders of consciousness"
   ],
+  "method_groups": [
+   "Machine learning / AI"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0014",
    "001-0059",
    "001-0005"
+  ],
+  "similar_w": [
+   0.113,
+   0.08,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "Brain",
@@ -571,12 +640,22 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Brain stimulation",
+   "Preprocessing / source / tools"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0025",
    "001-0027",
    "001-0032",
    "001-0013"
+  ],
+  "similar_w": [
+   0.25,
+   0.068,
+   0.055,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -646,10 +725,17 @@
    "EEG"
   ],
   "disorders": [],
+  "method_groups": [
+   "Connectivity / synchrony"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0016",
    "001-0036"
+  ],
+  "similar_w": [
+   0.086,
+   0.068
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -712,6 +798,9 @@
   "disorders": [
    "Depression (incl. TRD/MDD)"
   ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0011",
@@ -719,6 +808,13 @@
    "001-0045",
    "001-0061",
    "001-0033"
+  ],
+  "similar_w": [
+   0.199,
+   0.086,
+   0.083,
+   0.061,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "Psychopharmacology",
@@ -778,6 +874,9 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0010",
@@ -786,6 +885,14 @@
    "001-0014",
    "001-0013",
    "001-0028"
+  ],
+  "similar_w": [
+   0.199,
+   0.114,
+   0.106,
+   0.086,
+   0.081,
+   0.076
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -831,11 +938,19 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Information theory / complexity"
+  ],
   "stage": "",
   "similar": [
    "001-0013",
    "001-0021",
    "001-0020"
+  ],
+  "similar_w": [
+   0.176,
+   0.146,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "Cell Reports Physical Science",
@@ -899,6 +1014,9 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Information theory / complexity"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0014",
@@ -907,6 +1025,14 @@
    "001-0011",
    "001-0015",
    "001-0043"
+  ],
+  "similar_w": [
+   0.194,
+   0.176,
+   0.097,
+   0.081,
+   0.076,
+   0.068
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -972,6 +1098,10 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Connectivity / synchrony",
+   "Information theory / complexity"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0013",
@@ -980,6 +1110,14 @@
    "001-0015",
    "001-0011",
    "001-0043"
+  ],
+  "similar_w": [
+   0.194,
+   0.113,
+   0.099,
+   0.087,
+   0.086,
+   0.076
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1044,6 +1182,10 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Connectivity / synchrony",
+   "Naturalistic paradigms"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0024",
@@ -1051,6 +1193,13 @@
    "001-0013",
    "001-0003",
    "001-0011"
+  ],
+  "similar_w": [
+   0.106,
+   0.087,
+   0.076,
+   0.074,
+   0.064
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1121,6 +1270,10 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Computational / whole-brain modelling",
+   "Preprocessing / source / tools"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0029",
@@ -1129,6 +1282,14 @@
    "001-0032",
    "001-0014",
    "001-0019"
+  ],
+  "similar_w": [
+   0.114,
+   0.103,
+   0.086,
+   0.075,
+   0.072,
+   0.06
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1179,10 +1340,18 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Information theory / complexity",
+   "Computational / whole-brain modelling"
+  ],
   "stage": "Pre-clinical",
   "similar": [
    "001-0032",
    "001-0022"
+  ],
+  "similar_w": [
+   0.068,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1243,9 +1412,16 @@
    "fMRI"
   ],
   "disorders": [],
+  "method_groups": [
+   "Travelling waves",
+   "Pre-clinical / invasive"
+  ],
   "stage": "Pre-clinical",
   "similar": [
    "001-0014"
+  ],
+  "similar_w": [
+   0.066
   ],
   "zotero": true,
   "venue_clean": "Research Square",
@@ -1294,11 +1470,19 @@
    "fMRI"
   ],
   "disorders": [],
+  "method_groups": [
+   "Computational / whole-brain modelling"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0061",
    "001-0004",
    "001-0016"
+  ],
+  "similar_w": [
+   0.124,
+   0.074,
+   0.06
   ],
   "zotero": true,
   "venue_clean": "Research Square",
@@ -1348,10 +1532,17 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Information theory / complexity"
+  ],
   "stage": "Pre-clinical",
   "similar": [
    "001-0013",
    "001-0012"
+  ],
+  "similar_w": [
+   0.063,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1398,6 +1589,9 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Information theory / complexity"
+  ],
   "stage": "",
   "similar": [
    "001-0012",
@@ -1406,6 +1600,14 @@
    "001-0036",
    "001-0061",
    "001-0059"
+  ],
+  "similar_w": [
+   0.146,
+   0.103,
+   0.093,
+   0.074,
+   0.07,
+   0.051
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1453,11 +1655,20 @@
    "MEG (+ OPM)"
   ],
   "disorders": [],
+  "method_groups": [
+   "Connectivity / synchrony",
+   "Computational / whole-brain modelling"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0035",
    "001-0003",
    "001-0017"
+  ],
+  "similar_w": [
+   0.101,
+   0.078,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1529,9 +1740,15 @@
   "disorders": [
    "Nicotine / smoking"
   ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0024"
+  ],
+  "similar_w": [
+   0.075
   ],
   "zotero": true,
   "venue_clean": "Brain Communications",
@@ -1587,12 +1804,22 @@
   "disorders": [
    "Opioid use disorder"
   ],
+  "method_groups": [
+   "Machine learning / AI",
+   "Naturalistic paradigms"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0015",
    "001-0026",
    "001-0023",
    "001-0025"
+  ],
+  "similar_w": [
+   0.106,
+   0.1,
+   0.075,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "medRxiv",
@@ -1649,11 +1876,21 @@
   "disorders": [
    "Food addiction"
   ],
+  "method_groups": [
+   "ERP / MMN / predictive coding",
+   "Computational / whole-brain modelling",
+   "Brain stimulation"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0038",
    "001-0008",
    "001-0024"
+  ],
+  "similar_w": [
+   0.32,
+   0.25,
+   0.055
   ],
   "zotero": true,
   "venue_clean": "Neuroscience Bulletin",
@@ -1705,12 +1942,21 @@
   "disorders": [
    "Depression (incl. TRD/MDD)"
   ],
+  "method_groups": [
+   "Brain–body physiology"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0029",
    "001-0034",
    "001-0024",
    "001-0004"
+  ],
+  "similar_w": [
+   0.113,
+   0.108,
+   0.1,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "Scientific Reports",
@@ -1767,11 +2013,19 @@
    "fMRI"
   ],
   "disorders": [],
+  "method_groups": [
+   "Preprocessing / source / tools"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0028",
    "001-0008",
    "001-0035"
+  ],
+  "similar_w": [
+   0.075,
+   0.068,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "Nature",
@@ -1821,11 +2075,19 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Brain–body physiology"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0029",
    "001-0011",
    "001-0027"
+  ],
+  "similar_w": [
+   0.089,
+   0.076,
+   0.075
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1892,6 +2154,9 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "Brain–body physiology"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0016",
@@ -1900,6 +2165,14 @@
    "001-0032",
    "001-0028",
    "001-0036"
+  ],
+  "similar_w": [
+   0.114,
+   0.114,
+   0.113,
+   0.108,
+   0.089,
+   0.087
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1958,11 +2231,19 @@
   ],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Pre-clinical / invasive"
+  ],
   "stage": "Pre-clinical",
   "similar": [
    "001-0031",
    "001-0002",
    "001-0001"
+  ],
+  "similar_w": [
+   0.117,
+   0.111,
+   0.102
   ],
   "zotero": true,
   "venue_clean": "Psychopharmacology",
@@ -2032,6 +2313,9 @@
    "EEG"
   ],
   "disorders": [],
+  "method_groups": [
+   "Pre-clinical / invasive"
+  ],
   "stage": "Pre-clinical",
   "similar": [
    "001-0061",
@@ -2040,6 +2324,14 @@
    "001-0001",
    "001-0036",
    "001-0060"
+  ],
+  "similar_w": [
+   0.141,
+   0.117,
+   0.09,
+   0.074,
+   0.073,
+   0.07
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -2131,6 +2423,10 @@
   "disorders": [
    "Healthy volunteers"
   ],
+  "method_groups": [
+   "ERP / MMN / predictive coding",
+   "Multimodal imaging (PET/DTI)"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0029",
@@ -2139,6 +2435,14 @@
    "001-0034",
    "001-0016",
    "001-0017"
+  ],
+  "similar_w": [
+   0.108,
+   0.097,
+   0.095,
+   0.088,
+   0.075,
+   0.068
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -2202,6 +2506,9 @@
   ],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0045",
@@ -2209,6 +2516,13 @@
    "001-0000",
    "001-0010",
    "001-0061"
+  ],
+  "similar_w": [
+   0.067,
+   0.063,
+   0.055,
+   0.054,
+   0.053
   ],
   "zotero": true,
   "venue_clean": "Behavioral Sciences",
@@ -2292,11 +2606,19 @@
   "disorders": [
    "Depression (incl. TRD/MDD)"
   ],
+  "method_groups": [
+   "Machine learning / AI"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0026",
    "001-0032",
    "001-0045"
+  ],
+  "similar_w": [
+   0.108,
+   0.088,
+   0.052
   ],
   "zotero": true,
   "venue_clean": "JAMA Psychiatry",
@@ -2346,12 +2668,21 @@
    "fMRI"
   ],
   "disorders": [],
+  "method_groups": [
+   "Connectivity / synchrony"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0022",
    "001-0016",
    "001-0027",
    "001-0061"
+  ],
+  "similar_w": [
+   0.101,
+   0.056,
+   0.054,
+   0.052
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -2391,6 +2722,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0059",
@@ -2399,6 +2731,14 @@
    "001-0029",
    "001-0021",
    "001-0031"
+  ],
+  "similar_w": [
+   0.316,
+   0.29,
+   0.258,
+   0.087,
+   0.074,
+   0.073
   ],
   "zotero": false,
   "venue_clean": "biorxiv-top (RobertoDF)",
@@ -2443,10 +2783,17 @@
    "EEG"
   ],
   "disorders": [],
+  "method_groups": [
+   "Preprocessing / source / tools"
+  ],
   "stage": "",
   "similar": [
    "001-0039",
    "001-0040"
+  ],
+  "similar_w": [
+   0.236,
+   0.213
   ],
   "zotero": true,
   "venue_clean": "Zenodo",
@@ -2494,9 +2841,15 @@
   "disorders": [
    "Food addiction"
   ],
+  "method_groups": [
+   "Brain stimulation"
+  ],
   "stage": "Clinical",
   "similar": [
    "001-0025"
+  ],
+  "similar_w": [
+   0.32
   ],
   "zotero": true,
   "venue_clean": "OSF",
@@ -2538,11 +2891,19 @@
    "EEG"
   ],
   "disorders": [],
+  "method_groups": [
+   "Preprocessing / source / tools"
+  ],
   "stage": "",
   "similar": [
    "001-0040",
    "001-0037",
    "001-0004"
+  ],
+  "similar_w": [
+   0.401,
+   0.236,
+   0.053
   ],
   "zotero": false,
   "venue_clean": "",
@@ -2584,10 +2945,17 @@
    "EEG"
   ],
   "disorders": [],
+  "method_groups": [
+   "Preprocessing / source / tools"
+  ],
   "stage": "",
   "similar": [
    "001-0039",
    "001-0037"
+  ],
+  "similar_w": [
+   0.401,
+   0.213
   ],
   "zotero": false,
   "venue_clean": "",
@@ -2637,12 +3005,19 @@
   "disorders": [
    "Depression (incl. TRD/MDD)"
   ],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0043",
    "001-0000",
    "001-0042",
    "001-0033"
+  ],
+  "similar_w": [
+   0.112,
+   0.08,
+   0.076,
+   0.063
   ],
   "zotero": false,
   "venue_clean": "ICER",
@@ -2688,6 +3063,7 @@
   ],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0043",
@@ -2695,6 +3071,13 @@
    "001-0013",
    "001-0045",
    "001-0055"
+  ],
+  "similar_w": [
+   0.358,
+   0.076,
+   0.057,
+   0.053,
+   0.052
   ],
   "zotero": false,
   "venue_clean": "FDA",
@@ -2740,6 +3123,7 @@
   ],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0042",
@@ -2748,6 +3132,14 @@
    "001-0048",
    "001-0014",
    "001-0044"
+  ],
+  "similar_w": [
+   0.358,
+   0.112,
+   0.106,
+   0.105,
+   0.076,
+   0.071
   ],
   "zotero": false,
   "venue_clean": "Psychedelic Alpha",
@@ -2794,11 +3186,17 @@
   ],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0048",
    "001-0014",
    "001-0043"
+  ],
+  "similar_w": [
+   0.1,
+   0.072,
+   0.071
   ],
   "zotero": true,
   "venue_clean": "Nature",
@@ -2849,6 +3247,9 @@
   "disorders": [
    "Depression (incl. TRD/MDD)"
   ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
   "stage": "",
   "similar": [
    "001-0000",
@@ -2857,6 +3258,14 @@
    "001-0061",
    "001-0031",
    "001-0042"
+  ],
+  "similar_w": [
+   0.09,
+   0.083,
+   0.067,
+   0.066,
+   0.06,
+   0.053
   ],
   "zotero": false,
   "venue_clean": "ClinicalTrials.gov",
@@ -2893,11 +3302,17 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0048",
    "001-0051",
    "001-0047"
+  ],
+  "similar_w": [
+   0.077,
+   0.062,
+   0.05
   ],
   "zotero": false,
   "venue_clean": "",
@@ -2934,6 +3349,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0048",
@@ -2942,6 +3358,14 @@
    "001-0056",
    "001-0013",
    "001-0014"
+  ],
+  "similar_w": [
+   0.123,
+   0.101,
+   0.065,
+   0.059,
+   0.052,
+   0.051
   ],
   "zotero": false,
   "venue_clean": "",
@@ -2978,6 +3402,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0047",
@@ -2986,6 +3411,14 @@
    "001-0049",
    "001-0056",
    "001-0046"
+  ],
+  "similar_w": [
+   0.123,
+   0.105,
+   0.1,
+   0.094,
+   0.089,
+   0.077
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3022,10 +3455,17 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [
+   "Pre-clinical / invasive"
+  ],
   "stage": "",
   "similar": [
    "001-0047",
    "001-0048"
+  ],
+  "similar_w": [
+   0.101,
+   0.094
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3062,10 +3502,15 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0052",
    "001-0051"
+  ],
+  "similar_w": [
+   0.503,
+   0.151
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3102,12 +3547,19 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0050",
    "001-0052",
    "001-0048",
    "001-0046"
+  ],
+  "similar_w": [
+   0.151,
+   0.111,
+   0.067,
+   0.062
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3144,10 +3596,15 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0050",
    "001-0051"
+  ],
+  "similar_w": [
+   0.503,
+   0.111
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3185,11 +3642,17 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0055",
    "001-0054",
    "001-0058"
+  ],
+  "similar_w": [
+   0.106,
+   0.099,
+   0.091
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3227,6 +3690,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0055",
@@ -3235,6 +3699,14 @@
    "001-0053",
    "001-0058",
    "001-0048"
+  ],
+  "similar_w": [
+   0.247,
+   0.227,
+   0.203,
+   0.099,
+   0.097,
+   0.055
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3272,6 +3744,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0056",
@@ -3280,6 +3753,14 @@
    "001-0058",
    "001-0053",
    "001-0042"
+  ],
+  "similar_w": [
+   0.255,
+   0.247,
+   0.164,
+   0.128,
+   0.106,
+   0.052
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3317,6 +3798,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0055",
@@ -3325,6 +3807,14 @@
    "001-0048",
    "001-0058",
    "001-0047"
+  ],
+  "similar_w": [
+   0.255,
+   0.203,
+   0.15,
+   0.089,
+   0.086,
+   0.059
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3362,12 +3852,19 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0054",
    "001-0055",
    "001-0056",
    "001-0058"
+  ],
+  "similar_w": [
+   0.227,
+   0.164,
+   0.15,
+   0.074
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3405,6 +3902,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0055",
@@ -3412,6 +3910,13 @@
    "001-0053",
    "001-0056",
    "001-0057"
+  ],
+  "similar_w": [
+   0.128,
+   0.097,
+   0.091,
+   0.086,
+   0.074
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3512,6 +4017,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0036",
@@ -3519,6 +4025,13 @@
    "001-0060",
    "001-0007",
    "001-0021"
+  ],
+  "similar_w": [
+   0.316,
+   0.192,
+   0.181,
+   0.08,
+   0.051
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -3573,6 +4086,7 @@
   "drug_display": [],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "",
   "similar": [
    "001-0036",
@@ -3581,6 +4095,14 @@
    "001-0014",
    "001-0021",
    "001-0029"
+  ],
+  "similar_w": [
+   0.258,
+   0.204,
+   0.181,
+   0.099,
+   0.093,
+   0.076
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -3656,6 +4178,7 @@
   ],
   "modality_groups": [],
   "disorders": [],
+  "method_groups": [],
   "stage": "Pre-clinical",
   "similar": [
    "001-0036",
@@ -3664,6 +4187,14 @@
    "001-0031",
    "001-0019",
    "001-0021"
+  ],
+  "similar_w": [
+   0.29,
+   0.204,
+   0.192,
+   0.141,
+   0.124,
+   0.07
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",

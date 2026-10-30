@@ -44,11 +44,11 @@ select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);pad
 #hdr .ro{position:absolute;right:6px;top:5px;background:rgba(13,18,22,.82);padding:2px 5px;font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.5px;text-align:right;pointer-events:none}
 #hdr .ro b{color:var(--red);font-weight:normal}
 @media (max-width:600px){#hdr{height:auto;border:0;background:none}#eeg{position:relative;height:84px;border:1px solid var(--line);background:#0d1216}#hdr .ht{position:static;width:auto;padding:8px 0 0;background:none}#hdr .ro{top:5px;font-size:9px}#hdr .rd{display:none}}
-</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"></head><body><main>
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><script src="sync.js"></script></head><body><main>
 <header id="hdr" aria-label="The Archive"><canvas id="eeg" aria-hidden="true"></canvas>
 <div class="ro" aria-hidden="true"><span class="rd">Fz · Cz · Pz · 1/f + <b>α</b> 8–12 Hz<br></span><span id="apow">α power ▁</span></div>
 <div class="ht"><h1>The Archive</h1>
-<p class="m" style="margin:0"><a href="../">Neurodynamics Digest</a> · every vetted newsletter item and Patrick's picks · <a href="shortlist.html" id="sllink">Shortlist</a> · <a href="search.html">⌕ Literature search</a></p></div></header>
+<p class="m" style="margin:0"><a href="../">Neurodynamics Digest</a> · every vetted newsletter item and Patrick's picks · <a href="shortlist.html" id="sllink">Shortlist</a> · <a href="search.html">⌕ Literature search</a> · <a href="graph.html">◌ Graph view</a></p></div></header>
 <input id="q" type="search" placeholder="Search titles, authors, summaries, caveats, tags, notes…" autocomplete="off">
 <div class="tabs" id="tabs"></div>
 <div class="row" id="views"></div>
@@ -58,7 +58,7 @@ select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);pad
 <details id="more"><summary>More filters · method, population, date &amp; venue, PhD relevance</summary><div class="grid" id="selects"></div></details>
 <div id="simbar"></div>
 <div id="bar"><span id="count"></span><button id="clear">Clear all</button></div><div id="list"></div>
-<p class="m">Stars, read status, "Not interested" and "More like this" signals are saved in this browser only. Use "Send my preferences to Mochi" to feed them into future issues.</p>
+<p class="m">Stars, read status, "Not interested" and "More like this" signals are saved in this browser, and synced across your devices once you connect sync (the ⇅ pill, bottom right). Use "Send my preferences to Mochi" to feed them into future issues.</p>
 </main>
 <script>
 // ---- Config ----
@@ -83,6 +83,8 @@ const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.v
 const store={get(){try{return JSON.parse(localStorage.getItem("ndd-archive")||"{}")}catch(e){return{}}},set(s){try{localStorage.setItem("ndd-archive",JSON.stringify(s))}catch(e){}}};
 let P=store.get();P.star=P.star||{};P.status=P.status||{};P.ni=P.ni||{};P.more=P.more||{};P.ts=P.ts||{};P.sentAt=P.sentAt||0;
 const mark=(k,id)=>{P.ts[k+"|"+id]=Date.now()};
+// Cross-device sync (sync.js): when marks from another device are merged in, reload them here.
+window.NDDSync&&NDDSync.on("ndd-archive",s=>{P=s;P.star=P.star||{};P.status=P.status||{};P.ni=P.ni||{};P.more=P.more||{};P.ts=P.ts||{};P.sentAt=P.sentAt||0;if(ITEMS.length)render()});
 const MAIL="pk-neuro-digest@mail.grokbot.com",SUBJ="Digest preferences update",MAXB=1800;
 const S={tab:"All",view:"all",q:"",ch:Object.fromEntries(CHIPS.map(c=>[c[0],new Set()])),sel:{},sim:null};
 const secOf=n=>SECTIONS.find(s=>s[0]===n)||[n,n,"◆","#c3a6f0"];

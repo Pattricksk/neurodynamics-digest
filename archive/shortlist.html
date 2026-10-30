@@ -21,10 +21,10 @@ main{max-width:1000px;margin:0 auto;padding:20px 16px 60px}a{color:var(--link);t
 .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}.acts a,.acts button{cursor:pointer;background:var(--panel2);border:1px solid var(--line);color:var(--mut);font-size:12px;padding:4px 8px;font-family:inherit}
 .acts a:hover,.acts button:hover{color:var(--tx);text-decoration:none}.acts button.on{color:var(--tx);border-color:var(--amb)}.acts .prom{border-color:var(--grn);color:var(--grn)}.acts .rm:hover{border-color:var(--red)}
 .empty{color:var(--mut);padding:30px;text-align:center;border:1px dashed var(--line)}
-</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"></head><body><main>
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><script src="sync.js"></script></head><body><main>
 <header id="hdr"><div><h1>☆ Shortlist</h1><p class="m" style="margin:2px 0 0">Papers you sent to Mochi, waiting for your vetting. Kept separate from the archive.</p></div>
-<p class="m" style="margin:0"><a href="./">← Archive</a> · <a href="search.html">⌕ Literature search</a> · <a href="../">Digest home</a></p></header>
-<div class="intro">Nothing here appears in the archive, its tabs, filters, "More like this" or search badges. When a paper earns its place, press <b>Add to archive</b> (an email to Mochi with your reason). <b>Remove from shortlist</b> drops it. Stars and "Not interested" are saved in this browser only.</div>
+<p class="m" style="margin:0"><a href="./">← Archive</a> · <a href="search.html">⌕ Literature search</a> · <a href="graph.html">◌ Graph view</a> · <a href="../">Digest home</a></p></header>
+<div class="intro">Nothing here appears in the archive, its tabs, filters, "More like this" or search badges. When a paper earns its place, press <b>Add to archive</b> (an email to Mochi with your reason). <b>Remove from shortlist</b> drops it. Stars and "Not interested" are saved in this browser (and synced across devices once sync is connected).</div>
 <input id="q" type="search" placeholder="Search the shortlist: titles, authors, summaries, notes, tags…" autocomplete="off">
 <div class="views" id="views"></div><div id="count"></div><div id="list"></div>
 </main>
@@ -33,6 +33,7 @@ const MAIL="pk-neuro-digest@mail.grokbot.com";
 const $=id=>document.getElementById(id),esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const st=(()=>{try{return JSON.parse(localStorage.getItem("ndd-shortlist")||"{}")}catch(e){return{}}})();st.star=st.star||{};st.ni=st.ni||{};
 const save=()=>{try{localStorage.setItem("ndd-shortlist",JSON.stringify(st))}catch(e){}};
+window.NDDSync&&NDDSync.on("ndd-shortlist",s=>{Object.keys(st).forEach(k=>delete st[k]);Object.assign(st,s);st.star=st.star||{};st.ni=st.ni||{};if(ITEMS.length)render()});
 const VIEWS=[["all","All"],["star","★ Starred"],["ni","⊘ Not interested"]];let V="all",Q="",ITEMS=[];
 const auT=a=>(a||[]).length>6?a.slice(0,6).join(", ")+` +${a.length-6} more`:(a||[]).join(", ");
 const ref=i=>i.doi?"https://doi.org/"+i.doi:(i.url||"");

@@ -31,10 +31,10 @@ details{margin-top:6px}summary{cursor:pointer;font-family:var(--mono);font-size:
 .acts a,.acts button{cursor:pointer;background:var(--panel2);border:1px solid var(--line);color:var(--mut);font-size:12px;padding:4px 8px;font-family:inherit}
 .acts a:hover,.acts button:hover{color:var(--tx);text-decoration:none}.acts .mochi{border-color:var(--red);color:var(--tx)}.acts .sent{border-color:var(--grn);color:var(--grn)}
 .empty{color:var(--mut);padding:30px;text-align:center;border:1px dashed var(--line)}
-</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"></head><body><main>
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><script src="sync.js"></script></head><body><main>
 <header id="hdr"><div><svg width="260" height="20" viewBox="0 0 260 20" aria-hidden="true"><polyline fill="none" stroke="#5f7180" stroke-width="1.2" points="0,10 20,9 30,12 45,8 60,11 75,10 90,9"/><polyline fill="none" stroke="#e0453b" stroke-width="1.5" points="90,9 95,3 100,17 105,2 110,18 115,3 120,17 125,4 130,15 135,8"/><polyline fill="none" stroke="#5f7180" stroke-width="1.2" points="135,8 150,11 165,9 180,12 200,8 220,11 240,9 260,10"/></svg>
 <h1>Literature search</h1><p class="m" style="margin:2px 0 0">Free: runs in your browser against Semantic Scholar, OpenAlex and Europe PMC. No Mochi credit used.</p></div>
-<p class="m" style="margin:0"><a href="./">← Archive</a> · <a href="shortlist.html" id="sllink">Shortlist</a> · <a href="../">Digest home</a></p></header>
+<p class="m" style="margin:0"><a href="./">← Archive</a> · <a href="shortlist.html" id="sllink">Shortlist</a> · <a href="graph.html">◌ Graph view</a> · <a href="../">Digest home</a></p></header>
 <div id="seedbox"></div>
 <div class="box">
 <div class="modes"><button data-mode="similar" id="msim">Similar to this paper</button><button data-mode="keyword" id="mkey">Keyword search</button></div>
@@ -66,6 +66,7 @@ const FIELDS=["q","y1","y2","type","venue","minc","inc","exc","sort","n"];
 const STOP=new Set("a an the and or of in on for to with by from at as is are was were be this that these those its it into vs via than not no after during using under among between single new study trial effects effect shapes context signatures toward towards evidence role".split(" "));
 let ARC=[],SL=[],inA={},inS={},SEED=null,MODE="keyword";
 const sent=(()=>{try{return JSON.parse(localStorage.getItem("ndd-search-sent")||"{}")}catch(e){return{}}})();
+window.NDDSync&&NDDSync.on("ndd-search-sent",x=>{Object.keys(sent).forEach(k=>delete sent[k]);Object.assign(sent,x)});
 function keyOf(p){return p.doi?ndoi(p.doi):nt(p.title)}
 // ---------- normalisers -> {title,authors,year,date,venue,doi,url,abstract,tldr,cites,oa,pdf,type,src}
 const PRE=/arxiv|biorxiv|medrxiv|psyarxiv|research square|ssrn|preprint|osf/i;
