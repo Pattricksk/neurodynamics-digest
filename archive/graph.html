@@ -104,7 +104,10 @@ window.NDDSync&&NDDSync.on("ndd-shortlist",s=>{SL=s;SL.star=SL.star||{};SL.ni=SL
 const DEF={mode:"papers",et:Object.fromEntries(ET.map(e=>[e[0],!!e[3]])),per:4,minw:1,lab:"auto",sl:false,quar:false,nonres:false};
 let G=Object.assign({},DEF,rd("ndd-graph"));G.et=Object.assign({},DEF.et,G.et||{});
 const saveG=()=>wr("ndd-graph",G);
-const S={q:"",ch:Object.fromEntries(CHIPS.map(c=>[c[0],new Set()])),sel:null,hover:null};
+const S={q:"",ch:Object.fromEntries([...CHIPS.map(c=>[c[0],new Set()]),["mine",new Set()]]),sel:null,hover:null};
+// ---- "My marks" chips: read live from P (ndd-archive) and SL (ndd-shortlist) ----
+const MARKS=["Starred","To read","Read","Unmarked"];
+const myMarks=i=>{const o=[],st=(i._sl?SL.star:P.star)[i.id],s=i._sl?null:P.status[i.id];if(st)o.push("Starred");if(s==="toread")o.push("To read");if(s==="read")o.push("Read");if(!st&&!s)o.push("Unmarked");return o};
 let ITEMS=[],SHORT=[],BYID={};
 Promise.all([fetch("items.json").then(r=>r.json()),fetch("shortlist.json").then(r=>r.json()).catch(()=>[])]).then(([a,s])=>{
  ITEMS=a.map(i=>({...i,_s:TEXT(i),_sl:false}));SHORT=s.map(i=>({...i,_s:TEXT(i),_sl:true}));[...ITEMS,...SHORT].forEach(i=>BYID[i.id]=i);
@@ -115,7 +118,7 @@ function init(){
  $("opts").innerHTML=[["sl","☆ Shortlist papers","Show shortlist papers as hollow dashed dots (kept separate from the archive)"],["quar","⊘ Show quarantined","Show items you marked Not interested (faded, red ring)"],["nonres","Non-research items","Also show news, policy, funding, conferences and training items"]]
   .map(o=>`<button class="b" data-opt="${o[0]}" title="${o[2]}">${o[1]}</button>`).join("");
  const all=[...ITEMS,...SHORT];
- $("chiprows").innerHTML=CHIPS.map(([k,l,f,ord])=>{const n={};ITEMS.forEach(i=>cv(i,f).forEach(v=>n[v]=(n[v]||0)+1));
+ $("chiprows").innerHTML=`<div class="row" id="markrow"></div>`+CHIPS.map(([k,l,f,ord])=>{const n={};ITEMS.forEach(i=>cv(i,f).forEach(v=>n[v]=(n[v]||0)+1));
   let v=Object.keys(n);v=ord?ord.filter(x=>n[x]):k==="sec"?SECTIONS.map(s=>s[0]).filter(x=>n[x]):v.sort((a,b)=>(a==="Healthy volunteers")-(b==="Healthy volunteers")||(a==="Non-hal")-(b==="Non-hal")||n[b]-n[a]||a.localeCompare(b));
   return v.length?`<div class="row"><span class="lab">${l}</span>${v.map(x=>`<button class="chip" data-c="${k}|${esc(x)}">${esc(k==="sec"?secOf(x)[2]+" "+secOf(x)[1]:x)}<span class="n">${n[x]}</span></button>`).join("")}</div>`:""}).join("")+
   `<div class="row"><button class="b" id="clear">Clear filters</button></div>`;
@@ -129,8 +132,8 @@ function init(){
   else if(d.c){const k=d.c.split("|")[0],v=d.c.slice(k.length+1),st=S.ch[k];st.has(v)?st.delete(v):st.add(v);rebuild(true)}
   else if(b.id==="clear"){Object.values(S.ch).forEach(x=>x.clear());S.q="";$("q").value="";rebuild(true)}
   else if(d.q!==undefined){S.q=d.q.toLowerCase();$("q").value=d.q;paintCount();draw()}
-  else if(d.star){const sl=BYID[d.star]._sl;if(sl){SL.star[d.star]?delete SL.star[d.star]:SL.star[d.star]=1;wr("ndd-shortlist",SL)}else{P.star[d.star]?delete P.star[d.star]:(P.star[d.star]=1,mark("star",d.star));wr("ndd-archive",P)}updNode(d.star)}
-  else if(d.st){const[id,v]=d.st.split("|");P.status[id]===v?delete P.status[id]:(P.status[id]=v,v==="read"&&mark("read",id));wr("ndd-archive",P);updNode(id)}
+  else if(d.star){const sl=BYID[d.star]._sl;if(sl){SL.star[d.star]?delete SL.star[d.star]:SL.star[d.star]=1;wr("ndd-shortlist",SL)}else{P.star[d.star]?delete P.star[d.star]:(P.star[d.star]=1,mark("star",d.star));wr("ndd-archive",P)}afterMark(d.star)}
+  else if(d.st){const[id,v]=d.st.split("|");P.status[id]===v?delete P.status[id]:(P.status[id]=v,v==="read"&&mark("read",id));wr("ndd-archive",P);afterMark(id)}
   else if(d.ni){const sl=BYID[d.ni]._sl;if(sl){SL.ni[d.ni]?delete SL.ni[d.ni]:SL.ni[d.ni]=Date.now();wr("ndd-shortlist",SL)}else if(P.ni[d.ni]){delete P.ni[d.ni];delete P.ts["ni|"+d.ni]}else{P.ni[d.ni]=Date.now();mark("ni",d.ni)}wr("ndd-archive",P);rebuild()}
   else if(d.go){select(d.go,true)}
   else if(d.fil){const[k,v]=[d.fil.split("|")[0],d.fil.slice(d.fil.indexOf("|")+1)];S.ch[k].add(v);rebuild(true)}
@@ -148,6 +151,8 @@ function paintCtl(){
  document.querySelectorAll("[data-et]").forEach(b=>b.classList.toggle("on",!!G.et[b.dataset.et]));
  document.querySelectorAll("[data-lab]").forEach(b=>b.classList.toggle("on",b.dataset.lab===G.lab));
  document.querySelectorAll("[data-opt]").forEach(b=>b.classList.toggle("on",!!G[b.dataset.opt]));
+ {const base=[...ITEMS,...(G.sl?SHORT:[])].filter(i=>(G.nonres||RESEARCH.has(i.item_type))&&(G.quar||!(i._sl?SL.ni:P.ni)[i.id])),n={};base.forEach(i=>myMarks(i).forEach(v=>n[v]=(n[v]||0)+1));
+  const mr=$("markrow");if(mr)mr.innerHTML=`<span class="lab">My marks</span>`+MARKS.map(x=>`<button class="chip" data-c="mine|${x}" title="${x==="Unmarked"?"No star and no To read / Read status":x+(x==="Starred"?" (archive stars; shortlist stars too when the Shortlist layer is on)":"")}">${x==="Starred"?"★ ":""}${x}<span class="n">${n[x]||0}</span></button>`).join("")}
  document.querySelectorAll(".chip[data-c]").forEach(b=>{const k=b.dataset.c.split("|")[0];b.classList.toggle("on",S.ch[k].has(b.dataset.c.slice(k.length+1)))});
  $("perv").textContent=G.per;$("minwv").textContent=G.minw;
  const pp=G.mode!=="tags";$("per").disabled=$("minw").disabled=!pp;
@@ -160,7 +165,8 @@ const qm=i=>!S.q||S.q.split(/\s+/).every(w=>i._s.includes(w));
 function keep(i){
  if(!G.nonres&&!RESEARCH.has(i.item_type))return false;
  const hid=i._sl?SL.ni[i.id]:P.ni[i.id];if(hid&&!G.quar)return false;
- for(const[k,,f]of CHIPS){const st=S.ch[k];if(st.size&&!cv(i,f).some(v=>st.has(v)))return false}return true}
+ for(const[k,,f]of CHIPS){const st=S.ch[k];if(st.size&&!cv(i,f).some(v=>st.has(v)))return false}
+ if(S.ch.mine.size&&!myMarks(i).some(v=>S.ch.mine.has(v)))return false;return true}
 function nodeFor(id,mk){let n=NM.get(id);if(!n){n=mk();NM.set(id,n)}return n}
 function rebuild(refit){
  paintCtl();
@@ -207,6 +213,7 @@ let fitted=false;
 function paintCount(){const p=NODES.filter(n=>n.it),q=S.q?p.filter(n=>qm(n.it)).length:0,sl=p.filter(n=>n.it._sl).length;
  $("count").textContent=`${p.length-sl} archive papers${sl?` · ${sl} shortlist`:""} · ${LINKS.filter(l=>!l.tag).length} paper links${G.mode!=="papers"?` · ${NODES.length-p.length} tag nodes`:""}${S.q?` · ${q} match “${S.q}”`:""}`+
   ` · ${Object.keys(P.ni).filter(k=>BYID[k]).length} quarantined${G.quar?" (shown)":" (hidden)"}`}
+function afterMark(id){if(S.ch.mine.size)rebuild();else{paintCtl();updNode(id)}}
 function updNode(id){const n=NM.get(id);if(n&&n.it)n.r=4.5+(n.it.relevance||1)*1.3+((n.it._sl?SL.star:P.star)[id]?1.5:0);if(S.sel===id)panel(n);draw()}
 // ---- Canvas, pan/zoom, drag ----
 let cvs,ctx,W=0,H=0,dpr=1,T={k:1,x:0,y:0},raf=0;
