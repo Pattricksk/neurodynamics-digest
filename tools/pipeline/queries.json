@@ -1,0 +1,761 @@
+{
+ "_about": "Editable search + scoring config for fetch_candidates.py (Version B candidate finder). Derived from brief.md on 30 Oct 2026. 'query' is a boolean string sent to PubMed, Europe PMC and (if openalex=true) OpenAlex title+abstract search; 'pubmed'/'europepmc'/'openalex_query' override it per source. 'keywords' are lowercase regexes used to score EVERY record (incl. bulk bioRxiv/medRxiv/arXiv pulls). 'weight' reflects brief priority. Edit freely; no code changes needed.",
+ "psychedelic_terms": "(psychedelic OR psychedelics OR psilocybin OR psilocin OR LSD OR \"lysergic acid diethylamide\" OR DMT OR dimethyltryptamine OR \"5-MeO-DMT\" OR mebufotenin OR ayahuasca OR mescaline OR MDMA OR ibogaine OR \"serotonergic hallucinogen\" OR hallucinogen OR psychoplastogen)",
+ "imaging_terms": "(EEG OR electroencephalography OR MEG OR magnetoencephalography OR fMRI OR \"functional MRI\" OR \"functional magnetic resonance\" OR neuroimaging OR PET OR \"positron emission\" OR \"brain imaging\" OR \"diffusion MRI\" OR \"event-related potential\")",
+ "groups": [
+  {
+   "name": "psychedelic_imaging",
+   "weight": 10,
+   "openalex": true,
+   "query": "{psychedelic_terms} AND {imaging_terms}",
+   "keywords": [],
+   "all_of": [
+    "psychedelic_any",
+    "@imaging"
+   ]
+  },
+  {
+   "name": "psychedelic_any",
+   "weight": 8,
+   "openalex": true,
+   "query": "{psychedelic_terms}",
+   "keywords": [
+    "psychedelic",
+    "psilocybin",
+    "psilocin",
+    "\\blsd\\b",
+    "lysergic",
+    "\\bdmt\\b",
+    "dimethyltryptamine",
+    "5-meo",
+    "mebufotenin",
+    "ayahuasca",
+    "mescaline",
+    "\\bmdma\\b",
+    "ibogaine",
+    "hallucinogen",
+    "psychoplastogen",
+    "5-ht2a",
+    "comp360",
+    "tabernanthalog",
+    "non-hallucinogenic",
+    "nonhallucinogenic"
+   ]
+  },
+  {
+   "name": "eeg_methods",
+   "weight": 7,
+   "openalex": true,
+   "query": "(EEG OR MEG OR electroencephalography OR magnetoencephalography) AND (aperiodic OR \"1/f\" OR \"spectral exponent\" OR specparam OR FOOOF OR microstate OR microstates OR \"travelling wave\" OR \"traveling wave\" OR \"travelling waves\" OR \"traveling waves\" OR \"Lempel-Ziv\" OR complexity OR entropy OR criticality OR \"source imaging\" OR \"source localization\" OR \"waveform shape\" OR \"cross-frequency\" OR \"foundation model\" OR \"hidden Markov\" OR bifurcation OR \"state space\" OR \"neural dynamics\")",
+   "keywords": [
+    "microstate",
+    "lempel",
+    "\\blzc?\\b",
+    "complexity",
+    "entropy",
+    "criticality",
+    "source (imaging|locali[sz]ation|reconstruction)",
+    "cross-frequency",
+    "hidden markov",
+    "bifurcation",
+    "feature[- ]space"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "info_theory_dynamics",
+   "weight": 7,
+   "openalex": true,
+   "query": "(\"integrated information\" OR \"information theory\" OR \"information-theoretic\" OR \"information decomposition\" OR synergy OR \"transfer entropy\" OR \"higher-order interactions\" OR \"brain dynamics\" OR \"dynamical systems\" OR \"connectome harmonics\" OR eigenmodes OR \"geometric eigenmodes\") AND (brain OR neural OR cortex OR EEG OR fMRI OR MEG)",
+   "keywords": [
+    "integrated information",
+    "information[- ]theor",
+    "information decomposition",
+    "phi-?id",
+    "synerg",
+    "redundan",
+    "transfer entropy",
+    "mutual information",
+    "higher-order",
+    "brain dynamics",
+    "dynamical system",
+    "harmonic",
+    "eigenmode",
+    "metastab",
+    "attractor",
+    "global workspace"
+   ],
+   "also_requires_re": "brain|neural|neuron|cortex|cortical|\\beeg\\b|fmri|\\bmeg\\b"
+  },
+  {
+   "name": "comp_modelling",
+   "weight": 7,
+   "openalex": true,
+   "query": "(\"whole-brain model\" OR \"whole-brain modelling\" OR \"whole-brain modeling\" OR \"neural mass\" OR \"neural field\" OR \"dynamic causal modelling\" OR \"dynamic causal modeling\" OR \"mean-field\" OR \"computational model\") AND (EEG OR fMRI OR MEG) AND (psychedelic OR drug OR anaesthesia OR anesthesia OR ketamine OR propofol OR psychiatric OR addiction OR depression OR schizophrenia)",
+   "keywords": [
+    "whole-brain model",
+    "neural mass",
+    "neural field",
+    "dynamic causal model",
+    "mean-field",
+    "computational model",
+    "generative model",
+    "spiking network model"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "addiction_imaging",
+   "weight": 7,
+   "openalex": false,
+   "query": "(addiction OR \"substance use disorder\" OR gambling OR \"alcohol use disorder\" OR nicotine OR smoking OR \"cocaine use\" OR \"opioid use disorder\" OR craving) AND (EEG OR fMRI OR MEG OR PET OR neuroimaging OR \"event-related potential\")",
+   "keywords": [
+    "addiction",
+    "substance use",
+    "alcohol use disorder",
+    "nicotine",
+    "smok(ing|ers)",
+    "cocaine",
+    "opioid use",
+    "craving",
+    "drug cue"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "psychedelic_addiction",
+   "weight": 8,
+   "openalex": false,
+   "query": "{psychedelic_terms} AND (addiction OR \"substance use\" OR alcohol OR nicotine OR smoking OR gambling OR opioid OR cocaine OR methamphetamine)",
+   "keywords": [],
+   "all_of": [
+    "psychedelic_any",
+    "@addiction"
+   ]
+  },
+  {
+   "name": "pharmaco_imaging_other",
+   "weight": 5,
+   "openalex": false,
+   "query": "(ketamine OR esketamine OR propofol OR anaesthesia OR anesthesia OR sevoflurane OR dexmedetomidine OR xenon OR \"nitrous oxide\" OR cannabis OR THC OR cannabidiol OR methylphenidate OR amphetamine OR modafinil OR zolpidem OR benzodiazepine) AND (EEG OR MEG OR fMRI OR electroencephalography)",
+   "keywords": [
+    "ketamine",
+    "propofol",
+    "ana?esthe",
+    "sevoflurane",
+    "dexmedetomidine",
+    "nitrous oxide",
+    "cannabi",
+    "\\bthc\\b",
+    "methylphenidate",
+    "amphetamine",
+    "sedat",
+    "hypnotic",
+    "consciousness"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "mental_health_imaging",
+   "weight": 1.5,
+   "openalex": false,
+   "query": "(depression OR \"major depressive\" OR schizophrenia OR psychosis OR bipolar OR anxiety OR PTSD OR OCD OR \"mental health\") AND (EEG OR MEG OR fMRI) AND (dynamics OR complexity OR entropy OR aperiodic OR \"information theory\" OR \"machine learning\" OR \"normative model\" OR biomarker)",
+   "keywords": [
+    "depressi",
+    "schizophren",
+    "psychosis",
+    "bipolar",
+    "anxiety",
+    "ptsd",
+    "\\bocd\\b",
+    "mental health",
+    "psychiatr"
+   ],
+   "require_imaging": true,
+   "_why": "scope 30 Oct: other disorders only if psychedelic or treatment-prediction imaging; those are scored by psychedelic_* and treatment_prediction"
+  },
+  {
+   "name": "brain_body",
+   "weight": 8,
+   "openalex": true,
+   "query": "(\"heartbeat evoked\" OR \"heartbeat-evoked\" OR respiration OR breathing OR respiratory OR gastric OR electrogastrography OR EGG OR \"gastric rhythm\" OR \"cardiac cycle\" OR \"heart rate variability\" OR interoception OR \"brain-body\" OR \"brain-heart\" OR \"gut-brain\" OR \"body-brain\") AND (EEG OR MEG OR fMRI OR \"BOLD\" OR \"neural oscillations\" OR neuroimaging)",
+   "keywords": [
+    "heartbeat[- ]evoked",
+    "heartbeat",
+    "\\bhep\\b",
+    "cardiac (cycle|phase|signal|timing|afferent)",
+    "respiratory (phase|rhythm|signal|modulat|cycle)",
+    "respiration",
+    "breathing (rhythm|phase|pattern)",
+    "gastric (rhythm|network|phase|signal|slow wave)",
+    "electrogastro",
+    "\\begg\\b",
+    "heart rate variab",
+    "interocept",
+    "brain[- ]body",
+    "brain[- ]heart",
+    "body[- ]brain",
+    "brain[- ]gut",
+    "gut[- ]brain.{0,40}(eeg|fmri|oscillat)",
+    "physiological noise"
+   ],
+   "require_imaging": true,
+   "_why": "secondary but Patrick is building an EEG/EGG/ECG/respiration pipeline; fMRI explicitly included (30 Oct)",
+   "also_requires_re": "eeg|meg|fmri|\\bbold\\b|neural|cortic|brain|neuron|electrophysiolog|intracranial|\\becog\\b"
+  },
+  {
+   "name": "plasticity_nonhal",
+   "weight": 5,
+   "openalex": false,
+   "query": "(psychoplastogen OR \"non-hallucinogenic\" OR nonhallucinogenic OR tabernanthalog OR zalsupindole OR \"beta-arrestin\" OR \"dendritic spine\" OR neuroplasticity OR \"synaptic plasticity\" OR SV2A) AND (psychedelic OR ketamine OR antidepressant OR \"5-HT2A\" OR serotonin)",
+   "keywords": [
+    "plasticity",
+    "dendritic spine",
+    "spinogenesis",
+    "synaptogenesis",
+    "\\bbdnf\\b",
+    "\\btrkb\\b",
+    "sv2a",
+    "arrestin",
+    "non-?hallucinogenic"
+   ],
+   "_scoring_note": "keywords alone are generic, so this group also needs a psychedelic/ketamine/antidepressant word",
+   "also_requires_re": "psychedelic|psilocybin|\\blsd\\b|\\bdmt\\b|ketamine|antidepress|5-ht2a|serotonin|psychoplastogen"
+  },
+  {
+   "name": "preclinical_psychedelic",
+   "weight": 4,
+   "openalex": false,
+   "query": "{psychedelic_terms} AND (mice OR mouse OR rat OR rats OR rodent OR \"in vitro\" OR neurons OR zebrafish)",
+   "keywords": [
+    "\\bmice\\b",
+    "\\bmouse\\b",
+    "\\brats?\\b",
+    "rodent",
+    "in vitro",
+    "zebrafish",
+    "organoid"
+   ],
+   "all_of": [
+    "psychedelic_any",
+    "@self"
+   ]
+  },
+  {
+   "name": "metabolic_psych",
+   "weight": 3,
+   "openalex": false,
+   "query": "(\"metabolic psychiatry\" OR \"ketogenic diet\" OR ketone OR \"GLP-1\" OR semaglutide OR tirzepatide OR \"brain energy metabolism\" OR \"insulin resistance\" OR mitochondrial) AND (depression OR schizophrenia OR bipolar OR psychiatric OR \"mental health\" OR addiction OR \"alcohol use\")",
+   "keywords": [
+    "metabolic psychiatry",
+    "ketogenic",
+    "ketone",
+    "glp-1",
+    "semaglutide",
+    "tirzepatide",
+    "insulin",
+    "mitochondri"
+   ],
+   "also_requires_re": "depress|schizophren|bipolar|psychiatr|mental health|addiction|alcohol use"
+  },
+  {
+   "name": "stimulation",
+   "weight": 1,
+   "openalex": false,
+   "query": "(\"temporal interference\" OR \"transcranial magnetic stimulation\" OR TMS-EEG OR \"focused ultrasound\") AND (addiction OR craving OR EEG OR nicotine OR smoking)",
+   "keywords": [
+    "temporal interference",
+    "transcranial",
+    "\\btms\\b",
+    "tms-eeg",
+    "focused ultrasound",
+    "\\btacs\\b",
+    "\\btdcs\\b"
+   ],
+   "also_requires_re": "addiction|craving|nicotine|smok|eeg"
+  },
+  {
+   "name": "own_centre",
+   "weight": 6,
+   "openalex": false,
+   "pubmed": "\"Centre for Psychedelic Research\"[ad] OR \"Center for Psychedelic Research\"[ad] OR (\"Imperial College\"[ad] AND (psychedelic* OR psilocybin OR DMT OR LSD))",
+   "europepmc": "AFF:\"Centre for Psychedelic Research\" OR (AFF:\"Imperial College\" AND (psychedelic OR psilocybin OR DMT OR LSD))",
+   "keywords": [
+    "centre for psychedelic research"
+   ]
+  },
+  {
+   "name": "wildcard_top_journals",
+   "weight": 0,
+   "openalex": false,
+   "pubmed": "(\"Nature\"[ta] OR \"Science\"[ta] OR \"Cell\"[ta] OR \"Neuron\"[ta] OR \"Nat Neurosci\"[ta] OR \"Nat Hum Behav\"[ta] OR \"Nat Med\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"Lancet Psychiatry\"[ta] OR \"JAMA\"[ta] OR \"JAMA Psychiatry\"[ta] OR \"Nat Rev Neurosci\"[ta] OR \"Trends Cogn Sci\"[ta] OR \"Trends Neurosci\"[ta] OR \"Nat Mental Health\"[ta] OR \"Mol Psychiatry\"[ta] OR \"Am J Psychiatry\"[ta] OR \"Biol Psychiatry\"[ta]) AND (brain OR neuron* OR neural OR cortex OR cortical OR neuroscience OR psychiatr* OR cognition)",
+   "europepmc": "(JOURNAL:\"Nature\" OR JOURNAL:\"Science\" OR JOURNAL:\"Cell\" OR JOURNAL:\"Neuron\" OR JOURNAL:\"Nature neuroscience\" OR JOURNAL:\"Nature human behaviour\") AND (brain OR neuron OR neural OR cortex OR cortical)",
+   "keywords": [],
+   "_why": "retrieval only; the venue term (top_venue_bonus) does the scoring"
+  },
+  {
+   "name": "eeg_generators",
+   "weight": 9,
+   "openalex": true,
+   "_why": "core interest 7 (30 Oct): neural generators / biophysics of EEG-MEG",
+   "query": "(\"neural generators\" OR \"generators of the EEG\" OR \"laminar\" OR \"current source density\" OR \"forward model\" OR \"biophysical model\" OR \"dipole\" OR \"volume conduction\" OR \"physiological basis\" OR \"cellular origin\" OR \"origin of the EEG\" OR \"simultaneous intracranial and scalp\" OR \"scalp and intracranial\" OR \"pyramidal neurons\") AND (EEG OR MEG OR electroencephalography OR magnetoencephalography OR \"local field potential\")",
+   "keywords": [
+    "neural generators?",
+    "generators? of (the )?(eeg|meg|alpha|gamma|oscillat)",
+    "current source density",
+    "\\bcsd\\b",
+    "biophysical(ly)? (model|basis|realistic)",
+    "volume conduction",
+    "physiological (basis|origin)",
+    "cellular (origin|basis|source)",
+    "(simultaneous|concurrent) (intracranial|scalp)",
+    "scalp[- ](and|to|vs\\.?)[- ]intracranial",
+    "intracranial[- ](and|to)[- ]scalp",
+    "pyramidal (neuron|cell)s?.{0,40}(eeg|meg|field)",
+    "origin of (the )?(eeg|meg|oscillat|aperiodic)",
+    "laminar (recording|profile|source|origin|resolved)",
+    "(eeg|meg|head) forward model",
+    "equivalent current dipole",
+    "leadfield|lead field"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "travelling_waves",
+   "weight": 9,
+   "openalex": true,
+   "_why": "one of Patrick's current analysis interests (generic topic)",
+   "query": "(\"traveling wave\" OR \"travelling wave\" OR \"traveling waves\" OR \"travelling waves\" OR \"propagating wave\" OR \"cortical waves\" OR \"wave propagation\") AND (EEG OR MEG OR ECoG OR cortex OR cortical OR \"local field potential\" OR fMRI)",
+   "keywords": [
+    "travell?ing waves?",
+    "propagating waves?",
+    "cortical waves?",
+    "wave propagation",
+    "spiral waves?",
+    "phase gradient"
+   ],
+   "also_requires_re": "\\beeg\\b|\\bmeg\\b|fmri|\\bbold\\b|cortex|cortical|brain|neural|neuron|\\becog\\b|local field|hippocamp|thalam"
+  },
+  {
+   "name": "dcm_wholebrain",
+   "weight": 9,
+   "openalex": true,
+   "_why": "one of Patrick's current analysis interests (generic topic)",
+   "query": "(\"dynamic causal modelling\" OR \"dynamic causal modeling\" OR \"dynamic causal model\" OR \"canonical microcircuit\" OR \"whole-brain model\" OR \"whole-brain modelling\" OR \"whole-brain modeling\" OR \"neural mass model\" OR \"neural field model\" OR \"spectral DCM\") AND (EEG OR MEG OR ERP OR \"event-related\" OR \"resting state\" OR \"resting-state\" OR fMRI)",
+   "keywords": [
+    "dynamic causal model",
+    "\\bdcm\\b",
+    "canonical microcircuit",
+    "whole-brain model",
+    "neural mass",
+    "neural field model",
+    "spectral dcm",
+    "effective connectivity"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "aperiodic_waveform",
+   "weight": 9,
+   "openalex": true,
+   "_why": "one of Patrick's current analysis interests (generic topic)",
+   "query": "(aperiodic OR \"1/f\" OR \"spectral exponent\" OR \"spectral slope\" OR FOOOF OR specparam OR bycycle OR \"non-sinusoidal\" OR \"nonsinusoidal\" OR \"waveform shape\" OR \"cycle-by-cycle\" OR \"oscillatory bursts\") AND (EEG OR MEG OR ECoG OR \"local field potential\" OR oscillation*)",
+   "keywords": [
+    "aperiodic",
+    "\\b1/f\\b",
+    "spectral (exponent|slope)",
+    "fooof",
+    "specparam",
+    "bycycle",
+    "non-?sinusoidal",
+    "waveform (shape|feature|morpholog)",
+    "cycle-by-cycle",
+    "oscillatory burst"
+   ],
+   "also_requires_re": "\\beeg\\b|\\bmeg\\b|\\becog\\b|\\blfp\\b|local field|neural|neuron|cortic|brain|electrophysiolog"
+  },
+  {
+   "name": "mmn",
+   "weight": 8,
+   "openalex": true,
+   "_why": "one of Patrick's current analysis interests (generic topic)",
+   "query": "(\"mismatch negativity\" OR MMN OR \"roving oddball\" OR \"auditory oddball\" OR \"deviance detection\" OR \"predictive coding\") AND (EEG OR MEG OR ERP OR \"event-related\")",
+   "keywords": [
+    "mismatch negativity",
+    "\\bmmn\\b",
+    "roving (oddball|paradigm)",
+    "auditory oddball",
+    "deviance detection",
+    "predictive coding",
+    "sensory prediction error",
+    "local[- ]global paradigm"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "gambling",
+   "weight": 10,
+   "openalex": true,
+   "_why": "gambling especially (addiction core); imaging or psychedelic required",
+   "query": "(gambling OR \"gambling disorder\" OR \"pathological gambling\" OR \"problem gambling\") AND (EEG OR MEG OR fMRI OR PET OR neuroimaging OR \"event-related potential\" OR psilocybin OR psychedelic)",
+   "keywords": [
+    "gambl"
+   ],
+   "also_requires_re": "eeg|meg|fmri|\\bpet\\b|neuroimag|event-related|erp|psilocyb|psychedel|imaging|brain"
+  },
+  {
+   "name": "cue_reactivity",
+   "weight": 8,
+   "openalex": false,
+   "_why": "one of Patrick's current analysis interests (generic topic)",
+   "query": "(\"cue reactivity\" OR \"cue-reactivity\" OR \"cue-induced\" OR \"drug cue\" OR \"smoking cue\" OR \"gambling cue\" OR \"attentional bias\") AND (EEG OR \"event-related potential\" OR ERP OR LPP OR \"late positive potential\" OR fMRI OR MEG)",
+   "keywords": [
+    "cue[- ]reactiv",
+    "cue[- ]induced",
+    "(drug|smoking|gambling|alcohol|nicotine) cues?",
+    "late positive potential",
+    "\\blpp\\b",
+    "attentional bias"
+   ],
+   "require_imaging": true,
+   "also_requires_re": "addict|gambl|nicotine|smok|alcohol|cocaine|craving|substance|drug|cannabis|opioid"
+  },
+  {
+   "name": "spatial_autocorr",
+   "weight": 7,
+   "openalex": true,
+   "_why": "one of Patrick's current analysis interests (generic topic)",
+   "query": "(\"spatial autocorrelation\" OR \"spatial autocorrelation-preserving\" OR \"spin test\" OR \"spatial null model\" OR \"spatial null models\" OR BrainSMASH OR \"variogram\" OR \"spatial smoothness\") AND (fMRI OR \"brain maps\" OR cortex OR cortical OR connectivity OR neuroimaging)",
+   "keywords": [
+    "spatial(ly)? autocorrelat",
+    "spin test",
+    "spatial null",
+    "brainsmash",
+    "variogram",
+    "spatial smoothness",
+    "neuromaps"
+   ]
+  },
+  {
+   "name": "altered_states_nondrug",
+   "weight": 6,
+   "openalex": true,
+   "_why": "scope 30 Oct: non-drug altered states count like drugs",
+   "query": "(breathwork OR \"holotropic\" OR \"connected breathing\" OR hyperventilation OR meditation OR \"jhana\" OR hypnosis OR \"altered state of consciousness\" OR \"altered states of consciousness\" OR \"flotation\" OR \"dreamachine\" OR \"stroboscopic\") AND (EEG OR MEG OR fMRI OR neuroimaging OR \"brain dynamics\" OR complexity)",
+   "keywords": [
+    "breathwork",
+    "holotropic",
+    "connected breath",
+    "hyperventilat",
+    "meditat",
+    "jhana",
+    "hypnosis|hypnotic state",
+    "altered states? of consciousness",
+    "flotation",
+    "dreamachine",
+    "stroboscopic"
+   ]
+  },
+  {
+   "name": "treatment_prediction",
+   "weight": 7,
+   "openalex": true,
+   "_why": "scope 30 Oct: predicting treatment outcome from EEG/fMRI, esp. psychedelic or stimulation",
+   "query": "(predict* AND (response OR outcome OR remission OR responder*)) AND (EEG OR fMRI OR MEG OR neuroimaging) AND (psilocybin OR psychedelic OR ketamine OR esketamine OR TMS OR \"transcranial magnetic\" OR tDCS OR \"deep brain stimulation\" OR ECT OR \"electroconvulsive\" OR antidepressant OR treatment)",
+   "keywords": [
+    "predict\\w* (of )?(treatment |clinical |therapeutic |antidepressant )?(response|outcome|remission|responders?)",
+    "(treatment|therapeutic) (response|outcome) predict",
+    "responders? (vs\\.?|versus|and) non-?responders?",
+    "biomarkers? of (treatment )?response"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "sleep_consciousness",
+   "weight": 3,
+   "openalex": false,
+   "_why": "scope 30 Oct: only ground-breaking sleep/consciousness work; low base weight, relies on venue/named/biorxiv-top to rise",
+   "query": "(sleep OR \"slow waves\" OR \"sleep spindles\" OR consciousness OR anaesthesia OR anesthesia OR \"disorders of consciousness\") AND (EEG OR MEG OR intracranial OR \"high-density\")",
+   "keywords": [
+    "sleep",
+    "slow[- ]wave",
+    "spindle",
+    "conscious",
+    "anaesthe|anesthe",
+    "propofol",
+    "disorders? of consciousness"
+   ],
+   "require_imaging": true
+  },
+  {
+   "name": "reviews_core",
+   "weight": 0,
+   "openalex": false,
+   "reviews_only": true,
+   "pubmed": "(Review[pt] OR \"Systematic Review\"[pt] OR \"Meta-Analysis\"[pt]) AND ((psychedelic* OR psilocybin OR LSD OR DMT OR MDMA OR ketamine OR psychoplastogen*) OR ((EEG OR MEG OR fMRI OR neuroimaging) AND (complexity OR dynamics OR \"information theory\" OR aperiodic OR oscillations OR addiction OR depression OR consciousness OR interoception)) OR (\"brain dynamics\" OR \"integrated information\" OR \"whole-brain model*\" OR \"neural mass\"))",
+   "europepmc": "(PUB_TYPE:\"review\" OR PUB_TYPE:\"systematic-review\" OR PUB_TYPE:\"meta-analysis\") AND ((psychedelic OR psilocybin OR LSD OR DMT OR MDMA OR ketamine OR psychoplastogen) OR ((EEG OR MEG OR fMRI OR neuroimaging) AND (complexity OR dynamics OR \"information theory\" OR aperiodic OR oscillations OR addiction OR depression OR consciousness OR interoception)) OR (\"brain dynamics\" OR \"integrated information\" OR \"whole-brain model\" OR \"neural mass\"))",
+   "keywords": []
+  },
+  {
+   "name": "reviews_top_journals",
+   "weight": 0,
+   "openalex": false,
+   "reviews_only": true,
+   "pubmed": "\"Nat Rev Neurosci\"[ta] OR \"Trends Cogn Sci\"[ta] OR \"Trends Neurosci\"[ta] OR \"Annu Rev Neurosci\"[ta] OR \"Annu Rev Psychol\"[ta] OR \"Nat Rev Psychol\"[ta] OR \"Nat Rev Drug Discov\"[ta] OR \"Pharmacol Rev\"[ta] OR (\"Neuron\"[ta] AND Review[pt]) OR (\"Nat Neurosci\"[ta] AND Review[pt]) OR (\"Lancet Psychiatry\"[ta] AND Review[pt]) OR (\"Mol Psychiatry\"[ta] AND Review[pt])",
+   "keywords": []
+  }
+ ],
+ "named_researchers": {
+  "_note": "From brief.md (supervisor + named examples + 'wider field' list). PubMed [fau] queries; also matched against author lists of every record. 'strict' = surname too common, require full first name.",
+  "people": [
+   {
+    "name": "Pedro Mediano",
+    "surname": "Mediano",
+    "first": "Pedro"
+   },
+   {
+    "name": "Junheng Li",
+    "surname": "Li",
+    "first": "Junheng",
+    "strict": true
+   },
+   {
+    "name": "George Blackburne",
+    "surname": "Blackburne",
+    "first": "George"
+   },
+   {
+    "name": "James Pang",
+    "surname": "Pang",
+    "first": "James",
+    "strict": true
+   },
+   {
+    "name": "Robert Leech",
+    "surname": "Leech",
+    "first": "Robert"
+   },
+   {
+    "name": "Eli Müller",
+    "surname": "Müller",
+    "first": "Eli",
+    "strict": true,
+    "alt_surnames": [
+     "Muller",
+     "Mueller"
+    ]
+   },
+   {
+    "name": "Katja Heuer",
+    "surname": "Heuer",
+    "first": "Katja"
+   },
+   {
+    "name": "Justine Y. Hansen",
+    "surname": "Hansen",
+    "first": "Justine",
+    "strict": true
+   },
+   {
+    "name": "Daniel Margulies",
+    "surname": "Margulies",
+    "first": "Daniel"
+   },
+   {
+    "name": "Bradley Voytek",
+    "surname": "Voytek",
+    "first": "Bradley"
+   },
+   {
+    "name": "Andrea Luppi",
+    "surname": "Luppi",
+    "first": "Andrea"
+   },
+   {
+    "name": "Alex Kwan",
+    "surname": "Kwan",
+    "first": "Alex",
+    "strict": true
+   },
+   {
+    "name": "Roberto De Filippo",
+    "surname": "De Filippo",
+    "first": "Roberto"
+   },
+   {
+    "name": "Natalie Schaworonkow",
+    "surname": "Schaworonkow",
+    "first": "Natalie"
+   },
+   {
+    "name": "Luiz Pessoa",
+    "surname": "Pessoa",
+    "first": "Luiz"
+   }
+  ],
+  "weight": 5
+ },
+ "modality_bonus": {
+  "eeg": 4.0,
+  "fmri": 2.5,
+  "other": 1.0,
+  "eeg_re": "\\beeg\\b|electroencephalog|\\bmeg\\b|magnetoencephalog|\\berps?\\b|event-related potential|\\bopm\\b|intracranial|\\becog\\b|electrocorticog|\\bseeg\\b|\\blfp\\b",
+  "fmri_re": "fmri|functional mri|functional magnetic resonance|bold signal|resting[- ]state network|functional connectivity",
+  "other_re": "\\bpet\\b|positron emission|diffusion mri|\\bdti\\b|\\bdwi\\b|tractograph|neuroimaging|neuropixels"
+ },
+ "venues": {
+  "tier1": [
+   "nature",
+   "science",
+   "cell",
+   "neuron",
+   "nature neuroscience",
+   "nature human behaviour",
+   "nature medicine",
+   "new england journal of medicine",
+   "the lancet",
+   "lancet",
+   "the lancet psychiatry",
+   "jama",
+   "jama psychiatry",
+   "nature reviews neuroscience",
+   "nature mental health"
+  ],
+  "tier2": [
+   "proceedings of the national academy of sciences",
+   "pnas",
+   "elife",
+   "nature communications",
+   "science advances",
+   "molecular psychiatry",
+   "biological psychiatry",
+   "american journal of psychiatry",
+   "neuropsychopharmacology",
+   "the journal of neuroscience",
+   "journal of neuroscience",
+   "neuroimage",
+   "plos biology",
+   "current biology",
+   "brain",
+   "trends in cognitive sciences",
+   "trends in neurosciences",
+   "annual review of neuroscience",
+   "communications biology",
+   "cell reports",
+   "psychological medicine",
+   "biological psychiatry: cognitive neuroscience and neuroimaging",
+   "translational psychiatry",
+   "network neuroscience",
+   "imaging neuroscience",
+   "human brain mapping",
+   "cerebral cortex",
+   "plos computational biology",
+   "journal of psychopharmacology",
+   "psychopharmacology",
+   "acs pharmacology & translational science",
+   "neuroscience & biobehavioral reviews",
+   "neuroscience and biobehavioral reviews"
+  ],
+  "tier1_bonus": 1.5,
+  "tier2_bonus": 0.75,
+  "_comment": "top_venue_bonus: small, modest, separate configurable term (NOT impact-factor weighting; Patrick wants to discuss IF weighting first). Set both to 0 to disable."
+ },
+ "bulk_sources": {
+  "biorxiv_categories": [
+   "neuroscience",
+   "pharmacology_and_toxicology"
+  ],
+  "medrxiv_categories": [
+   "psychiatry_and_clinical_psychology",
+   "neurology",
+   "addiction_medicine",
+   "radiology_and_imaging"
+  ],
+  "arxiv_categories": [
+   "q-bio.NC"
+  ],
+  "min_keyword_score": 2.0,
+  "_note": "Bulk sources return EVERYTHING posted in the window; records below min_keyword_score (group keyword + modality score) are dropped before ranking."
+ },
+ "clinicaltrials_terms": [
+  "psilocybin",
+  "psychedelic",
+  "LSD",
+  "lysergic",
+  "5-MeO-DMT",
+  "mebufotenin",
+  "MDMA",
+  "ayahuasca",
+  "ibogaine",
+  "mescaline",
+  "COMP360",
+  "psilocin",
+  "dimethyltryptamine",
+  "5-MeO",
+  "2C-B",
+  "LSD-assisted",
+  "MM120",
+  "CYB003"
+ ],
+ "scoring": {
+  "tfidf_archive_weight": 8.0,
+  "liked_weight": 10.0,
+  "disliked_weight": -6.0,
+  "biorxiv_top20_bonus": 3.0,
+  "biorxiv_top100_bonus": 1.5,
+  "no_abstract_penalty": -1.5,
+  "top_n": 60,
+  "reviews_top_n": 15,
+  "group_decay": [
+   1.0,
+   0.5,
+   0.3,
+   0.2
+  ],
+  "repository_penalty": -8,
+  "repository_venues": [
+   "zenodo",
+   "figshare",
+   "osf preprints",
+   "open science framework",
+   "preprints.org",
+   "qeios",
+   "authorea",
+   "mendeley data",
+   "digital repository",
+   "yoda",
+   "dryad",
+   "dataverse",
+   "research data",
+   "data repository"
+  ],
+  "stale_pubdate_days": 60,
+  "stale_penalty": -1.5,
+  "modality_abstract_factor": 0.6,
+  "engineering_penalty": -4.0,
+  "engineering_re": "emotion recognition|motor imagery|brain[- ]computer interface|\\bbci\\b|seizure (detection|prediction|forecast)|sleep stag(e|ing) (classification|scoring)|driver|fatigue detection|(deep|machine) learning (model|framework|network) for|classification accuracy|foundation model|transformer (network|model)|convolutional neural|wearable|artifact removal|self-powered|graphene|nanogenerator|triboelectric|hydrogel electrode|flexible electronics",
+  "_engineering_comment": "EEG engineering/ML-application papers (BCI, classifiers) are not what the brief means by novel analysis; penalised, not dropped",
+  "ml_comment": "ML / EEG foundation models are a long-term goal, not current: penalised via engineering_re unless psychedelic"
+ },
+ "_group_rules": "Group scoring: a group counts if one of its 'keywords' matches title/abstract (title = full weight, abstract-only = 0.6x), or if the record was returned by that group's API query (0.6x). 'require_imaging' = also needs an EEG/MEG/fMRI/PET-type word; 'all_of' = all listed groups must match ('@imaging' imaging word, '@addiction' addiction word, '@self' this group's own keywords); 'also_requires_re' = an extra regex that must match. reviews_only groups only feed the separate reviews list.",
+ "keyword_negations": {
+  "_comment": "if a keyword's match is only explained by a non-psychedelic usage, ignore it",
+  "\\bdmt\\b": "disease[- ]modifying|\\bdmts\\b",
+  "\\blsd\\b": "least significant difference"
+ },
+ "current_analyses": {
+  "_comment": "Separate labelled term: extra boost when a paper matches one of Patrick's current/upcoming analyses (brief, 30 Oct). Title hit = full, abstract hit = 0.6x.",
+  "bonus": 3.0,
+  "groups": [
+   "travelling_waves",
+   "dcm_wholebrain",
+   "aperiodic_waveform",
+   "mmn",
+   "gambling",
+   "cue_reactivity",
+   "brain_body",
+   "spatial_autocorr",
+   "eeg_generators"
+  ]
+ }
+}
