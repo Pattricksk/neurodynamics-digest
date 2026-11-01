@@ -67,16 +67,18 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0079",
+   "001-0041",
    "001-0045",
    "001-0010",
-   "001-0041",
    "001-0033"
   ],
   "similar_w": [
-   0.09,
+   0.141,
    0.086,
-   0.08,
-   0.055
+   0.078,
+   0.077,
+   0.051
   ],
   "zotero": true,
   "venue_clean": "JAMA",
@@ -154,13 +156,17 @@
    "001-0002",
    "001-0030",
    "001-0031",
-   "001-0011"
+   "002-0077",
+   "002-0065",
+   "002-0068"
   ],
   "similar_w": [
-   0.174,
-   0.102,
-   0.074,
-   0.056
+   0.173,
+   0.094,
+   0.067,
+   0.065,
+   0.064,
+   0.063
   ],
   "zotero": true,
   "venue_clean": "Nature Neuroscience",
@@ -224,16 +230,18 @@
   "similar": [
    "001-0001",
    "001-0030",
+   "002-0090",
+   "002-0068",
    "001-0032",
-   "001-0031",
-   "001-0013"
+   "001-0031"
   ],
   "similar_w": [
-   0.174,
-   0.111,
-   0.095,
-   0.09,
-   0.058
+   0.173,
+   0.103,
+   0.096,
+   0.085,
+   0.081,
+   0.08
   ],
   "zotero": true,
   "venue_clean": "Nature Neuroscience",
@@ -304,16 +312,18 @@
   "similar": [
    "001-0022",
    "001-0015",
+   "002-0067",
    "001-0006",
-   "001-0004",
-   "001-0061"
+   "002-0075",
+   "001-0004"
   ],
   "similar_w": [
-   0.078,
-   0.074,
+   0.082,
+   0.066,
    0.062,
-   0.058,
-   0.055
+   0.06,
+   0.056,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -373,16 +383,20 @@
   ],
   "stage": "Clinical",
   "similar": [
-   "001-0019",
+   "002-0075",
+   "002-0080",
+   "002-0063",
+   "001-0039",
    "001-0003",
-   "001-0026",
-   "001-0039"
+   "002-0087"
   ],
   "similar_w": [
-   0.074,
+   0.181,
+   0.179,
+   0.086,
    0.058,
    0.054,
-   0.053
+   0.054
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -445,10 +459,12 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0064",
    "001-0007"
   ],
   "similar_w": [
-   0.055
+   0.059,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -505,10 +521,14 @@
   ],
   "stage": "Clinical",
   "similar": [
-   "001-0003"
+   "002-0069",
+   "001-0003",
+   "002-0067"
   ],
   "similar_w": [
-   0.062
+   0.065,
+   0.06,
+   0.052
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -575,14 +595,18 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0074",
    "001-0014",
    "001-0059",
+   "002-0069",
    "001-0005"
   ],
   "similar_w": [
-   0.113,
-   0.08,
-   0.055
+   0.17,
+   0.094,
+   0.087,
+   0.058,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "Brain",
@@ -646,15 +670,19 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0068",
    "001-0025",
-   "001-0027",
    "001-0032",
+   "001-0027",
+   "002-0064",
    "001-0013"
   ],
   "similar_w": [
-   0.25,
-   0.068,
-   0.055,
+   0.325,
+   0.22,
+   0.057,
+   0.057,
+   0.056,
    0.054
   ],
   "zotero": true,
@@ -730,12 +758,18 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0088",
+   "002-0065",
+   "001-0036",
    "001-0016",
-   "001-0036"
+   "001-0060"
   ],
   "similar_w": [
-   0.086,
-   0.068
+   0.087,
+   0.071,
+   0.068,
+   0.066,
+   0.05
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -804,17 +838,17 @@
   "stage": "Clinical",
   "similar": [
    "001-0011",
+   "002-0083",
    "001-0000",
-   "001-0045",
-   "001-0061",
-   "001-0033"
+   "002-0086",
+   "001-0045"
   ],
   "similar_w": [
-   0.199,
-   0.086,
-   0.083,
-   0.061,
-   0.054
+   0.205,
+   0.138,
+   0.077,
+   0.071,
+   0.07
   ],
   "zotero": true,
   "venue_clean": "Psychopharmacology",
@@ -887,12 +921,12 @@
    "001-0028"
   ],
   "similar_w": [
-   0.199,
-   0.114,
-   0.106,
-   0.086,
-   0.081,
-   0.076
+   0.205,
+   0.116,
+   0.1,
+   0.092,
+   0.085,
+   0.073
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -944,13 +978,11 @@
   "stage": "",
   "similar": [
    "001-0013",
-   "001-0021",
-   "001-0020"
+   "001-0021"
   ],
   "similar_w": [
    0.176,
-   0.146,
-   0.055
+   0.151
   ],
   "zotero": true,
   "venue_clean": "Cell Reports Physical Science",
@@ -1024,15 +1056,15 @@
    "001-0032",
    "001-0011",
    "001-0015",
-   "001-0043"
+   "002-0067"
   ],
   "similar_w": [
-   0.194,
+   0.197,
    0.176,
-   0.097,
-   0.081,
-   0.076,
-   0.068
+   0.102,
+   0.085,
+   0.078,
+   0.075
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1106,18 +1138,18 @@
   "similar": [
    "001-0013",
    "001-0007",
-   "001-0060",
-   "001-0015",
    "001-0011",
-   "001-0043"
+   "001-0015",
+   "001-0043",
+   "001-0016"
   ],
   "similar_w": [
-   0.194,
-   0.113,
-   0.099,
-   0.087,
-   0.086,
-   0.076
+   0.197,
+   0.094,
+   0.092,
+   0.089,
+   0.084,
+   0.08
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1192,14 +1224,16 @@
    "001-0014",
    "001-0013",
    "001-0003",
+   "002-0082",
    "001-0011"
   ],
   "similar_w": [
-   0.106,
-   0.087,
-   0.076,
-   0.074,
-   0.064
+   0.102,
+   0.089,
+   0.078,
+   0.066,
+   0.063,
+   0.063
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1278,18 +1312,18 @@
   "similar": [
    "001-0029",
    "001-0021",
-   "001-0009",
+   "002-0065",
+   "002-0088",
    "001-0032",
-   "001-0014",
-   "001-0019"
+   "001-0014"
   ],
   "similar_w": [
-   0.114,
-   0.103,
-   0.086,
-   0.075,
-   0.072,
-   0.06
+   0.127,
+   0.102,
+   0.091,
+   0.085,
+   0.082,
+   0.08
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1346,12 +1380,20 @@
   ],
   "stage": "Pre-clinical",
   "similar": [
+   "002-0075",
+   "002-0087",
+   "002-0068",
+   "001-0022",
    "001-0032",
-   "001-0022"
+   "001-0023"
   ],
   "similar_w": [
+   0.095,
+   0.089,
    0.068,
-   0.055
+   0.057,
+   0.057,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1418,10 +1460,20 @@
   ],
   "stage": "Pre-clinical",
   "similar": [
-   "001-0014"
+   "002-0064",
+   "002-0066",
+   "002-0080",
+   "002-0076",
+   "001-0014",
+   "002-0069"
   ],
   "similar_w": [
-   0.066
+   0.098,
+   0.08,
+   0.079,
+   0.073,
+   0.06,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "Research Square",
@@ -1476,13 +1528,13 @@
   "stage": "Clinical",
   "similar": [
    "001-0061",
-   "001-0004",
-   "001-0016"
+   "001-0016",
+   "001-0004"
   ],
   "similar_w": [
-   0.124,
-   0.074,
-   0.06
+   0.096,
+   0.053,
+   0.053
   ],
   "zotero": true,
   "venue_clean": "Research Square",
@@ -1537,11 +1589,15 @@
   ],
   "stage": "Pre-clinical",
   "similar": [
+   "002-0068",
+   "002-0080",
    "001-0013",
-   "001-0012"
+   "001-0032"
   ],
   "similar_w": [
-   0.063,
+   0.106,
+   0.1,
+   0.07,
    0.055
   ],
   "zotero": true,
@@ -1595,19 +1651,19 @@
   "stage": "",
   "similar": [
    "001-0012",
-   "001-0016",
    "001-0060",
+   "001-0016",
+   "002-0066",
    "001-0036",
-   "001-0061",
-   "001-0059"
+   "001-0061"
   ],
   "similar_w": [
-   0.146,
-   0.103,
-   0.093,
-   0.074,
-   0.07,
-   0.051
+   0.151,
+   0.102,
+   0.102,
+   0.083,
+   0.079,
+   0.078
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1661,14 +1717,20 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0075",
+   "002-0081",
    "001-0035",
+   "002-0085",
    "001-0003",
    "001-0017"
   ],
   "similar_w": [
-   0.101,
-   0.078,
-   0.055
+   0.112,
+   0.112,
+   0.106,
+   0.099,
+   0.082,
+   0.057
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -1745,10 +1807,14 @@
   ],
   "stage": "Clinical",
   "similar": [
-   "001-0024"
+   "002-0082",
+   "001-0024",
+   "001-0017"
   ],
   "similar_w": [
-   0.075
+   0.088,
+   0.068,
+   0.054
   ],
   "zotero": true,
   "venue_clean": "Brain Communications",
@@ -1810,16 +1876,20 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0082",
    "001-0015",
    "001-0026",
+   "002-0081",
    "001-0023",
-   "001-0025"
+   "002-0090"
   ],
   "similar_w": [
-   0.106,
-   0.1,
-   0.075,
-   0.055
+   0.253,
+   0.102,
+   0.081,
+   0.069,
+   0.068,
+   0.065
   ],
   "zotero": true,
   "venue_clean": "medRxiv",
@@ -1885,12 +1955,14 @@
   "similar": [
    "001-0038",
    "001-0008",
-   "001-0024"
+   "002-0068",
+   "002-0064"
   ],
   "similar_w": [
-   0.32,
-   0.25,
-   0.055
+   0.329,
+   0.22,
+   0.179,
+   0.074
   ],
   "zotero": true,
   "venue_clean": "Neuroscience Bulletin",
@@ -1947,16 +2019,20 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0088",
    "001-0029",
    "001-0034",
+   "002-0085",
    "001-0024",
-   "001-0004"
+   "002-0076"
   ],
   "similar_w": [
-   0.113,
-   0.108,
-   0.1,
-   0.054
+   0.143,
+   0.111,
+   0.101,
+   0.089,
+   0.081,
+   0.08
   ],
   "zotero": true,
   "venue_clean": "Scientific Reports",
@@ -2023,9 +2099,9 @@
    "001-0035"
   ],
   "similar_w": [
-   0.075,
-   0.068,
-   0.054
+   0.08,
+   0.057,
+   0.052
   ],
   "zotero": true,
   "venue_clean": "Nature",
@@ -2081,13 +2157,13 @@
   "stage": "Clinical",
   "similar": [
    "001-0029",
-   "001-0011",
-   "001-0027"
+   "001-0027",
+   "001-0011"
   ],
   "similar_w": [
-   0.089,
-   0.076,
-   0.075
+   0.094,
+   0.08,
+   0.073
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -2159,20 +2235,20 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0085",
    "001-0016",
    "001-0011",
-   "001-0026",
    "001-0032",
-   "001-0028",
-   "001-0036"
+   "001-0026",
+   "001-0028"
   ],
   "similar_w": [
+   0.177,
+   0.127,
+   0.116,
    0.114,
-   0.114,
-   0.113,
-   0.108,
-   0.089,
-   0.087
+   0.111,
+   0.094
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -2238,12 +2314,16 @@
   "similar": [
    "001-0031",
    "001-0002",
-   "001-0001"
+   "001-0001",
+   "002-0077",
+   "002-0068"
   ],
   "similar_w": [
-   0.117,
-   0.111,
-   0.102
+   0.106,
+   0.103,
+   0.094,
+   0.077,
+   0.063
   ],
   "zotero": true,
   "venue_clean": "Psychopharmacology",
@@ -2320,18 +2400,18 @@
   "similar": [
    "001-0061",
    "001-0030",
+   "002-0069",
+   "001-0060",
    "001-0002",
-   "001-0001",
-   "001-0036",
-   "001-0060"
+   "002-0077"
   ],
   "similar_w": [
-   0.141,
-   0.117,
-   0.09,
-   0.074,
-   0.073,
-   0.07
+   0.129,
+   0.106,
+   0.101,
+   0.08,
+   0.08,
+   0.076
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -2429,20 +2509,20 @@
   ],
   "stage": "Clinical",
   "similar": [
+   "002-0090",
    "001-0029",
    "001-0013",
-   "001-0002",
    "001-0034",
-   "001-0016",
-   "001-0017"
+   "002-0070",
+   "001-0016"
   ],
   "similar_w": [
-   0.108,
-   0.097,
-   0.095,
-   0.088,
-   0.075,
-   0.068
+   0.125,
+   0.114,
+   0.102,
+   0.094,
+   0.083,
+   0.082
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -2511,18 +2591,14 @@
   ],
   "stage": "Clinical",
   "similar": [
-   "001-0045",
    "001-0041",
-   "001-0000",
-   "001-0010",
-   "001-0061"
+   "001-0045",
+   "001-0000"
   ],
   "similar_w": [
-   0.067,
-   0.063,
-   0.055,
+   0.062,
    0.054,
-   0.053
+   0.051
   ],
   "zotero": true,
   "venue_clean": "Behavioral Sciences",
@@ -2613,12 +2689,14 @@
   "similar": [
    "001-0026",
    "001-0032",
-   "001-0045"
+   "002-0088",
+   "002-0086"
   ],
   "similar_w": [
-   0.108,
-   0.088,
-   0.052
+   0.101,
+   0.094,
+   0.065,
+   0.05
   ],
   "zotero": true,
   "venue_clean": "JAMA Psychiatry",
@@ -2674,14 +2752,14 @@
   "stage": "Clinical",
   "similar": [
    "001-0022",
-   "001-0016",
-   "001-0027",
-   "001-0061"
+   "002-0065",
+   "001-0061",
+   "001-0027"
   ],
   "similar_w": [
-   0.101,
-   0.056,
-   0.054,
+   0.106,
+   0.063,
+   0.058,
    0.052
   ],
   "zotero": true,
@@ -2733,12 +2811,12 @@
    "001-0031"
   ],
   "similar_w": [
-   0.316,
-   0.29,
-   0.258,
-   0.087,
-   0.074,
-   0.073
+   0.325,
+   0.305,
+   0.26,
+   0.093,
+   0.079,
+   0.076
   ],
   "zotero": false,
   "venue_clean": "biorxiv-top (RobertoDF)",
@@ -2789,11 +2867,15 @@
   "stage": "",
   "similar": [
    "001-0039",
-   "001-0040"
+   "001-0040",
+   "002-0085",
+   "002-0087"
   ],
   "similar_w": [
-   0.236,
-   0.213
+   0.235,
+   0.215,
+   0.067,
+   0.06
   ],
   "zotero": true,
   "venue_clean": "Zenodo",
@@ -2846,10 +2928,12 @@
   ],
   "stage": "Clinical",
   "similar": [
-   "001-0025"
+   "001-0025",
+   "002-0067"
   ],
   "similar_w": [
-   0.32
+   0.329,
+   0.119
   ],
   "zotero": true,
   "venue_clean": "OSF",
@@ -2898,12 +2982,14 @@
   "similar": [
    "001-0040",
    "001-0037",
+   "002-0087",
    "001-0004"
   ],
   "similar_w": [
-   0.401,
-   0.236,
-   0.053
+   0.397,
+   0.235,
+   0.089,
+   0.058
   ],
   "zotero": false,
   "venue_clean": "",
@@ -2951,11 +3037,15 @@
   "stage": "",
   "similar": [
    "001-0039",
-   "001-0037"
+   "001-0037",
+   "002-0066",
+   "002-0087"
   ],
   "similar_w": [
-   0.401,
-   0.213
+   0.397,
+   0.215,
+   0.083,
+   0.08
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3014,10 +3104,10 @@
    "001-0033"
   ],
   "similar_w": [
-   0.112,
-   0.08,
-   0.076,
-   0.063
+   0.119,
+   0.086,
+   0.085,
+   0.062
   ],
   "zotero": false,
   "venue_clean": "ICER",
@@ -3067,17 +3157,17 @@
   "stage": "",
   "similar": [
    "001-0043",
+   "002-0090",
    "001-0041",
-   "001-0013",
-   "001-0045",
-   "001-0055"
+   "002-0071",
+   "001-0013"
   ],
   "similar_w": [
-   0.358,
-   0.076,
-   0.057,
-   0.053,
-   0.052
+   0.399,
+   0.114,
+   0.085,
+   0.064,
+   0.056
   ],
   "zotero": false,
   "venue_clean": "FDA",
@@ -3128,18 +3218,18 @@
   "similar": [
    "001-0042",
    "001-0041",
-   "001-0011",
    "001-0048",
+   "001-0011",
    "001-0014",
-   "001-0044"
+   "001-0013"
   ],
   "similar_w": [
-   0.358,
-   0.112,
-   0.106,
-   0.105,
-   0.076,
-   0.071
+   0.399,
+   0.119,
+   0.108,
+   0.1,
+   0.084,
+   0.074
   ],
   "zotero": false,
   "venue_clean": "Psychedelic Alpha",
@@ -3194,8 +3284,8 @@
    "001-0043"
   ],
   "similar_w": [
-   0.1,
-   0.072,
+   0.096,
+   0.08,
    0.071
   ],
   "zotero": true,
@@ -3252,20 +3342,20 @@
   ],
   "stage": "",
   "similar": [
+   "002-0070",
+   "002-0071",
+   "002-0084",
+   "002-0083",
    "001-0000",
-   "001-0010",
-   "001-0033",
-   "001-0061",
-   "001-0031",
-   "001-0042"
+   "001-0010"
   ],
   "similar_w": [
+   0.406,
+   0.34,
    0.09,
-   0.083,
-   0.067,
-   0.066,
-   0.06,
-   0.053
+   0.088,
+   0.078,
+   0.07
   ],
   "zotero": false,
   "venue_clean": "ClinicalTrials.gov",
@@ -3306,13 +3396,19 @@
   "stage": "",
   "similar": [
    "001-0048",
+   "002-0072",
    "001-0051",
-   "001-0047"
+   "001-0047",
+   "001-0050",
+   "001-0056"
   ],
   "similar_w": [
-   0.077,
-   0.062,
-   0.05
+   0.093,
+   0.089,
+   0.072,
+   0.064,
+   0.058,
+   0.058
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3356,16 +3452,16 @@
    "001-0049",
    "001-0043",
    "001-0056",
-   "001-0013",
-   "001-0014"
+   "001-0046",
+   "001-0050"
   ],
   "similar_w": [
-   0.123,
-   0.101,
-   0.065,
-   0.059,
-   0.052,
-   0.051
+   0.147,
+   0.115,
+   0.071,
+   0.069,
+   0.064,
+   0.06
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3407,18 +3503,18 @@
   "similar": [
    "001-0047",
    "001-0043",
-   "001-0044",
    "001-0049",
    "001-0056",
+   "001-0044",
    "001-0046"
   ],
   "similar_w": [
-   0.123,
-   0.105,
-   0.1,
-   0.094,
-   0.089,
-   0.077
+   0.147,
+   0.108,
+   0.099,
+   0.098,
+   0.096,
+   0.093
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3461,11 +3557,17 @@
   "stage": "",
   "similar": [
    "001-0047",
-   "001-0048"
+   "001-0048",
+   "001-0054",
+   "001-0046",
+   "001-0050"
   ],
   "similar_w": [
-   0.101,
-   0.094
+   0.115,
+   0.099,
+   0.055,
+   0.054,
+   0.051
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3506,11 +3608,19 @@
   "stage": "",
   "similar": [
    "001-0052",
-   "001-0051"
+   "001-0051",
+   "002-0072",
+   "001-0048",
+   "001-0047",
+   "001-0046"
   ],
   "similar_w": [
-   0.503,
-   0.151
+   0.493,
+   0.168,
+   0.144,
+   0.065,
+   0.06,
+   0.058
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3553,13 +3663,17 @@
    "001-0050",
    "001-0052",
    "001-0048",
-   "001-0046"
+   "001-0046",
+   "001-0047",
+   "001-0056"
   ],
   "similar_w": [
-   0.151,
-   0.111,
-   0.067,
-   0.062
+   0.168,
+   0.123,
+   0.08,
+   0.072,
+   0.054,
+   0.05
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3600,11 +3714,13 @@
   "stage": "",
   "similar": [
    "001-0050",
-   "001-0051"
+   "001-0051",
+   "002-0072"
   ],
   "similar_w": [
-   0.503,
-   0.111
+   0.493,
+   0.123,
+   0.105
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3650,9 +3766,9 @@
    "001-0058"
   ],
   "similar_w": [
-   0.106,
-   0.099,
-   0.091
+   0.109,
+   0.104,
+   0.093
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3696,17 +3812,17 @@
    "001-0055",
    "001-0057",
    "001-0056",
-   "001-0053",
    "001-0058",
+   "001-0053",
    "001-0048"
   ],
   "similar_w": [
-   0.247,
-   0.227,
-   0.203,
-   0.099,
-   0.097,
-   0.055
+   0.269,
+   0.236,
+   0.217,
+   0.108,
+   0.104,
+   0.059
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3751,16 +3867,14 @@
    "001-0054",
    "001-0057",
    "001-0058",
-   "001-0053",
-   "001-0042"
+   "001-0053"
   ],
   "similar_w": [
-   0.255,
-   0.247,
-   0.164,
-   0.128,
-   0.106,
-   0.052
+   0.273,
+   0.269,
+   0.18,
+   0.14,
+   0.109
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3809,12 +3923,12 @@
    "001-0047"
   ],
   "similar_w": [
-   0.255,
-   0.203,
-   0.15,
-   0.089,
-   0.086,
-   0.059
+   0.273,
+   0.217,
+   0.162,
+   0.098,
+   0.096,
+   0.069
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3858,13 +3972,15 @@
    "001-0054",
    "001-0055",
    "001-0056",
+   "002-0072",
    "001-0058"
   ],
   "similar_w": [
-   0.227,
-   0.164,
-   0.15,
-   0.074
+   0.236,
+   0.18,
+   0.162,
+   0.132,
+   0.082
   ],
   "zotero": false,
   "venue_clean": "",
@@ -3907,16 +4023,16 @@
   "similar": [
    "001-0055",
    "001-0054",
-   "001-0053",
    "001-0056",
+   "001-0053",
    "001-0057"
   ],
   "similar_w": [
-   0.128,
-   0.097,
-   0.091,
-   0.086,
-   0.074
+   0.14,
+   0.108,
+   0.096,
+   0.093,
+   0.082
   ],
   "zotero": false,
   "venue_clean": "",
@@ -4027,11 +4143,11 @@
    "001-0021"
   ],
   "similar_w": [
-   0.316,
-   0.192,
-   0.181,
-   0.08,
-   0.051
+   0.325,
+   0.195,
+   0.19,
+   0.087,
+   0.053
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -4092,17 +4208,17 @@
    "001-0036",
    "001-0061",
    "001-0059",
-   "001-0014",
    "001-0021",
-   "001-0029"
+   "001-0029",
+   "001-0031"
   ],
   "similar_w": [
-   0.258,
-   0.204,
-   0.181,
-   0.099,
-   0.093,
-   0.076
+   0.26,
+   0.225,
+   0.19,
+   0.102,
+   0.086,
+   0.08
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
@@ -4186,18 +4302,2090 @@
    "001-0059",
    "001-0031",
    "001-0019",
-   "001-0021"
+   "002-0086"
   ],
   "similar_w": [
-   0.29,
-   0.204,
-   0.192,
-   0.141,
-   0.124,
-   0.07
+   0.305,
+   0.225,
+   0.195,
+   0.129,
+   0.096,
+   0.082
   ],
   "zotero": true,
   "venue_clean": "bioRxiv",
   "detail_url": "item/001-0061.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "The headline act",
+  "title": "Quiet breathing evokes scalp EEG potentials in wakefulness and in every sleep stage",
+  "authors": [
+   "Grassion L",
+   "Andrillon T",
+   "Similowski T"
+  ],
+  "venue": "Journal of Physiology",
+  "pub_date": "2026-10-28",
+  "doi": "10.1113/jp290737",
+  "url": "https://doi.org/10.1113/jp290737",
+  "item_type": "paper",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "adults (Cleveland Family Study)"
+  ],
+  "methods": [
+   "polysomnography EEG",
+   "respiration-locked averaging"
+  ],
+  "topics": [
+   "brain-body coupling",
+   "respiration",
+   "sleep"
+  ],
+  "summary": "Using Cleveland Family Study polysomnography from 729 participants (median 7,871 respiratory cycles each), the authors averaged EEG time-locked to inspiration onset. They found a pre-inspiratory component about 300 ms before inspiration and post-inspiratory peaks up to 3 s after. The potentials persisted in N2, N3 and REM sleep with a simplified, K-complex-like shape, alongside more spindle-range activity. They were present regardless of BMI and unchanged in the 203 participants without sleep-disordered breathing.",
+  "caveats": "What these potentials mean physiologically or clinically is still unknown, and scalp EEG can't say where they come from. Polysomnography montages are sparse.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "AB",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s01",
+  "relevance": 3,
+  "id": "002-0062",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "EEG"
+  ],
+  "disorders": [],
+  "method_groups": [
+   "Brain–body physiology"
+  ],
+  "similar": [
+   "002-0085",
+   "002-0067"
+  ],
+  "similar_w": [
+   0.125,
+   0.073
+  ],
+  "zotero": true,
+  "venue_clean": "Journal of Physiology",
+  "detail_url": "item/002-0062.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "EEG",
+  "title": "A canonical microcircuit DCM for estimating excitation/inhibition balance from ERPs",
+  "authors": [
+   "Hauke DJ",
+   "Adams RA"
+  ],
+  "venue": "Translational Psychiatry",
+  "pub_date": "2026-07-31",
+  "doi": "10.1038/s41398-026-04312-y",
+  "url": "https://doi.org/10.1038/s41398-026-04312-y",
+  "item_type": "paper",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "healthy volunteers (B-SNIP, NAPLS-2)"
+  ],
+  "methods": [
+   "DCM",
+   "canonical microcircuit",
+   "EEG ERPs"
+  ],
+  "topics": [
+   "E/I balance",
+   "MMN",
+   "computational psychiatry"
+  ],
+  "summary": "Requested by you, so it's outside the usual one-week window. The authors extend the convolution-based canonical microcircuit (four populations: spiny stellate, superficial pyramidal, inhibitory interneurons, deep pyramidal) with two global (across-region) excitability parameters, modelled as self-inhibition: one for pyramidal (E) cells and one for inhibitory (I) cells, plus condition-specific modulations of each. They fitted healthy EEG from B-SNIP and NAPLS-2 in three paradigms, each with a six-region network: paired clicks (n = 266), a passive double-deviant MMN oddball (n = 241) and an acti",
+  "caveats": "The patient-like effects are simulations; no patient data were fitted. I-cell recovery is only fair and test–retest reliability is unknown. The E self-inhibition parameter might partly reflect a PV interneuron loop rather than pyramidal cells themselves. Code and empirical priors are public (SPM12 r7771, MATLAB). No competing interests declared; funded by Adams's UKRI Future Leaders Fellowship and Wellcome (Friston). Version of record 27 Oct.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "requested",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s02",
+  "relevance": 3,
+  "id": "002-0063",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "EEG"
+  ],
+  "disorders": [
+   "Healthy volunteers"
+  ],
+  "method_groups": [
+   "ERP / MMN / predictive coding",
+   "Computational / whole-brain modelling"
+  ],
+  "similar": [
+   "002-0081",
+   "001-0004",
+   "002-0080"
+  ],
+  "similar_w": [
+   0.093,
+   0.086,
+   0.053
+  ],
+  "zotero": true,
+  "venue_clean": "Translational Psychiatry",
+  "detail_url": "item/002-0063.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "EEG",
+  "title": "Travelling waves may hold working memory without overwriting it",
+  "authors": [
+   "Zeng Y",
+   "Sauseng P"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-02",
+  "doi": "10.64898/2026.10.01.755588",
+  "url": "https://doi.org/10.64898/2026.10.01.755588",
+  "item_type": "preprint",
+  "modality": "intracranial",
+  "drugs": [],
+  "populations": [
+   "epilepsy surgery patients"
+  ],
+  "methods": [
+   "intracranial EEG",
+   "neural network modelling"
+  ],
+  "topics": [
+   "travelling waves",
+   "working memory"
+  ],
+  "summary": "In an artificial neural network simulation, transient travelling waves produced minimal synaptic plasticity, letting working memory be updated without interference. In human intracranial recordings from the temporal lobe, waves started at encoding and persisted through maintenance and recall; on error trials there was no continuous wave activity.",
+  "caveats": "Preprint; intracranial coverage is clinically determined, and sample sizes and effect sizes need checking in the full text.",
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "A",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002a.html#s02",
+  "relevance": 3,
+  "id": "002-0064",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "EEG"
+  ],
+  "disorders": [
+   "Epilepsy"
+  ],
+  "method_groups": [
+   "Connectivity / synchrony",
+   "Computational / whole-brain modelling",
+   "Travelling waves",
+   "Pre-clinical / invasive"
+  ],
+  "similar": [
+   "002-0076",
+   "002-0066",
+   "001-0018",
+   "001-0025",
+   "001-0005",
+   "002-0068"
+  ],
+  "similar_w": [
+   0.137,
+   0.101,
+   0.098,
+   0.074,
+   0.059,
+   0.057
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/002-0064.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Psychedelic neuroimaging",
+  "title": "LSD in simultaneous PET-MRI: high 5-HT2A occupancy, more cerebral blood flow, less global connectivity",
+  "authors": [
+   "McCulloch DE",
+   "Knudsen GM"
+  ],
+  "venue": "Nature Neuroscience",
+  "pub_date": "2026-10-12",
+  "doi": "10.1038/s41593-026-02462-2",
+  "url": "https://doi.org/10.1038/s41593-026-02462-2",
+  "item_type": "paper",
+  "modality": "PET",
+  "drugs": [
+   "LSD",
+   "psilocybin"
+  ],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "PET-MRI",
+   "fMRI",
+   "CBF (ASL)",
+   "5-HT2A occupancy"
+  ],
+  "topics": [
+   "receptor occupancy",
+   "haemodynamics",
+   "functional connectivity"
+  ],
+  "summary": "Healthy volunteers, blinded to dose, had simultaneous PET-MRI after LSD. LSD occupied 5-HT2A receptors with high affinity, increased global cerebral blood flow and internal carotid flow, and decreased global functional connectivity; the connectivity decrease was negatively associated with the CBF change. Subjective effects showed anticlockwise hysteresis against plasma levels. A separate psilocybin cohort (n = 25) showed the opposite pattern: lower CBF and higher global FC.",
+  "caveats": "Small sample for the LSD PET arm. The opposite LSD/psilocybin haemodynamic patterns complicate comparing BOLD effects across drugs.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "A",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002a.html#s03",
+  "relevance": 3,
+  "id": "002-0065",
+  "drug_groups": [
+   "LSD",
+   "Psilocybin"
+  ],
+  "drug_labels": [
+   "LSD",
+   "Psilocybin"
+  ],
+  "drug_display": [
+   "LSD",
+   "Psilocybin"
+  ],
+  "modality_groups": [
+   "fMRI",
+   "PET"
+  ],
+  "disorders": [
+   "Healthy volunteers"
+  ],
+  "method_groups": [
+   "Connectivity / synchrony",
+   "Multimodal imaging (PET/DTI)"
+  ],
+  "similar": [
+   "001-0016",
+   "002-0088",
+   "001-0009",
+   "001-0001",
+   "001-0035",
+   "001-0002"
+  ],
+  "similar_w": [
+   0.091,
+   0.071,
+   0.071,
+   0.064,
+   0.063,
+   0.063
+  ],
+  "zotero": true,
+  "venue_clean": "Nature Neuroscience",
+  "detail_url": "item/002-0065.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Complexity and methods",
+  "title": "PhaseICA: ICA that keeps phase, to extract propagating 'brain waves' (preprint v2, 26 Oct).",
+  "authors": [
+   "Ma L",
+   "Calhoun V"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-26",
+  "doi": "10.1101/2025.09.22.677524",
+  "url": "https://doi.org/10.1101/2025.09.22.677524",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "complex-valued ICA",
+   "phase analysis"
+  ],
+  "topics": [
+   "propagation",
+   "travelling waves",
+   "methods"
+  ],
+  "summary": "Ma, Li, Adali, Iraji, Fu & Calhoun. Complex-valued ICA on Hilbert-transformed signals recovers recurring spatiotemporal propagation patterns that amplitude-only ICA discards. Potentially useful for the spatial structure of your fMRI psychedelic data.",
+  "caveats": null,
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "A",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002a.html#s04",
+  "relevance": 1,
+  "id": "002-0066",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "fMRI"
+  ],
+  "disorders": [],
+  "method_groups": [
+   "Travelling waves",
+   "Preprocessing / source / tools"
+  ],
+  "similar": [
+   "002-0064",
+   "002-0076",
+   "001-0040",
+   "001-0021",
+   "001-0018",
+   "001-0016"
+  ],
+  "similar_w": [
+   0.101,
+   0.095,
+   0.083,
+   0.083,
+   0.08,
+   0.072
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/002-0066.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Brain–body coupling",
+  "title": "A brain–heart–gut network that lives mostly at infra-slow timescales",
+  "authors": [
+   "Sitti G",
+   "Candia-Rivera D"
+  ],
+  "venue": "Journal of Physiology",
+  "pub_date": "2026-10-22",
+  "doi": "10.1113/jp291568",
+  "url": "https://doi.org/10.1113/jp291568",
+  "item_type": "paper",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "healthy volunteers"
+  ],
+  "methods": [
+   "EEG + ECG + EGG",
+   "maximal information coefficient"
+  ],
+  "topics": [
+   "brain-body coupling",
+   "infra-slow",
+   "gut-brain",
+   "open data"
+  ],
+  "summary": "Using open-access simultaneous resting EEG, ECG and EGG from 28 healthy participants, the authors related brain alpha power, cardiac sympathetic and parasympathetic indices and gastric rhythm power using the maximal information coefficient across time delays, with surrogate testing. Interactions formed a multidirectional brain–heart–gut network, mainly at infra-slow timescales (0.01–0.1 Hz).",
+  "caveats": "Small sample at rest only; MIC detects dependence, not causation.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "A",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002a.html#s07",
+  "relevance": 3,
+  "id": "002-0067",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "EEG"
+  ],
+  "disorders": [
+   "Healthy volunteers"
+  ],
+  "method_groups": [
+   "Information theory / complexity",
+   "Brain–body physiology"
+  ],
+  "similar": [
+   "001-0038",
+   "002-0085",
+   "001-0013",
+   "002-0062",
+   "001-0026",
+   "001-0003"
+  ],
+  "similar_w": [
+   0.119,
+   0.097,
+   0.075,
+   0.073,
+   0.07,
+   0.062
+  ],
+  "zotero": true,
+  "venue_clean": "Journal of Physiology",
+  "detail_url": "item/002-0067.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Preclinical",
+  "title": "Temporal interference in mouse cortex: the kilohertz carrier alone activates neurons, and the envelope organises rhythm",
+  "authors": [
+   "Yoshimoto R",
+   "Gutekunst C-A"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-21",
+  "doi": "10.64898/2026.10.15.759497",
+  "url": "https://doi.org/10.64898/2026.10.15.759497",
+  "item_type": "preprint",
+  "modality": "preclinical",
+  "drugs": [],
+  "populations": [
+   "mice"
+  ],
+  "methods": [
+   "two-photon imaging",
+   "temporal interference stimulation",
+   "modelling"
+  ],
+  "topics": [
+   "brain stimulation",
+   "TI"
+  ],
+  "summary": "Two-photon imaging in mice, immunohistochemistry and modelling showed that kilohertz stimulation without amplitude modulation evoked widespread activity. The amplitude modulation organised rhythmic responses at the modulation frequency, strongest near the interference centre.",
+  "caveats": "Preprint in mice; field strengths and geometry that may not translate to human scalp TI.",
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "A",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002a.html#s08",
+  "relevance": 2,
+  "id": "002-0068",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [],
+  "disorders": [],
+  "method_groups": [
+   "Computational / whole-brain modelling",
+   "Brain stimulation"
+  ],
+  "similar": [
+   "001-0008",
+   "001-0025",
+   "001-0020",
+   "001-0002",
+   "002-0077",
+   "001-0017"
+  ],
+  "similar_w": [
+   0.325,
+   0.179,
+   0.106,
+   0.085,
+   0.07,
+   0.068
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/002-0068.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Wildcards",
+  "title": "Conscious and suppressed images alternate about 15 times a second in the primate brain",
+  "authors": [
+   "Hesse JK",
+   "Tsao DY"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-16",
+  "doi": "10.64898/2026.10.15.759299",
+  "url": "https://doi.org/10.64898/2026.10.15.759299",
+  "item_type": "preprint",
+  "modality": "intracranial",
+  "drugs": [],
+  "populations": [
+   "macaques",
+   "healthy volunteers (behaviour)"
+  ],
+  "methods": [
+   "Neuropixels",
+   "decoding"
+  ],
+  "topics": [
+   "consciousness",
+   "binocular suppression",
+   "biorxiv-top"
+  ],
+  "summary": "Neuropixels recordings from macaque IT face patches and prefrontal cortex during binocular flash suppression (validated behaviourally in 14 humans) showed activity alternating about 15 times a second between micro-epochs representing the conscious and the suppressed image; either could be reconstructed depending on the epoch, and feature tuning was amplified in conscious epochs.",
+  "caveats": "Preprint, macaques; the link between micro-epochs and reported experience is inferred.",
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "AB",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s09",
+  "relevance": 1,
+  "id": "002-0069",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [],
+  "disorders": [
+   "Healthy volunteers"
+  ],
+  "method_groups": [
+   "Machine learning / AI",
+   "Pre-clinical / invasive"
+  ],
+  "similar": [
+   "001-0031",
+   "002-0074",
+   "001-0006",
+   "001-0014",
+   "001-0007",
+   "001-0060"
+  ],
+  "similar_w": [
+   0.101,
+   0.079,
+   0.065,
+   0.062,
+   0.058,
+   0.058
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/002-0069.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Policy pulse",
+  "title": "New on ClinicalTrials.gov: ayahuasca and cerebral metabolism, a PET study (first posted 26 Oct).",
+  "authors": null,
+  "venue": "ClinicalTrials.gov",
+  "pub_date": "2026-10-26",
+  "doi": null,
+  "url": "https://clinicaltrials.gov/study/NCT07893912",
+  "item_type": "policy",
+  "modality": "PET",
+  "drugs": [
+   "ayahuasca"
+  ],
+  "populations": [
+   "participants (early phase 1)"
+  ],
+  "methods": [
+   "clinical trial registration",
+   "PET"
+  ],
+  "topics": [
+   "new trials",
+   "Brazil"
+  ],
+  "summary": "NCT07893912 (University of São Paulo). Early phase 1, 15 participants planned.",
+  "caveats": null,
+  "verified": true,
+  "stage": "registered",
+  "ab_version": "AB",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s11",
+  "relevance": 2,
+  "id": "002-0070",
+  "drug_groups": [
+   "Ayahuasca"
+  ],
+  "drug_labels": [
+   "Ayahuasca"
+  ],
+  "drug_display": [
+   "Ayahuasca"
+  ],
+  "modality_groups": [
+   "PET"
+  ],
+  "disorders": [],
+  "method_groups": [
+   "Clinical trial / evidence synthesis",
+   "Multimodal imaging (PET/DTI)"
+  ],
+  "similar": [
+   "002-0071",
+   "001-0045",
+   "001-0032",
+   "002-0065"
+  ],
+  "similar_w": [
+   0.639,
+   0.406,
+   0.083,
+   0.059
+  ],
+  "zotero": false,
+  "venue_clean": "ClinicalTrials.gov",
+  "detail_url": "item/002-0070.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Policy pulse",
+  "title": "Also new: ayahuasca dose and personality (first posted 26 Oct).",
+  "authors": null,
+  "venue": "ClinicalTrials.gov",
+  "pub_date": "2026-10-26",
+  "doi": null,
+  "url": "https://clinicaltrials.gov/study/NCT07893769",
+  "item_type": "policy",
+  "modality": "none",
+  "drugs": [
+   "ayahuasca"
+  ],
+  "populations": [
+   "participants (early phase 1)"
+  ],
+  "methods": [
+   "clinical trial registration"
+  ],
+  "topics": [
+   "new trials",
+   "personality",
+   "Brazil"
+  ],
+  "summary": "NCT07893769 (University of São Paulo). Early phase 1, 28 enrolled (actual).",
+  "caveats": null,
+  "verified": true,
+  "stage": "registered",
+  "ab_version": "AB",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s11",
+  "relevance": 2,
+  "id": "002-0071",
+  "drug_groups": [
+   "Ayahuasca"
+  ],
+  "drug_labels": [
+   "Ayahuasca"
+  ],
+  "drug_display": [
+   "Ayahuasca"
+  ],
+  "modality_groups": [],
+  "disorders": [],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
+  "similar": [
+   "002-0070",
+   "001-0045",
+   "001-0042"
+  ],
+  "similar_w": [
+   0.639,
+   0.34,
+   0.064
+  ],
+  "zotero": false,
+  "venue_clean": "ClinicalTrials.gov",
+  "detail_url": "item/002-0071.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Conferences on the horizon",
+  "title": "SfN Neuroscience 2026, Washington DC, 14–18 Nov 2026.",
+  "authors": null,
+  "venue": null,
+  "pub_date": null,
+  "doi": null,
+  "url": "https://www.sfn.org/meetings/neuroscience-2026",
+  "item_type": "conference",
+  "modality": "none",
+  "drugs": [],
+  "populations": [],
+  "methods": [],
+  "topics": [
+   "neuroscience",
+   "US"
+  ],
+  "summary": "In two weeks.",
+  "caveats": null,
+  "verified": true,
+  "stage": "",
+  "ab_version": "AB",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s12",
+  "relevance": 1,
+  "id": "002-0072",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [],
+  "disorders": [],
+  "method_groups": [],
+  "similar": [
+   "001-0050",
+   "001-0057",
+   "001-0052",
+   "001-0046"
+  ],
+  "similar_w": [
+   0.144,
+   0.132,
+   0.105,
+   0.089
+  ],
+  "zotero": false,
+  "venue_clean": "",
+  "detail_url": "item/002-0072.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Best reviews of the week",
+  "title": "Psilocybin for alcohol use disorder: a short-term signal that mostly fades",
+  "authors": [
+   "Florineth GA",
+   "Soravia LM"
+  ],
+  "venue": "Journal of Psychopharmacology",
+  "pub_date": "2026-10-08",
+  "doi": "10.1177/02698811261490221",
+  "url": "https://doi.org/10.1177/02698811261490221",
+  "item_type": "review",
+  "modality": "none",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [
+   "adults with alcohol use disorder"
+  ],
+  "methods": [
+   "meta-analysis"
+  ],
+  "topics": [
+   "alcohol",
+   "addiction",
+   "psychedelic therapy"
+  ],
+  "summary": "Six trials (N = 202; three RCTs). Short term, psilocybin reduced drinks per day (SMD 0.48, p = 0.004), % drinking days (0.50, p = 0.009) and % heavy drinking days (0.39, p = 0.020). At 4–28 weeks only % drinking days held (SMD 0.41, p = 0.032). Abstinence odds were higher (OR 2.78, p = 0.029). Adverse events were mostly mild.",
+  "caveats": "Few, small, heterogeneous trials, including open-label ones; the authors call the evidence mixed.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "A",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002a.html#s14",
+  "relevance": 2,
+  "id": "002-0073",
+  "drug_groups": [
+   "Psilocybin"
+  ],
+  "drug_labels": [
+   "Psilocybin"
+  ],
+  "drug_display": [
+   "Psilocybin"
+  ],
+  "modality_groups": [],
+  "disorders": [
+   "Alcohol use disorder"
+  ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
+  "similar": [
+   "002-0084",
+   "002-0088",
+   "002-0090",
+   "002-0083",
+   "002-0082",
+   "001-0024"
+  ],
+  "similar_w": [
+   0.285,
+   0.18,
+   0.159,
+   0.146,
+   0.084,
+   0.058
+  ],
+  "zotero": false,
+  "venue_clean": "Journal of Psychopharmacology",
+  "detail_url": "item/002-0073.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "The headline act",
+  "title": "Fitting a corticothalamic neural field model to each patient's EEG separates minimally conscious from unresponsive states",
+  "authors": [
+   "Lín C",
+   "Sitt JD"
+  ],
+  "venue": "PLoS Computational Biology",
+  "pub_date": "2026-10-28",
+  "doi": "10.1371/journal.pcbi.1014905",
+  "url": "https://doi.org/10.1371/journal.pcbi.1014905",
+  "item_type": "paper",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "patients with disorders of consciousness",
+   "healthy controls"
+  ],
+  "methods": [
+   "high-density EEG",
+   "neural field modelling",
+   "permutation entropy"
+  ],
+  "topics": [
+   "consciousness",
+   "whole-brain modelling",
+   "thalamocortical"
+  ],
+  "summary": "A biophysically informed corticothalamic neural field model was fitted to high-density EEG from two large independent datasets: 203 patients with unresponsive wakefulness syndrome (UWS), 270 in a minimally conscious state (MCS) and 74 healthy controls. The fitted model captured spectral features across states of consciousness and showed reduced corticothalamic integrity in patients, more so in UWS than MCS, consistent with the mesocircuit hypothesis. EEG simulated per subject reproduced the empirical complexity patterns, and permutation entropy distinguished MCS from UWS in both real and simul",
+  "caveats": "Spectral fitting constrains corticothalamic parameters only indirectly, and classification performance needs checking in the full text. It drew attention on Hacker News (73 points), which is unusual for a modelling paper.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s01",
+  "relevance": 3,
+  "id": "002-0074",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "EEG"
+  ],
+  "disorders": [
+   "Disorders of consciousness",
+   "Healthy volunteers"
+  ],
+  "method_groups": [
+   "Information theory / complexity",
+   "Computational / whole-brain modelling"
+  ],
+  "similar": [
+   "001-0007",
+   "002-0069",
+   "001-0014"
+  ],
+  "similar_w": [
+   0.17,
+   0.079,
+   0.077
+  ],
+  "zotero": true,
+  "venue_clean": "PLoS Computational Biology",
+  "detail_url": "item/002-0074.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "EEG",
+  "title": "'Cortical excitability' isn't one thing: six distinct dimensions in resting and 40 Hz MEG",
+  "authors": [
+   "Pellegrino G",
+   "Rasero J"
+  ],
+  "venue": "Communications Biology",
+  "pub_date": "2026-10-30",
+  "doi": "10.1038/s42003-026-11005-1",
+  "url": "https://doi.org/10.1038/s42003-026-11005-1",
+  "item_type": "paper",
+  "modality": "MEG",
+  "drugs": [],
+  "populations": [
+   "healthy adults"
+  ],
+  "methods": [
+   "MEG",
+   "aperiodic (1/f)",
+   "40 Hz ASSR",
+   "complexity",
+   "receptor maps"
+  ],
+  "topics": [
+   "cortical excitability",
+   "E/I"
+  ],
+  "summary": "In a large sample of healthy adults with whole-head MEG at rest and during 40 Hz auditory stimulation, the authors compared stimulus-driven synchronisation, spectral power, aperiodic (1/f) activity, signal complexity, long-range temporal correlations and phase–gamma synchronisation. Hierarchical clustering found six distinct excitability dimensions with little redundancy. Aperiodic and alpha measures were strongly coupled and best aligned spatially with stimulus responses; temporal, complexity and synchronisation measures were largely independent. Each dimension related differently to cortical",
+  "caveats": "Healthy adults only; sample size and the receptor-map method need checking in the full text, and receptor associations are spatial correlations across regions, not within people.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s02",
+  "relevance": 3,
+  "id": "002-0075",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "MEG (+ OPM)"
+  ],
+  "disorders": [
+   "Healthy volunteers"
+  ],
+  "method_groups": [
+   "Spectral / aperiodic / waveform",
+   "Information theory / complexity"
+  ],
+  "similar": [
+   "001-0004",
+   "002-0085",
+   "001-0022",
+   "002-0087",
+   "001-0017",
+   "002-0081"
+  ],
+  "similar_w": [
+   0.181,
+   0.129,
+   0.112,
+   0.109,
+   0.095,
+   0.077
+  ],
+  "zotero": true,
+  "venue_clean": "Communications Biology",
+  "detail_url": "item/002-0075.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "EEG",
+  "title": "Weaker forward theta travelling waves at rest in OCD",
+  "authors": [
+   "Perera MPN",
+   "Fitzgerald PB"
+  ],
+  "venue": "Psychiatry and Clinical Neurosciences",
+  "pub_date": "2026-10-31",
+  "doi": "10.1111/pcn.70163",
+  "url": "https://doi.org/10.1111/pcn.70163",
+  "item_type": "paper",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [
+   "adults with OCD",
+   "controls"
+  ],
+  "methods": [
+   "EEG travelling waves (2D FFT)"
+  ],
+  "topics": [
+   "travelling waves",
+   "OCD",
+   "theta"
+  ],
+  "summary": "Resting (eyes closed) and task EEG (Go/NoGo, Flanker) in 25 people with OCD and 27 controls. Forward (posterior-to-anterior) and backward waves along midline electrodes were quantified with 2D FFTs in theta and alpha. At rest there was a group × direction interaction in theta (P = 0.0006): weaker forward waves in OCD. During the Flanker task, forward theta increased more from rest in OCD (P = 0.022). There were no alpha or backward-wave differences and no links to symptom severity.",
+  "caveats": "Small groups, midline electrodes only, and no symptom association.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s02",
+  "relevance": 3,
+  "id": "002-0076",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "EEG"
+  ],
+  "disorders": [
+   "OCD"
+  ],
+  "method_groups": [
+   "Travelling waves"
+  ],
+  "similar": [
+   "002-0064",
+   "002-0066",
+   "001-0026",
+   "001-0018",
+   "002-0081",
+   "001-0024"
+  ],
+  "similar_w": [
+   0.137,
+   0.095,
+   0.08,
+   0.073,
+   0.069,
+   0.064
+  ],
+  "zotero": true,
+  "venue_clean": "Psychiatry and Clinical Neurosciences",
+  "detail_url": "item/002-0076.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "EEG",
+  "title": "EEG generators: what the skull does to cortical signals, measured directly (mice, 27 Oct).",
+  "authors": [
+   "Mo F",
+   "Song Z"
+  ],
+  "venue": "Biosensors and Bioelectronics",
+  "pub_date": "2026-10-27",
+  "doi": "10.1016/j.bios.2026.119370",
+  "url": "https://doi.org/10.1016/j.bios.2026.119370",
+  "item_type": "paper",
+  "modality": "preclinical",
+  "drugs": [],
+  "populations": [
+   "mice"
+  ],
+  "methods": [
+   "micro-ECoG",
+   "skull EEG"
+  ],
+  "topics": [
+   "EEG generators",
+   "forward models",
+   "spectral gain"
+  ],
+  "summary": "Mo … Song, Biosensors and Bioelectronics. Micro-ECoG and skull-screw EEG on one clock in awake mice (115 pairs, 3 mice): cortex-to-skull gain rose with frequency following a power law (skull EEG relatively preserves high frequencies) and shifted across task blocks. A calibration target for forward models and for interpreting aperiodic slopes. Tiny n.",
+  "caveats": null,
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s02",
+  "relevance": 3,
+  "id": "002-0077",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "EEG"
+  ],
+  "disorders": [],
+  "method_groups": [
+   "Spectral / aperiodic / waveform",
+   "Computational / whole-brain modelling"
+  ],
+  "similar": [
+   "001-0030",
+   "001-0031",
+   "002-0068",
+   "001-0001",
+   "001-0002",
+   "002-0076"
+  ],
+  "similar_w": [
+   0.077,
+   0.076,
+   0.07,
+   0.065,
+   0.055,
+   0.054
+  ],
+  "zotero": true,
+  "venue_clean": "Biosensors and Bioelectronics",
+  "detail_url": "item/002-0077.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Psychedelic neuroimaging",
+  "title": "A single psilocybin dose in macaques: network reorganisation, an anti-inflammatory CSF shift and raised prefrontal glutamate for a week",
+  "authors": [
+   "Wang J"
+  ],
+  "venue": "Research Square (preprint)",
+  "pub_date": "2026-10-29",
+  "doi": "10.21203/rs.3.rs-11081511/v1",
+  "url": "https://doi.org/10.21203/rs.3.rs-11081511/v1",
+  "item_type": "preprint",
+  "modality": "fMRI",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [
+   "cynomolgus macaques"
+  ],
+  "methods": [
+   "fMRI",
+   "MRS",
+   "CSF omics",
+   "snRNA-seq"
+  ],
+  "topics": [
+   "network reorganisation",
+   "glutamate",
+   "inflammation"
+  ],
+  "summary": "Multimodal MRI, MRS, CSF proteomics and metabolomics, and single-nucleus RNA sequencing in cynomolgus macaques. Psilocybin increased frontoparietal integration with default-mode and limbic networks, transiently reduced its integration with somatomotor network and induced global segregation; some cortical, striatal and thalamic changes lasted a week. CSF shifted from acute prostaglandin-dominated inflammation to a sustained omega-3-associated anti-inflammatory state, with sustained rises in dlPFC glutamate/glutamine and total creatine.",
+  "caveats": "Preprint; animal numbers and dose need checking, and many modalities raise multiple-comparison questions.",
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s03",
+  "relevance": 3,
+  "id": "002-0078",
+  "drug_groups": [
+   "Psilocybin"
+  ],
+  "drug_labels": [
+   "Psilocybin"
+  ],
+  "drug_display": [
+   "Psilocybin"
+  ],
+  "modality_groups": [
+   "fMRI"
+  ],
+  "disorders": [],
+  "method_groups": [
+   "Connectivity / synchrony"
+  ],
+  "similar": [
+   "001-0014",
+   "002-0065",
+   "001-0061",
+   "002-0080"
+  ],
+  "similar_w": [
+   0.071,
+   0.061,
+   0.055,
+   0.051
+  ],
+  "zotero": true,
+  "venue_clean": "Research Square",
+  "detail_url": "item/002-0078.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Psychedelic neuroimaging",
+  "title": "Low-dose ketamine raises BOLD entropy in treatment-resistant depression (J Affect Disord, 26 Oct).",
+  "authors": [
+   "Liou Y-J",
+   "Chen M-H"
+  ],
+  "venue": "Journal of Affective Disorders",
+  "pub_date": "2026-10-26",
+  "doi": "10.1016/j.jad.2026.122673",
+  "url": "https://doi.org/10.1016/j.jad.2026.122673",
+  "item_type": "paper",
+  "modality": "fMRI",
+  "drugs": [
+   "ketamine",
+   "midazolam"
+  ],
+  "populations": [
+   "adults with treatment-resistant depression"
+  ],
+  "methods": [
+   "resting-state fMRI",
+   "sample entropy"
+  ],
+  "topics": [
+   "brain entropy",
+   "depression"
+  ],
+  "summary": "Liou … Chen. Two RCTs: sample entropy rose by day 3 in gyrus rectus, cerebellar vermis, substantia nigra, red nucleus and locus coeruleus (Trial 1) and in left amygdala (Trial 2, vs midazolam). A neuromodulatory-hub angle on entropy accounts.",
+  "caveats": null,
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s03",
+  "relevance": 3,
+  "id": "002-0079",
+  "drug_groups": [
+   "Ketamine",
+   "Midazolam"
+  ],
+  "drug_labels": [
+   "Ketamine",
+   "Midazolam"
+  ],
+  "drug_display": [
+   "Ketamine",
+   "Midazolam"
+  ],
+  "modality_groups": [
+   "fMRI"
+  ],
+  "disorders": [
+   "Depression (incl. TRD/MDD)"
+  ],
+  "method_groups": [
+   "Information theory / complexity"
+  ],
+  "similar": [
+   "001-0000",
+   "002-0090",
+   "002-0088",
+   "002-0087",
+   "001-0032",
+   "001-0026"
+  ],
+  "similar_w": [
+   0.141,
+   0.087,
+   0.081,
+   0.071,
+   0.071,
+   0.055
+  ],
+  "zotero": true,
+  "venue_clean": "Journal of Affective Disorders",
+  "detail_url": "item/002-0079.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Complexity and methods",
+  "title": "The same E/I input shift gives different aperiodic slopes depending on circuit wiring",
+  "authors": [
+   "Cai Z",
+   "Ming D"
+  ],
+  "venue": "International Journal of Neural Systems",
+  "pub_date": "2026-10-30",
+  "doi": "10.1142/s012906572750033x",
+  "url": "https://doi.org/10.1142/s012906572750033x",
+  "item_type": "paper",
+  "modality": "ECoG",
+  "drugs": [
+   "propofol"
+  ],
+  "populations": [
+   "juvenile pigs",
+   "simulated microcircuits"
+  ],
+  "methods": [
+   "connectome-constrained modelling",
+   "ECoG",
+   "thalamic recordings",
+   "aperiodic exponent"
+  ],
+  "topics": [
+   "E/I balance",
+   "aperiodic slope",
+   "criticality"
+  ],
+  "summary": "The authors embedded electron-microscopy-reconstructed cortical microcircuits in near-critical dynamics and generated field potentials with fixed synaptic, membrane and forward-model parameters. The relationship between E/I input and the aperiodic exponent differed between biological and topology-randomised networks (a significant E/I × topology interaction). In paired cortical ECoG and thalamic recordings from juvenile pigs under propofol, exponent changes were larger in thalamus than cortex, even after accounting for global state, baseline spectra and distance from criticality.",
+  "caveats": "A model-plus-animal study; the pig recordings are under anaesthesia, and the claim is about interpretation, not a new estimator.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s04",
+  "relevance": 1,
+  "id": "002-0080",
+  "drug_groups": [
+   "Propofol"
+  ],
+  "drug_labels": [
+   "Propofol"
+  ],
+  "drug_display": [
+   "Propofol"
+  ],
+  "modality_groups": [],
+  "disorders": [],
+  "method_groups": [
+   "Spectral / aperiodic / waveform",
+   "Information theory / complexity",
+   "Computational / whole-brain modelling"
+  ],
+  "similar": [
+   "001-0004",
+   "001-0020",
+   "001-0018",
+   "002-0063",
+   "002-0078"
+  ],
+  "similar_w": [
+   0.179,
+   0.1,
+   0.079,
+   0.053,
+   0.051
+  ],
+  "zotero": true,
+  "venue_clean": "International Journal of Neural Systems",
+  "detail_url": "item/002-0080.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Complexity and methods",
+  "title": "DCM parameters sit between spectra and clinical scores for classifying individuals",
+  "authors": [
+   "Jafarian A",
+   "Rowe JB"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-28",
+  "doi": "10.64898/2026.10.26.761866",
+  "url": "https://doi.org/10.64898/2026.10.26.761866",
+  "item_type": "preprint",
+  "modality": "MEG",
+  "drugs": [],
+  "populations": [
+   "bvFTD",
+   "PSP",
+   "controls"
+  ],
+  "methods": [
+   "MEG",
+   "DCM",
+   "classification"
+  ],
+  "topics": [
+   "individual phenotyping",
+   "biomarkers",
+   "DCM"
+  ],
+  "summary": "Resting MEG from 74 controls, 45 people with behavioural-variant frontotemporal dementia and 55 with progressive supranuclear palsy. Clinical scores classified individuals well (controls vs PSP accuracy 0.94), MEG spectral features weakly (~0.6) despite clear group differences, and DCM-inferred biophysical parameters in between (PSP vs controls 0.70; bvFTD vs PSP 0.74) while staying mechanistically interpretable.",
+  "caveats": "Preprint; classification is used as an exploratory probe, and neurodegeneration is far from your populations.",
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s04",
+  "relevance": 1,
+  "id": "002-0081",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "MEG (+ OPM)"
+  ],
+  "disorders": [],
+  "method_groups": [
+   "Computational / whole-brain modelling",
+   "Machine learning / AI"
+  ],
+  "similar": [
+   "001-0022",
+   "002-0063",
+   "002-0085",
+   "002-0075",
+   "002-0076",
+   "001-0024"
+  ],
+  "similar_w": [
+   0.112,
+   0.093,
+   0.078,
+   0.077,
+   0.069,
+   0.069
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/002-0081.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Addiction",
+  "title": "Mindfulness-Oriented Recovery Enhancement changes prefrontal drug-cue responses in opioid use disorder",
+  "authors": [
+   "Huang Y",
+   "Goldstein RZ"
+  ],
+  "venue": "JAMA Psychiatry",
+  "pub_date": "2026-10-28",
+  "doi": "10.1001/jamapsychiatry.2026.3388",
+  "url": "https://doi.org/10.1001/jamapsychiatry.2026.3388",
+  "item_type": "paper",
+  "modality": "fMRI",
+  "drugs": [],
+  "populations": [
+   "adults with opioid use disorder"
+  ],
+  "methods": [
+   "task fMRI",
+   "naturalistic fMRI",
+   "RCT"
+  ],
+  "topics": [
+   "addiction neuroimaging",
+   "cue reactivity",
+   "mindfulness"
+  ],
+  "summary": "An RCT in inpatients with OUD: 8 weekly MORE sessions vs supportive therapy. In the cue-reactivity task (n = 59), MORE reduced drug-biased activity in middle frontal gyrus and precuneus when downregulating drug-cue responses relative to upregulating natural-reward responses. MORE also reduced medial PFC synchronisation to drug scenes in a movie (n = 37) and extended abstinence at about 4 months (χ² = 6.7, P = .04; Cohen w = 0.19).",
+  "caveats": "Imaging subsets are small and unequal (24 vs 35), and the abstinence effect is modest.",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s06",
+  "relevance": 2,
+  "id": "002-0082",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "fMRI"
+  ],
+  "disorders": [
+   "Opioid use disorder"
+  ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis",
+   "Naturalistic paradigms"
+  ],
+  "similar": [
+   "001-0024",
+   "001-0023",
+   "002-0073",
+   "001-0015",
+   "002-0084",
+   "001-0043"
+  ],
+  "similar_w": [
+   0.253,
+   0.088,
+   0.084,
+   0.063,
+   0.06,
+   0.051
+  ],
+  "zotero": true,
+  "venue_clean": "JAMA Psychiatry",
+  "detail_url": "item/002-0082.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Addiction",
+  "title": "Psilocybin, cognitive stability and drinking in AUD with depression (medRxiv, 29 Oct).",
+  "authors": [
+   "Sayalı C",
+   "Barrett FS"
+  ],
+  "venue": "medRxiv (preprint)",
+  "pub_date": "2026-10-29",
+  "doi": "10.64898/2026.10.27.26366630",
+  "url": "https://doi.org/10.64898/2026.10.27.26366630",
+  "item_type": "preprint",
+  "modality": "behavioural",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [
+   "adults with AUD and depression"
+  ],
+  "methods": [
+   "cognitive tasks",
+   "Bayesian analysis"
+  ],
+  "topics": [
+   "psychedelic addiction",
+   "cognitive control",
+   "alcohol"
+  ],
+  "summary": "Sayalı … Barrett. Secondary analysis of an RCT (12 psilocybin, 13 placebo): psilocybin slowed cued task switching, but most of 34 cognitive measures were inconclusive and none survived FDR. Drinking fell in both arms, and shifts toward stability tracked drinking reduction. Small and exploratory.",
+  "caveats": null,
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s06",
+  "relevance": 3,
+  "id": "002-0083",
+  "drug_groups": [
+   "Psilocybin"
+  ],
+  "drug_labels": [
+   "Psilocybin"
+  ],
+  "drug_display": [
+   "Psilocybin"
+  ],
+  "modality_groups": [],
+  "disorders": [
+   "Depression (incl. TRD/MDD)",
+   "Alcohol use disorder"
+  ],
+  "method_groups": [],
+  "similar": [
+   "002-0084",
+   "002-0073",
+   "001-0010",
+   "001-0045",
+   "001-0061",
+   "002-0090"
+  ],
+  "similar_w": [
+   0.207,
+   0.146,
+   0.138,
+   0.088,
+   0.057,
+   0.052
+  ],
+  "zotero": true,
+  "venue_clean": "medRxiv",
+  "detail_url": "item/002-0083.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Addiction",
+  "title": "MDMA-assisted therapy for veterans with PTSD and alcohol use disorder (Alcohol, 30 Oct).",
+  "authors": [
+   "Eaton E",
+   "Haass-Koffler CL"
+  ],
+  "venue": "Alcohol",
+  "pub_date": "2026-10-30",
+  "doi": "10.1016/j.alcohol.2026.107464",
+  "url": "https://doi.org/10.1016/j.alcohol.2026.107464",
+  "item_type": "paper",
+  "modality": "none",
+  "drugs": [
+   "MDMA"
+  ],
+  "populations": [
+   "veterans with PTSD and AUD"
+  ],
+  "methods": [
+   "open-label pilot"
+  ],
+  "topics": [
+   "psychedelic addiction",
+   "PTSD",
+   "alcohol"
+  ],
+  "summary": "Eaton … Haass-Koffler. First open-label pilot (N = 10): PTSD symptoms fell (d = 1.24); drinks per drinking day fell 31% and heavy drinking days 54%, not clinically significant; no serious adverse events.",
+  "caveats": null,
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s06",
+  "relevance": 3,
+  "id": "002-0084",
+  "drug_groups": [
+   "MDMA"
+  ],
+  "drug_labels": [
+   "MDMA"
+  ],
+  "drug_display": [
+   "MDMA"
+  ],
+  "modality_groups": [],
+  "disorders": [
+   "Alcohol use disorder",
+   "PTSD"
+  ],
+  "method_groups": [],
+  "similar": [
+   "002-0073",
+   "002-0083",
+   "001-0045",
+   "002-0090",
+   "002-0082",
+   "002-0088"
+  ],
+  "similar_w": [
+   0.285,
+   0.207,
+   0.09,
+   0.081,
+   0.06,
+   0.052
+  ],
+  "zotero": true,
+  "venue_clean": "Alcohol",
+  "detail_url": "item/002-0084.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Brain–body coupling",
+  "title": "Brain–body timing during emotional videos (MEG + physiology preprint, 29 Oct).",
+  "authors": [
+   "Xu W",
+   "Parviainen T"
+  ],
+  "venue": "bioRxiv (preprint)",
+  "pub_date": "2026-10-29",
+  "doi": "10.64898/2026.10.28.762567",
+  "url": "https://doi.org/10.64898/2026.10.28.762567",
+  "item_type": "preprint",
+  "modality": "MEG",
+  "drugs": [],
+  "populations": [
+   "healthy adults"
+  ],
+  "methods": [
+   "MEG",
+   "ECG",
+   "EDA",
+   "respiration",
+   "facial EMG",
+   "RSA"
+  ],
+  "topics": [
+   "brain-body coupling",
+   "emotion"
+  ],
+  "summary": "Xu … Parviainen. 92 participants, MEG plus cardiac, electrodermal, respiratory and facial EMG. Corrugator activity preceded matching neural patterns by about 1 s, while heart rate and electrodermal activity followed by about 1.7 s and 4.5 s; respiration rate didn't exceed the decoupled reference.",
+  "caveats": null,
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s07",
+  "relevance": 2,
+  "id": "002-0085",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "MEG (+ OPM)"
+  ],
+  "disorders": [
+   "Healthy volunteers"
+  ],
+  "method_groups": [
+   "Brain–body physiology"
+  ],
+  "similar": [
+   "001-0029",
+   "002-0075",
+   "002-0062",
+   "001-0022",
+   "002-0067",
+   "001-0026"
+  ],
+  "similar_w": [
+   0.177,
+   0.129,
+   0.125,
+   0.099,
+   0.097,
+   0.089
+  ],
+  "zotero": true,
+  "venue_clean": "bioRxiv",
+  "detail_url": "item/002-0085.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Preclinical",
+  "title": "Psilocybin tilts learning toward rewarded outcomes in rat prefrontal cortex",
+  "authors": [
+   "Jacobs D",
+   "Moghaddam B"
+  ],
+  "venue": "eLife (reviewed preprint)",
+  "pub_date": "2026-10-30",
+  "doi": "10.7554/elife.112830.1",
+  "url": "https://doi.org/10.7554/elife.112830.1",
+  "item_type": "preprint",
+  "modality": "preclinical",
+  "drugs": [
+   "psilocybin"
+  ],
+  "populations": [
+   "rats"
+  ],
+  "methods": [
+   "single-unit recordings",
+   "reinforcement learning models"
+  ],
+  "topics": [
+   "reward learning",
+   "uncertainty",
+   "gambling-relevant"
+  ],
+  "summary": "In a value-based probabilistic choice task with computational modelling and mPFC single-unit recordings, psilocybin improved choice under uncertainty and shifted learning rates bidirectionally: more updating from rewarded actions, less from unrewarded ones. Neural encoding of rewarded outcomes strengthened and of unrewarded outcomes weakened.",
+  "caveats": "Rodents; acute exposure; an eLife reviewed preprint with public reviews, not a final version of record.",
+  "verified": true,
+  "stage": "reviewed preprint",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s08",
+  "relevance": 3,
+  "id": "002-0086",
+  "drug_groups": [
+   "Psilocybin"
+  ],
+  "drug_labels": [
+   "Psilocybin"
+  ],
+  "drug_display": [
+   "Psilocybin"
+  ],
+  "modality_groups": [],
+  "disorders": [
+   "Gambling"
+  ],
+  "method_groups": [
+   "Computational / whole-brain modelling"
+  ],
+  "similar": [
+   "001-0061",
+   "001-0010",
+   "001-0034"
+  ],
+  "similar_w": [
+   0.082,
+   0.071,
+   0.05
+  ],
+  "zotero": true,
+  "venue_clean": "eLife (reviewed preprint)",
+  "detail_url": "item/002-0086.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Datasets and tools",
+  "title": "ASCENT: an EEGLAB plugin for entropy, fractal and aperiodic measures (PsyArXiv, 27 Oct).",
+  "authors": [
+   "Cannard C",
+   "Delorme A"
+  ],
+  "venue": "PsyArXiv (preprint)",
+  "pub_date": "2026-10-27",
+  "doi": "10.31234/osf.io/xwmyk_v2",
+  "url": "https://doi.org/10.31234/osf.io/xwmyk_v2",
+  "item_type": "tool",
+  "modality": "EEG",
+  "drugs": [],
+  "populations": [],
+  "methods": [
+   "entropy",
+   "fractal dimension",
+   "aperiodic parameterisation",
+   "EEGLAB"
+  ],
+  "topics": [
+   "toolbox",
+   "complexity"
+  ],
+  "summary": "Cannard & Delorme. Single-scale, multiscale and multivariate entropy, fractal dimension and aperiodic parameterisation on channels or ICs, with time-resolved multiscale entropy and aperiodic estimates, GUI and command line.",
+  "caveats": null,
+  "verified": true,
+  "stage": "preprint",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s10",
+  "relevance": 3,
+  "id": "002-0087",
+  "drug_groups": [],
+  "drug_labels": [],
+  "drug_display": [],
+  "modality_groups": [
+   "EEG"
+  ],
+  "disorders": [],
+  "method_groups": [
+   "Spectral / aperiodic / waveform",
+   "Information theory / complexity",
+   "Preprocessing / source / tools"
+  ],
+  "similar": [
+   "002-0075",
+   "001-0039",
+   "001-0017",
+   "001-0040",
+   "002-0079",
+   "001-0037"
+  ],
+  "similar_w": [
+   0.109,
+   0.089,
+   0.089,
+   0.08,
+   0.071,
+   0.06
+  ],
+  "zotero": true,
+  "venue_clean": "PsyArXiv",
+  "detail_url": "item/002-0087.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Best reviews of the week",
+  "title": "LSD for depressive symptoms: a meta-analysis of five RCTs",
+  "authors": [
+   "Chiorean A",
+   "Husain MI"
+  ],
+  "venue": "Journal of Psychopharmacology",
+  "pub_date": "2026-10-30",
+  "doi": "10.1177/02698811261488460",
+  "url": "https://doi.org/10.1177/02698811261488460",
+  "item_type": "review",
+  "modality": "none",
+  "drugs": [
+   "LSD"
+  ],
+  "populations": [
+   "adults with mental disorders"
+  ],
+  "methods": [
+   "meta-analysis"
+  ],
+  "topics": [
+   "depression",
+   "LSD"
+  ],
+  "summary": "Five RCTs (N = 227), preregistered: LSD reduced depressive symptoms vs comparators (adjusted SMD −0.65, 95% CI −0.92 to −0.38), with no significant heterogeneity and three studies at low risk of bias. Severe adverse events possibly related to study parameters included three hospitalisations.",
+  "caveats": "Depression was mostly a secondary outcome in anxiety trials, and designs varied (three with psychological support).",
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s16",
+  "relevance": 2,
+  "id": "002-0088",
+  "drug_groups": [
+   "LSD"
+  ],
+  "drug_labels": [
+   "LSD"
+  ],
+  "drug_display": [
+   "LSD"
+  ],
+  "modality_groups": [],
+  "disorders": [
+   "Depression (incl. TRD/MDD)"
+  ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
+  "similar": [
+   "002-0073",
+   "001-0026",
+   "001-0009",
+   "001-0016",
+   "002-0079",
+   "002-0089"
+  ],
+  "similar_w": [
+   0.18,
+   0.143,
+   0.087,
+   0.085,
+   0.081,
+   0.078
+  ],
+  "zotero": false,
+  "venue_clean": "Journal of Psychopharmacology",
+  "detail_url": "item/002-0088.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Best reviews of the week",
+  "title": "Psychedelics and psychosis, 1984–2025: a systematic review (J Psychopharmacol, 27 Oct).",
+  "authors": [
+   "Silva Reis JA",
+   "Dos Santos RG"
+  ],
+  "venue": "Journal of Psychopharmacology",
+  "pub_date": "2026-10-27",
+  "doi": "10.1177/02698811261488575",
+  "url": "https://doi.org/10.1177/02698811261488575",
+  "item_type": "review",
+  "modality": "none",
+  "drugs": [
+   "LSD",
+   "psilocybin",
+   "ayahuasca/DMT",
+   "mescaline"
+  ],
+  "populations": [],
+  "methods": [
+   "systematic review"
+  ],
+  "topics": [
+   "psychosis",
+   "safety"
+  ],
+  "summary": "Silva Reis … Dos Santos. 52 papers: no consistent population-level link; one transient case in controlled trials; risk factors are personal or family history and unsupervised use.",
+  "caveats": null,
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s16",
+  "relevance": 2,
+  "id": "002-0089",
+  "drug_groups": [
+   "LSD",
+   "Psilocybin",
+   "Ayahuasca/DMT",
+   "Mescaline"
+  ],
+  "drug_labels": [
+   "LSD",
+   "Psilocybin",
+   "Ayahuasca/DMT",
+   "Mescaline"
+  ],
+  "drug_display": [
+   "LSD",
+   "Psilocybin",
+   "Ayahuasca/DMT",
+   "Mescaline"
+  ],
+  "modality_groups": [],
+  "disorders": [
+   "Psychosis / schizophrenia"
+  ],
+  "method_groups": [
+   "Clinical trial / evidence synthesis"
+  ],
+  "similar": [
+   "002-0088",
+   "002-0090",
+   "001-0016",
+   "001-0045",
+   "002-0065"
+  ],
+  "similar_w": [
+   0.078,
+   0.075,
+   0.072,
+   0.053,
+   0.053
+  ],
+  "zotero": false,
+  "venue_clean": "Journal of Psychopharmacology",
+  "detail_url": "item/002-0089.html"
+ },
+ {
+  "issue": "002",
+  "issue_date": "2026-11-01",
+  "section": "Best reviews of the week",
+  "title": "Psychedelics for addiction: treatment or a 'learning window'? (Brain Sciences, 29 Oct).",
+  "authors": [
+   "Buciuc AG",
+   "Fuehrlein B"
+  ],
+  "venue": "Brain Sciences",
+  "pub_date": "2026-10-29",
+  "doi": "10.3390/brainsci16111184",
+  "url": "https://doi.org/10.3390/brainsci16111184",
+  "item_type": "review",
+  "modality": "none",
+  "drugs": [
+   "psychedelics",
+   "ibogaine",
+   "ketamine"
+  ],
+  "populations": [
+   "people with substance use disorders"
+  ],
+  "methods": [
+   "narrative review"
+  ],
+  "topics": [
+   "addiction",
+   "plasticity"
+  ],
+  "summary": "Buciuc, Gold & Fuehrlein. Compound-by-compound review; the strongest human signals are psilocybin in tobacco and alcohol use disorders, though the alcohol signal rests on two small, discordant RCTs.",
+  "caveats": null,
+  "verified": true,
+  "stage": "peer reviewed",
+  "ab_version": "B",
+  "source": "newsletter",
+  "notes": "",
+  "issue_url": "../issues/002b.html#s16",
+  "relevance": 2,
+  "id": "002-0090",
+  "drug_groups": [
+   "Psychedelics (general)",
+   "Ibogaine",
+   "Ketamine"
+  ],
+  "drug_labels": [
+   "Psychedelics (general)",
+   "Ibogaine",
+   "Ketamine"
+  ],
+  "drug_display": [
+   "Psychedelics (general)",
+   "Ibogaine",
+   "Ketamine"
+  ],
+  "modality_groups": [],
+  "disorders": [
+   "Substance use (other)"
+  ],
+  "method_groups": [],
+  "similar": [
+   "002-0073",
+   "001-0032",
+   "001-0042",
+   "001-0002",
+   "002-0079",
+   "002-0084"
+  ],
+  "similar_w": [
+   0.159,
+   0.125,
+   0.114,
+   0.096,
+   0.087,
+   0.081
+  ],
+  "zotero": false,
+  "venue_clean": "Brain Sciences",
+  "detail_url": "item/002-0090.html"
  }
 ]
