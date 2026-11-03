@@ -519,12 +519,15 @@ Append-only, one JSON object per item. Dedupe by DOI, else title (and skip exist
 | `summary` | 1–2 sentences |
 | `caveats` | short |
 | `verified` | true/false |
-| `stage` | "Clinical" / "Pre-clinical" / empty (non-study items). Animal EEG = EEG + Pre-clinical |
+| `stage` | exactly "Clinical" / "Pre-clinical" / empty (non-study items). Animal EEG = EEG + Pre-clinical. Never put publication status here |
+| `pub_status` | publication status, its own field: "Peer reviewed" / "Preprint" / "Reviewed preprint" / "Registered" (trial registrations) / empty (conferences, funding, news, etc.). Derived by the build if missing |
 | optional `source` | "newsletter" (default) or "sent-by-patrick" |
 | optional `notes` | Patrick's notes |
 | optional `relevance` | 1–3, overrides the derived value |
 | `ab_version` | "A"/"B", Issue 002 only. Decides whether the issue link goes to 002a or 002b |
 | `found_by` | **"A" / "B" / "AB"**, from combined issues onward |
+
+Correction (3 Nov 2026): the Issue 002 rows first had publication status stored in `stage`. They were fixed in place (backup `items.jsonl.bak-2026-11-03`, not in the repo): `stage` now holds Clinical / Pre-clinical and publication status moved to `pub_status`. Per-issue archive scripts must write the two separately.
 
 The routine's step 6 does this append. In practice it is a small per-issue script; Issue 002 used `ab/2026-11-01/build_records.py`. The older `issue-001/build/archive_items.py` depended on a temporary Crossref cache, so treat it as an example only.
 
@@ -540,7 +543,8 @@ Run it with `python3 /workspace/newsletter/build/build_archive_site.py`. It is s
   - `drug_groups` / `drug_labels` / `drug_display`
   - `modality_groups` (exactly EEG, MEG (+ OPM), fMRI, DTI, PET)
   - `disorders`
-  - `stage`
+  - `stage` (a stored value wins only if it is "Clinical" or "Pre-clinical"; anything else is re-derived)
+  - `pub_status` (a stored value wins; otherwise derived from `item_type` and `venue`: preprint server or "(preprint)" venue = Preprint, eLife "reviewed preprint" = Reviewed preprint, ClinicalTrials.gov = Registered, other papers/reviews = Peer reviewed)
   - `method_groups` (from `method_map` regexes)
 - writes `site/archive/item/<id>.html` detail pages (Highwire `citation_*` meta for Zotero), and adds `zotero`, `venue_clean` and `detail_url`. Cards carry hidden COinS spans. **No "Add to Zotero" button or toast anywhere**, per Patrick.
 
@@ -554,7 +558,8 @@ Run it with `python3 /workspace/newsletter/build/build_archive_site.py`. It is s
 Plain HTML/JS with no build step. It loads `items.json` and offers:
 - **Browsing:**
   - tabs by section (with icon and colour)
-  - always-visible chip rows for Drug, Modality, Disorder/population and Clinical/Pre-clinical (OR within a row, AND across rows)
+  - always-visible chip rows for Drug, Modality, Disorder/population, Clinical/Pre-clinical and Publication status (OR within a row, AND across rows); the graph view has the same rows
+  - a small publication-status badge on each card (red for preprints), also on graph-view and shortlist cards and item pages
   - collapsible filters (method, population, month, venue, issue, PhD relevance)
   - keyword search (all words must match)
   - clickable tag chips
@@ -656,7 +661,7 @@ Feedback reaches the agent in four ways:
 4. **Request emails** to the sender inbox from the archive pages (from the recipient address or the alternate address only):
    - **"Shortlist add request"** (from search.html; body: Title, Authors, Year, Venue, DOI/URL, Seed paper, Found via, "My notes:").
      - Verify from a real source.
-     - Write a 1–2 sentence summary plus caveats, and tag it (drugs/modality/methods/populations/topics, stage, relevance 1–3).
+     - Write a 1–2 sentence summary plus caveats, and tag it (drugs/modality/methods/populations/topics, stage, pub_status, relevance 1–3).
      - Append to `shortlist.jsonl` with `added_date`, `seed`, `notes`, `status: "shortlisted"` and `verified: true`.
      - Skip it (and say so) if it is already in the archive or shortlist.
      - Rebuild and push.
@@ -742,7 +747,6 @@ What you need:
 - Exact cost per method: **unknown**; only a routine-level figure (~4% of 30 days) was observed.
 - Format and timing of special editions: not yet decided.
 - `pool.jsonl` has no abstracts; verification uses `candidates.json` and the sources.
-- In the Issue 002 rows, `stage` was filled with publication status ("peer reviewed", "preprint", "registered", "reviewed preprint") instead of Clinical / Pre-clinical. New rows should follow the brief (Clinical / Pre-clinical / empty). Those 002 rows may need correcting; the build's stage rules in `tag_map.json` derive the chip where they can.
 - Scripts hard-code `/workspace/newsletter` paths.
 
 ---

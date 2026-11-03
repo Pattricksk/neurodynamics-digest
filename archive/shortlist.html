@@ -2,7 +2,8 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Shortlist · Neurodynamics Digest</title>
-<style>
+<style>.pst{font-family:var(--mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;border:1px solid var(--line);color:var(--mut);padding:1px 5px;margin-left:6px}.pst.pre{border-color:var(--red);color:var(--red)}.pst.reg{border-color:#a8d8e8;color:#a8d8e8}
+
 :root{--bg:#11161b;--panel:#171e24;--panel2:#1c252e;--line:#2a333c;--tx:#e6e9ec;--mut:#9aa7b2;--dim:#5f7180;--red:#e0453b;--link:#a9c7e0;--grn:#a6dc8f;--amb:#e8c15a;--mono:Consolas,Menlo,monospace}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.45}
 main{max-width:1000px;margin:0 auto;padding:20px 16px 60px}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
@@ -41,9 +42,10 @@ const mail=(subj,lines)=>`mailto:${MAIL}?subject=${encodeURIComponent(subj)}&bod
 const cut=(s,n)=>String(s||"").length>n?String(s).slice(0,n-1)+"…":String(s||"");
 function coins(i){const k=(a,b)=>a+"="+encodeURIComponent(b),q=["ctx_ver=Z39.88-2004","rft_val_fmt="+encodeURIComponent("info:ofi/fmt:kev:mtx:journal"),k("rft.genre","article"),k("rft.atitle",i.title||"")];
  if(i.venue_clean)q.push(k("rft.jtitle",i.venue_clean));(i.authors||[]).forEach(a=>q.push(k("rft.au",a)));if(i.pub_date)q.push(k("rft.date",i.pub_date));if(i.doi)q.push(k("rft_id","info:doi/"+i.doi));if(i.url)q.push(k("rft_id",i.url));return q.join("&")}
-const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,i.seed,(i.drug_groups||[]).join(" "),(i.modality_groups||[]).join(" "),(i.disorders||[]).join(" "),(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" ")].join(" ").toLowerCase();
-function card(i){const tags=[...(i.drug_display||[]),...(i.modality_groups||[]),...(i.disorders||[]),...(i.stage?[i.stage]:[]),...(i.methods||[]),...(i.populations||[]),...(i.topics||[]).map(t=>"#"+t)];const r=i.relevance||0;
- return `<article class="card">${i.zotero&&(i.doi||i.url)?`<span class="Z3988" title="${esc(coins(i))}"></span>`:""}<span class="badge">☆ Shortlist${i.added_date?" · added "+esc(i.added_date):""}</span><span class="ty">${esc(i.item_type||"")}${i.status&&i.status!=="shortlisted"?" · "+esc(i.status):""}</span><span class="ty" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
+const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,i.seed,(i.drug_groups||[]).join(" "),(i.modality_groups||[]).join(" "),(i.disorders||[]).join(" "),i.stage||"",i.pub_status||"",(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" ")].join(" ").toLowerCase();
+const PSB=i=>i.pub_status?`<span class="pst${/preprint/i.test(i.pub_status)?" pre":i.pub_status==="Registered"?" reg":""}" title="Publication status">${esc(i.pub_status)}</span>`:"";
+function card(i){const tags=[...(i.drug_display||[]),...(i.modality_groups||[]),...(i.disorders||[]),...(i.stage?[i.stage]:[]),...(i.pub_status?[i.pub_status]:[]),...(i.methods||[]),...(i.populations||[]),...(i.topics||[]).map(t=>"#"+t)];const r=i.relevance||0;
+ return `<article class="card">${i.zotero&&(i.doi||i.url)?`<span class="Z3988" title="${esc(coins(i))}"></span>`:""}<span class="badge">☆ Shortlist${i.added_date?" · added "+esc(i.added_date):""}</span><span class="ty">${esc(i.item_type||"")}${i.status&&i.status!=="shortlisted"?" · "+esc(i.status):""}</span>${PSB(i)}<span class="ty" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
  <h3>${i.url?`<a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}</a>`:esc(i.title)}</h3>
  ${(i.authors||[]).length?`<div class="au">${esc(auT(i.authors))}</div>`:""}<div class="m">${esc(i.venue||"")}${i.pub_date?" · "+esc(i.pub_date):""}${i.doi?" · doi:"+esc(i.doi):""}${i.verified===false?' · <span style="color:var(--red)">UNVERIFIED</span>':""}</div>
  ${i.seed?`<div class="m" style="margin-top:3px">found via: ${esc(i.seed)}</div>`:""}

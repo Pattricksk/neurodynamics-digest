@@ -78,6 +78,21 @@ METRX = {k: rx(v) for k, v in TM.get("method_map", {}).items() if not k.startswi
 DISRX = {k: rx(v) for k, v in TM["disorder_map"].items() if not k.startswith("_")}
 ST = TM["stage"]; PRE, CLIN = rx(ST["preclinical_patterns"]), rx(ST["clinical_patterns"])
 def hit(pats, t): return any(p.search(t) for p in pats)
+# Publication status lives in its own field, separate from stage (Clinical / Pre-clinical).
+# Values: "Peer reviewed" / "Preprint" / "Reviewed preprint" / "Registered" / "" (non-study items).
+# A pub_status stored in items.jsonl wins; otherwise it is derived from item_type and venue.
+PUB_ORDER = ["Peer reviewed", "Preprint", "Reviewed preprint", "Registered"]
+PUB_NORM = {v.lower(): v for v in PUB_ORDER}
+PREPRINT_VENUE = re.compile(r"preprint|biorxiv|medrxiv|arxiv|psyarxiv|research square|ssrn|osf preprints", re.I)
+def pub_status(r):
+    v = (r.get("pub_status") or "").strip().lower()
+    if v in PUB_NORM: return PUB_NORM[v]
+    ven, t = r.get("venue") or "", r.get("item_type")
+    if re.search(r"reviewed preprint", ven, re.I): return "Reviewed preprint"
+    if "clinicaltrials.gov" in ven.lower() or re.match(r"NCT\d{8}$", r.get("doi") or "") or "clinicaltrials.gov" in (r.get("url") or ""): return "Registered"
+    if t == "preprint" or (t in ("paper", "review", "dataset", "tool") and PREPRINT_VENUE.search(ven)): return "Preprint"
+    if t in ("paper", "review"): return "Peer reviewed"
+    return ""
 def uniq(x): return list(dict.fromkeys(x))
 def drug_label(d):
     k = d.strip().lower()
@@ -103,7 +118,8 @@ for r in rows + sl_rows:
     if r.get("item_type") in ST["study_types"]:
         if r.get("modality") == "preclinical" or hit(PRE, pops): st = "Pre-clinical"
         elif hit(CLIN, pops) or any(m in ST["human_modalities"] for m in r["modality_groups"]): st = "Clinical"
-    if not r.get("stage"): r["stage"] = st  # a stage stored in items.jsonl wins
+    if r.get("stage") not in ("Clinical", "Pre-clinical"): r["stage"] = st  # a valid stored stage wins; anything else is re-derived
+    r["pub_status"] = pub_status(r)
     for pre, ov in TM["overrides"].items():
         if not pre.startswith("_") and (r.get("title") or "").startswith(pre): r.update(ov)
 
@@ -172,7 +188,7 @@ for r in rows + sl_rows:
     if r.get("doi"): meta.append(f'<meta name="citation_doi" content="{e(r["doi"])}">')
     if r.get("url"): meta.append(f'<meta name="citation_abstract_html_url" content="{e(r["url"])}">')
     if not r["zotero"]: meta = []  # non-paper items: no citation metadata
-    tags = [*r.get("drug_display", []), *r.get("modality_groups", []), *r.get("disorders", []), *([r["stage"]] if r.get("stage") else []),
+    tags = [*r.get("drug_display", []), *r.get("modality_groups", []), *r.get("disorders", []), *([r["stage"]] if r.get("stage") else []), *([r["pub_status"]] if r.get("pub_status") else []),
             *(r.get("methods") or []), *(r.get("populations") or []), *["#" + t for t in r.get("topics") or []]]
     au = ", ".join(r.get("authors") or [])
     links = []

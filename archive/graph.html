@@ -2,7 +2,8 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Neurodynamics Digest · Graph view</title>
-<style>
+<style>.pst{font-family:var(--mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;border:1px solid var(--line);color:var(--mut);padding:1px 5px;margin-left:6px}.pst.pre{border-color:var(--red);color:var(--red)}.pst.reg{border-color:#a8d8e8;color:#a8d8e8}
+
 :root{--bg:#11161b;--panel:#171e24;--panel2:#1c252e;--line:#2a333c;--tx:#e6e9ec;--mut:#9aa7b2;--dim:#5f7180;--red:#e0453b;--link:#a9c7e0;--amb:#e8c15a;--mono:Consolas,Menlo,monospace}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.45}
 main{max-width:1280px;margin:0 auto;padding:24px 16px 60px}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
@@ -88,9 +89,9 @@ const ET=[
  ["topic","Topic tags",i=>(i.topics||[]).map(v=>[norm(v),"#"+v]),0,"#9fb4f2",1,2],
  ["author","Authors",i=>(i.authors||[]).map(v=>[norm(v),v]),0,"#a6dc8f",1,2],
  ["sim","Similarity",null,0,"#9aa7b2",0,0]];
-const CHIPS=[["drug","Drug","drug_groups",null],["mod","Modality","modality_groups",MODS],["dis","Disorder / population","disorders",null],["stage","Clinical / Pre-clinical","stage",["Clinical","Pre-clinical"]],["sec","Section","section",null]];
+const CHIPS=[["drug","Drug","drug_groups",null],["mod","Modality","modality_groups",MODS],["dis","Disorder / population","disorders",null],["stage","Clinical / Pre-clinical","stage",["Clinical","Pre-clinical"]],["pub","Publication status","pub_status",["Peer reviewed","Preprint","Reviewed preprint","Registered"]],["sec","Section","section",null]];
 const cv=(i,f)=>{const v=i[f];return Array.isArray(v)?v:v?[v]:[]};
-const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,(i.drugs||[]).join(" "),(i.drug_groups||[]).join(" "),(i.disorders||[]).join(" "),(i.modality_groups||[]).join(" "),(i.method_groups||[]).join(" "),i.stage||"",(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" "),i.modality,i.item_type,i.section].join(" ").toLowerCase();
+const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,(i.drugs||[]).join(" "),(i.drug_groups||[]).join(" "),(i.disorders||[]).join(" "),(i.modality_groups||[]).join(" "),(i.method_groups||[]).join(" "),i.stage||"",i.pub_status||"",(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" "),i.modality,i.item_type,i.section].join(" ").toLowerCase();
 const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $=id=>document.getElementById(id);
 // ---- Personal state: same localStorage as the archive (ndd-archive) and shortlist (ndd-shortlist) ----
@@ -294,6 +295,7 @@ function paint(){if(!ctx)return;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(
 // ---- Side panel ----
 function select(id,center){S.sel=id;const n=id&&NM.get(id);if(!n){$("side").style.display="none";S.sel=null;draw();return}panel(n);
  if(center){const sx=n.x*T.k+T.x,sy=n.y*T.k+T.y,pw=matchMedia("(max-width:700px)").matches?0:Math.min(400,W*.92);if(sx<20||sx>W-pw-20||sy<20||sy>H-20){T.x+=(W-pw)/2-sx;T.y+=H/2-sy}}draw()}
+const PSB=i=>i.pub_status?`<span class="pst${/preprint/i.test(i.pub_status)?" pre":i.pub_status==="Registered"?" reg":""}" title="Publication status">${esc(i.pub_status)}</span>`:"";
 function chipBtn(k,v,lab){return`<button class="chip" data-fil="${k}|${esc(v)}" title="Filter the graph to this">${esc(lab||v)}</button>`}
 function panel(n){const sd=$("side");sd.style.display="block";
  if(n.tag){const t=n.tag,ps=t.ids.map(id=>BYID[id]).filter(Boolean).sort((a,b)=>(b.relevance||0)-(a.relevance||0));
@@ -304,11 +306,11 @@ function panel(n){const sd=$("side");sd.style.display="block";
  const i=n.it,s=secOf(i.section),sl=i._sl,au=i.authors||[],auT=au.length>6?au.slice(0,6).join(", ")+` +${au.length-6} more`:au.join(", "),r=i.relevance||0;
  const star=(sl?SL.star:P.star)[i.id],ni=(sl?SL.ni:P.ni)[i.id];
  const dd=i.drug_display||i.drugs||[];
- const tags=[...(i.drug_groups||[]).map(v=>chipBtn("drug",v)),...(i.modality_groups||[]).map(v=>chipBtn("mod",v)),...(i.disorders||[]).map(v=>chipBtn("dis",v)),...(i.stage?[chipBtn("stage",i.stage)]:[]),
+ const tags=[...(i.drug_groups||[]).map(v=>chipBtn("drug",v)),...(i.modality_groups||[]).map(v=>chipBtn("mod",v)),...(i.disorders||[]).map(v=>chipBtn("dis",v)),...(i.stage?[chipBtn("stage",i.stage)]:[]),...(i.pub_status?[chipBtn("pub",i.pub_status)]:[]),
   ...(i.method_groups||[]).map(v=>`<button class="chip" data-q="${esc(v)}" title="Highlight papers in this method family">⚙ ${esc(v)}</button>`),...(i.topics||[]).map(v=>`<button class="chip" data-q="${esc(v)}">#${esc(v)}</button>`)].join("");
  const nb=(ADJ.get(n.id)||[]).slice().sort((a,b)=>(b.l.w||0)-(a.l.w||0));
  const src=i.url||(i.doi?"https://doi.org/"+i.doi:"");
- sd.innerHTML=`<button class="x">✕</button><span class="badge" style="--c:${s[3]}">${s[2]} ${esc(s[1])}</span><span class="ty">${esc(i.item_type||"")}</span><span class="ty" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
+ sd.innerHTML=`<button class="x">✕</button><span class="badge" style="--c:${s[3]}">${s[2]} ${esc(s[1])}</span><span class="ty">${esc(i.item_type||"")}</span>${PSB(i)}<span class="ty" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
  <h3>${src?`<a href="${esc(src)}" target="_blank" rel="noopener">${esc(i.title)}</a>`:esc(i.title)}</h3>${auT?`<div class="au">${esc(auT)}</div>`:""}
  <div class="m">${esc(i.venue_clean||i.venue||"")}${i.pub_date?" · "+esc(i.pub_date):""}${i.doi?" · doi:"+esc(i.doi):""}${sl&&i.added_date?" · shortlisted "+esc(i.added_date):""}</div>
  <div class="tags">${tags}</div>${i.summary?`<p>${esc(i.summary)}</p>`:""}${i.caveats?`<div class="cav"><b>CAVEATS</b> ${esc(i.caveats)}</div>`:""}${i.notes?`<div class="note"><b>My notes:</b> ${esc(i.notes)}</div>`:""}

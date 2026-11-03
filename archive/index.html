@@ -23,6 +23,7 @@ select{background:var(--panel2);color:var(--tx);border:1px solid var(--line);pad
 .card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--c);padding:14px 16px;margin:0 0 12px}
 .card h3{margin:6px 0 4px;font-size:17px}.card h3 a{color:var(--tx)}.au{color:var(--mut);font-size:13px}
 .badge{font-family:var(--mono);font-size:11px;color:var(--c);border:1px solid var(--c);padding:1px 6px}.ty{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:6px;text-transform:uppercase}
+.pst{font-family:var(--mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;border:1px solid var(--line);color:var(--mut);padding:1px 5px;margin-left:6px}.pst.pre{border-color:var(--red);color:var(--red)}.pst.reg{border-color:#a8d8e8;color:#a8d8e8}
 .rel{font-family:var(--mono);font-size:11px;color:var(--mut);margin-left:6px}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}.tags .chip{font-size:11px;padding:2px 6px}
 .cav{color:var(--mut);font-size:13px;border-left:2px solid var(--dim);padding-left:8px}.cav b{color:var(--red);font-family:var(--mono);font-size:11px}
@@ -71,14 +72,15 @@ const SECTIONS=[ // [name in data, tab label, icon, accent]
 ["Summer schools and training","Summer schools","✎\uFE0E","#a6dc8f"],["Funding radar","Funding","£","#e7b97a"],["Patrick's picks","Patrick's picks","✉\uFE0E","#e0453b"]];
 const CHIPS=[ // [state key, row label, field in items.json, fixed order (else by count)]
 ["drug","Drug","drug_groups",null],["mod","Modality","modality_groups",["EEG","MEG (+ OPM)","fMRI","DTI","PET"]],
-["dis","Disorder / population","disorders",null],["stage","Clinical / Pre-clinical","stage",["Clinical","Pre-clinical"]]];
+["dis","Disorder / population","disorders",null],["stage","Clinical / Pre-clinical","stage",["Clinical","Pre-clinical"]],
+["pub","Publication status","pub_status",["Peer reviewed","Preprint","Reviewed preprint","Registered"]]];
 const cv=(i,f)=>{const v=i[f];return Array.isArray(v)?v:v?[v]:[]};
 const SELECTS=[ // [key, label, getter returning array of values]
 ["method","Method / analysis",i=>i.methods||[]],["pop","Population / condition",i=>i.populations||[]],
 ["date","Publication month",i=>i.pub_date?[i.pub_date.slice(0,7)]:[]],["venue","Venue",i=>i.venue?[i.venue]:[]],
 ["issue","Issue",i=>i.issue?["#"+i.issue]:[]],["rel","Relevance to my PhD",i=>[{3:"High",2:"Medium",1:"Low"}[i.relevance]||"Unscored"]]];
 const VIEWS=[["all","All items"],["star","★ Starred"],["toread","To read"],["read","Read"],["quar","⊘ Quarantined"]];
-const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,(i.drugs||[]).join(" "),(i.drug_groups||[]).join(" "),(i.disorders||[]).join(" "),(i.modality_groups||[]).join(" "),i.stage||"",(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" "),i.modality,i.item_type].join(" ").toLowerCase();
+const TEXT=i=>[i.title,(i.authors||[]).join(" "),i.summary,i.caveats,i.notes,i.venue,(i.drugs||[]).join(" "),(i.drug_groups||[]).join(" "),(i.disorders||[]).join(" "),(i.modality_groups||[]).join(" "),i.stage||"",i.pub_status||"",(i.methods||[]).join(" "),(i.populations||[]).join(" "),(i.topics||[]).join(" "),i.modality,i.item_type].join(" ").toLowerCase();
 // ---- Personal state (this browser only) ----
 const store={get(){try{return JSON.parse(localStorage.getItem("ndd-archive")||"{}")}catch(e){return{}}},set(s){try{localStorage.setItem("ndd-archive",JSON.stringify(s))}catch(e){}}};
 let P=store.get();P.star=P.star||{};P.status=P.status||{};P.ni=P.ni||{};P.more=P.more||{};P.ts=P.ts||{};P.sentAt=P.sentAt||0;
@@ -139,12 +141,13 @@ function coins(i){const k=(a,b)=>a+"="+encodeURIComponent(b),q=["ctx_ver=Z39.88-
  if(i.venue_clean)q.push(k("rft.jtitle",i.venue_clean));(i.authors||[]).forEach(a=>q.push(k("rft.au",a)));if(i.pub_date)q.push(k("rft.date",i.pub_date));
  if(i.doi)q.push(k("rft_id","info:doi/"+i.doi));if(i.url)q.push(k("rft_id",i.url));return q.join("&")}
 let zotPing=0;function zotRefresh(){clearTimeout(zotPing);zotPing=setTimeout(()=>{try{history.replaceState(history.state,"",location.href)}catch(e){}},300)}
+const PSB=i=>i.pub_status?`<span class="pst${/preprint/i.test(i.pub_status)?" pre":i.pub_status==="Registered"?" reg":""}" title="Publication status">${esc(i.pub_status)}</span>`:"";
 function card(i){const s=secOf(i.section);
  const tag=(k,v)=>`<button class="chip" data-f="${k}|${esc(v)}">${esc(v)}</button>`;
  const dd=i.drug_display||i.drugs||[];
- const tags=[...(i.drugs||[]).map((d,n)=>`<button class="chip" data-c="drug|${esc((i.drug_labels||[])[n]||d)}">${esc(dd[n]||d)}</button>`),...(i.modality_groups||[]).map(v=>`<button class="chip" data-c="mod|${esc(v)}">${esc(v)}</button>`),...(i.disorders||[]).map(v=>`<button class="chip" data-c="dis|${esc(v)}">${esc(v)}</button>`),...(i.stage?[`<button class="chip" data-c="stage|${esc(i.stage)}">${esc(i.stage)}</button>`]:[]),...(i.methods||[]).map(v=>tag("method",v)),...(i.populations||[]).map(v=>tag("pop",v)),...(i.topics||[]).map(v=>`<button class="chip" data-q="${esc(v)}">#${esc(v)}</button>`)].join("");
+ const tags=[...(i.drugs||[]).map((d,n)=>`<button class="chip" data-c="drug|${esc((i.drug_labels||[])[n]||d)}">${esc(dd[n]||d)}</button>`),...(i.modality_groups||[]).map(v=>`<button class="chip" data-c="mod|${esc(v)}">${esc(v)}</button>`),...(i.disorders||[]).map(v=>`<button class="chip" data-c="dis|${esc(v)}">${esc(v)}</button>`),...(i.stage?[`<button class="chip" data-c="stage|${esc(i.stage)}">${esc(i.stage)}</button>`]:[]),...(i.pub_status?[`<button class="chip" data-c="pub|${esc(i.pub_status)}">${esc(i.pub_status)}</button>`]:[]),...(i.methods||[]).map(v=>tag("method",v)),...(i.populations||[]).map(v=>tag("pop",v)),...(i.topics||[]).map(v=>`<button class="chip" data-q="${esc(v)}">#${esc(v)}</button>`)].join("");
  const au=i.authors||[];const auT=au.length>6?au.slice(0,6).join(", ")+` +${au.length-6} more`:au.join(", ");const r=i.relevance||0;
- return `<article class="card" style="--c:${s[3]}">${i.zotero&&(i.doi||i.url)?`<span class="Z3988" title="${esc(coins(i))}"></span>`:""}<span class="badge">${s[2]} ${esc(s[1])}</span><span class="ty">${esc(i.item_type||"")}${(i.modality_groups||[]).length?" · "+esc(i.modality_groups.join(", ")):i.modality&&i.modality!=="none"?" · "+esc(i.modality):""}</span><span class="rel" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
+ return `<article class="card" style="--c:${s[3]}">${i.zotero&&(i.doi||i.url)?`<span class="Z3988" title="${esc(coins(i))}"></span>`:""}<span class="badge">${s[2]} ${esc(s[1])}</span><span class="ty">${esc(i.item_type||"")}${(i.modality_groups||[]).length?" · "+esc(i.modality_groups.join(", ")):i.modality&&i.modality!=="none"?" · "+esc(i.modality):""}</span>${PSB(i)}<span class="rel" title="Relevance to my PhD">PhD ${"●".repeat(r)}${"○".repeat(3-r)}</span>
  <h3>${i.url?`<a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}</a>`:esc(i.title)}</h3>
  ${auT?`<div class="au">${esc(auT)}</div>`:""}<div class="m">${esc(i.venue||"")}${i.pub_date?" · "+esc(i.pub_date):""}${i.verified===false?' · <span style="color:var(--red)">UNVERIFIED</span>':""}</div>
  <div class="tags">${tags}</div>${i.summary?`<p>${esc(i.summary)}</p>`:""}${i.caveats?`<div class="cav"><b>CAVEATS</b> ${esc(i.caveats)}</div>`:""}
