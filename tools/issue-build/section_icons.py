@@ -26,7 +26,8 @@ SECTIONS = [  # (section type, title keywords, icon, accent colour, colour name)
     ("conferences",             ("conference",),                       "\u25ce",      "#e6d27a", "straw"),      # ◎
     ("summer schools/training", ("summer school", "training"),         "\u270e" + VS, "#a6dc8f", "sage green"), # ✎
     ("funding radar",           ("funding",),                          "\u00a3",      "#e7b97a", "honey"),      # £
-    ("reviews",                 ("best reviews", "reviews of the week"), "\u2261",    "#b8c4d6", "silver"),     # ≡ "Best reviews of the week" (final section, 30 Oct 2026)
+    ("reviews",                 ("best reviews", "reviews of the week"), "\u2261",    "#b8c4d6", "silver"),     # ≡ "Best reviews of the week" (second-to-last, 4 Nov 2026)
+    ("catch-up",                ("catch-up", "catch up"),                "\u21ba",    "#d0a882", "copper"),     # ↺ FINAL section (4 Nov 2026)
 ]
 ICONS = [(t, k, i) for t, k, i, _, _ in SECTIONS]  # backwards compatible
 def _match(title):
