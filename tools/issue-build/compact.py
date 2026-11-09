@@ -29,7 +29,7 @@ def main_item(it,code,A):
     box=(f'<table width="100%" cellpadding="0" cellspacing="0" style="background-color:{P2};border:1px solid {RU}">'
          f'<tr><td style="padding:10px 14px 4px;{F(15,23)}">{tg}<h3 style="margin:8px 0 6px;{F(19,25,w="bold ")}">{it["head"]}</h3>'
          f'<p style="margin:0 0 10px;{F(12,18,ME,True)}">{html.escape(it["byline"])}</p>{body}'+
-         meta([("CAVEATS",it["caveats"]),("WHY IT MATTERS",it["why"]),("REF / ID",refs)],A)+'</td></tr></table>')
+         meta([("CAVEATS",it["caveats"]),("WHY IT MATTERS",it["why"])]+[(k.replace("<br>"," "),v) for k,v in it.get("extra",[])]+[("REF / ID",refs)],A)+'</td></tr></table>')
     return td(box,P1,"padding:0 18px 16px")
 def section(i,s,C):
     n=f"{i:02d}"; rows=[]; k=0; buf=[]; A=color_for(s["title"])

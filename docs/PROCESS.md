@@ -2,7 +2,7 @@
 
 This document explains, end to end, how the **Neurodynamics Digest** is made, published, archived and improved. It aims to be complete enough that another agent (another Grok Bot account, or an agent on a different platform) could rebuild and run the whole system from this file and the code in [`tools/`](../tools/).
 
-*Snapshot: 1 November 2026, written after Issue 002, the last A/B issue. The first combined-method issue is due Sunday 8 November 2026.*
+*Snapshot: 9 November 2026, updated after Issue 003 (8 Nov 2026), the first combined-method issue and the first with the Catch-up section. First written 1 November 2026, after Issue 002 (the last A/B issue). A generic, shareable version of this document (no interests, no design choices, placeholders throughout) is in [`PROCESS_shared.md`](PROCESS_shared.md).*
 
 > **Privacy conventions in this public file.** The repo is public, so email addresses appear only as placeholders: `<RECIPIENT_EMAIL>` (the recipient's main address), `<RECIPIENT_ALT_EMAIL>` (his second address, also accepted for feedback) and `<SENDER_INBOX>` (the agent's own sending inbox). The subscriber's unpublished research projects are described only in generic terms. No tokens or passwords appear anywhere. Where a detail is not known, it is marked **Unknown**.
 
@@ -15,7 +15,7 @@ This document explains, end to end, how the **Neurodynamics Digest** is made, pu
 4. [The brief: interests, scope and ranking rules](#4-the-brief)
 5. [Discovery: the chosen combined method](#5-discovery-the-combined-method)
 6. [Why combined? The A/B history](#6-why-combined-the-ab-history)
-7. [Writing the issue: format, section order, tone](#7-writing-the-issue)
+7. [Writing the issue: format, section order, tone, Catch-up](#7-writing-the-issue)
 8. [Visual rules and the HTML build](#8-visual-rules-and-the-html-build)
 9. [Sending: draft-card approval and its limits](#9-sending)
 10. [Publishing to GitHub Pages](#10-publishing-to-github-pages)
@@ -39,7 +39,7 @@ This document explains, end to end, how the **Neurodynamics Digest** is made, pu
 - **What:** a weekly, email-first science newsletter for one reader, Patrick Kleine. He is a PhD researcher in psychedelic neuroimaging at Imperial College London (Centre for Psychedelic Research; Pedro Mediano's information-theory group). His work centres on EEG, with some fMRI, and includes addiction (gambling especially).
 - **Audience:** a PhD-level scientist. The issue should be friendly and fun to read, and scientifically exact.
 - **Goal:** keep him on top of interesting developments in his area (not only breakthroughs) and in neuroscience more broadly. Each paper is tied to his own analyses.
-- **Schedule:** every **Sunday at 19:00 Europe/London**. It covers the past 7 days, **Monday to Sunday**. The scheduled routine may start up to **59 minutes early**, so the run has to finish (pipeline, writing, publishing, send prep) inside that margin. Issue 002 needed draft-card approval and went out late, at about 22:54 UK time.
+- **Schedule:** every **Sunday at 19:00 Europe/London**. It covers the past 7 days, **Monday to Sunday**. The scheduled routine starts at about **18:40** (it may start up to 59 minutes early), so the run has to finish (pipeline, web pass, Catch-up, writing, publishing, send prep) inside that margin. In practice the run finishes around 19:00 and the email then waits for Patrick to press Send on the draft card: Issue 002 went out at about 22:54 and Issue 003 at about 22:28 UK time.
 - **Sender → recipient:** from the agent's own inbox (`<SENDER_INBOX>`, a Grok Bot mail address) to `<RECIPIENT_EMAIL>`.
 - **Sign-off persona:** the issue is signed "— Mochi" (the bot's name to Patrick), never "Grok Bot".
 - **Name and look:** "Neurodynamics Digest". It uses a dark-mode "declassified technical manual" aesthetic.
@@ -47,6 +47,9 @@ This document explains, end to end, how the **Neurodynamics Digest** is made, pu
   - 27 Oct 2026: a TEST edition, never sent, written in a deliberately over-the-top "bro" voice that must never be reused.
   - 27 Oct 2026: Issue 001.
   - 1 Nov 2026: Issue 002, sent as two versions (A = web search, B = database pipeline) for an A/B test.
+  - 1 Nov 2026: A/B test ended; Patrick chose to combine both methods.
+  - 4–5 Nov 2026: final "Catch-up" section added (plus its extras); "Best reviews" moved to second-to-last; usage-flag rule added.
+  - 8 Nov 2026: Issue 003, the first combined issue (31 weekly items + 5 Catch-up papers), published to the site at about 19:00 and sent at about 22:28 UK time via the draft card.
   - From 8 Nov 2026: one combined issue per week.
 
 ## 2. Moving parts at a glance
@@ -57,16 +60,20 @@ This document explains, end to end, how the **Neurodynamics Digest** is made, pu
  Sunday     ▼                                                                                      │
  routine ─► B: database sweep (pipeline/fetch_candidates.py + chatter.py)                          │
             A: targeted web pass (agent browsing; mandatory biorxiv-top)                           │
+            3b: Catch-up picks (5 older must-reads; never-repeat check vs catchup-log/archive/sent)│
             ▼                                                                                      │
             merge + dedupe + verify every item against its real source                            │
             ▼                                                                                      │
             write content.py ─► render.py ─► full HTML (web) + compact HTML (<80 KB) + plain text │
             ▼                                                                                      │
-            provenance.json (found_by A/B/AB)   archive/items.jsonl (+found_by)   sent-log.md      │
+            provenance.json (found_by A/B/AB)   archive/items.jsonl (+found_by / catchup)        │
+            catchup-log.jsonl (+5 lines)        sent-log.md (after send)                          │
             ▼                                                                                      │
             site/ repo: issues/<nnn>.html + index.html + build_archive_site.py ─► git push main    │
             ▼                                                                                      │
-            email via draft card (condensed body + link to the web issue)                          │
+            email via draft card (plain-text condensed body + link to the web issue)               │
+            ▼                                                                                      │
+            chat note (counts per method; usage flag only if ~2× baseline; monthly gap check)      │
             ▼                                                                                      │
  Patrick ─► reads; stars / marks / "not interested" / "send to Mochi" on the archive site ─────────┘
             (marks sync to the user-state branch; feedback arrives as emails to <SENDER_INBOX>)
@@ -81,12 +88,13 @@ All scripts assume this layout and hard-code `/workspace/newsletter`. If you reb
 | `/workspace/newsletter/brief.md` | **The private brief, the source of truth.** A sanitised copy is in [`tools/brief/brief.sanitised.md`](../tools/brief/brief.sanitised.md). |
 | `/workspace/newsletter/preferences.md` | Append-only log of like/dislike signals (template: [`tools/brief/preferences.template.md`](../tools/brief/preferences.template.md)). |
 | `/workspace/newsletter/sent-log.md` | Every item ever sent, with link and date, used to avoid repeats. |
-| `/workspace/newsletter/docs/routine-prompt.txt` | The exact scheduled-routine prompt (reproduced in Appendix A). |
+| `/workspace/newsletter/catchup-log.jsonl` | One JSON line per Catch-up paper ever shown (or known to the reader). The never-repeat list for Catch-up (§7.5). Created 4 Nov 2026; 5 lines after Issue 003. |
+| `/workspace/newsletter/docs/routine-prompt.txt` | A copy of the scheduled-routine prompt, last updated 5 Nov 2026 to add Catch-up (reproduced in Appendix A). |
 | `/workspace/newsletter/pipeline/` | Method B, the database pipeline (copy in [`tools/pipeline/`](../tools/pipeline/)). Outputs go to `pipeline/out/<Sunday>/`. |
-| `/workspace/newsletter/issue-001/build/` | The issue templates the routine reuses (`content.py`, `render.py`, `compact.py`, `section_icons.py`, `house_style.py`, `archive_items.py`). Copies are in [`tools/issue-build/`](../tools/issue-build/). |
-| `/workspace/newsletter/issue-002b/build/` | Latest real content example (Issue 002 B). |
-| `/workspace/newsletter/ab/<date>/` | Per-week method bookkeeping: `comparison.md` (A/B weeks), `provenance.json` (combined weeks), `A_items.json`, `B_items.json`, `build_records.py`, `email/`. |
-| `/workspace/newsletter/archive/items.jsonl` | The archive database (append-only JSON lines; 128 rows at 1 Nov 2026). |
+| `/workspace/newsletter/issue-001/build/` | The original issue templates the routine prompt points to (`content.py`, `render.py`, `compact.py`, `section_icons.py`, `house_style.py`, `archive_items.py`). Note: its `render.py`/`compact.py` predate the Catch-up `extra` rows (§8.3). |
+| `/workspace/newsletter/issue-<nnn>/build/` | Each week's build folder. **`issue-003/build/` is the latest real example** and the first whose `render.py`/`compact.py` render the Catch-up extra rows; copies are in [`tools/issue-build/`](../tools/issue-build/). Rendered outputs sit one level up: `issue-<nnn>-full.html`, `issue-<nnn>-compact.html`, `issue-<nnn>.txt`. |
+| `/workspace/newsletter/ab/<date>/` | Per-week bookkeeping. A/B weeks: `comparison.md`, `A_items.json`, `B_items.json`. Combined weeks (from 8 Nov): `provenance.json`, `build_records.py` (builds the archive rows from that week's `content.py`), `records.json` (the rows it produced), and `email/` (`subject-<nnn>.txt`, `issue-<nnn>-email.txt` = the plain-text card body, `issue-<nnn>-email.html`, `issue-<nnn>-compact.html`, `issue-<nnn>.txt`). |
+| `/workspace/newsletter/archive/items.jsonl` | The archive database (append-only JSON lines; 128 rows at 1 Nov 2026, 164 after Issue 003). |
 | `/workspace/newsletter/archive/shortlist.jsonl` | Shortlist database (separate from the archive). |
 | `/workspace/newsletter/build/` | `build_archive_site.py`, `tag_map.json`, `favicon.py` (copies in [`tools/archive/`](../tools/archive/)). |
 | `/workspace/newsletter/site/` | Local clone of this repo (GitHub Pages source). |
@@ -152,7 +160,7 @@ All scripts assume this layout and hard-code `/workspace/newsletter`. If you reb
   - down-weighting means "fewer/shorter", not "never"
   - derived rules need 2+ consistent signals
   - explicit chat instructions override derived rules
-- **Repeats:** never repeat what is in `sent-log.md`, the archive or the shortlist. The exception is a short ICYMI pointer for a notable slightly older item that wasn't covered.
+- **Repeats:** never repeat what is in `sent-log.md`, the archive or the shortlist. The exception is a short ICYMI pointer for a notable slightly older item that wasn't covered. Catch-up has a stricter rule: never repeat a paper shown in **any** section of **any** issue, checked against `catchup-log.jsonl`, `archive/items.jsonl` and `sent-log.md` (§7.5).
 - **Integrity:** never invent papers, authors, findings, numbers, deadlines or links. Verify every item against its real source (publisher/DOI page, PubMed/Europe PMC, preprint server). Say plainly when something couldn't be verified, and when a section has nothing new.
 
 ### 4.7 Source access notes (from the brief)
@@ -175,7 +183,7 @@ All scripts assume this layout and hard-code `/workspace/newsletter`. If you reb
 
 ## 5. Discovery: the combined method
 
-Since 1 Nov 2026 the chosen method is **both A and B, merged into one issue** ("the most thorough approach", Patrick's choice). The order is:
+Since 1 Nov 2026 the chosen method is **both A and B, merged into one issue** ("the most thorough approach", Patrick's choice); first used for Issue 003 on 8 Nov 2026. The order is: B (database sweep) → A (web pass) → 3b (Catch-up picks) → merge/verify → provenance → archive → publish → email card → sent-log.
 
 ### 5.1 Step B: database sweep (runs first; cheap and broad)
 ```bash
@@ -247,7 +255,9 @@ No LLM is involved in retrieval; it uses only free scholarly APIs. The sources r
 | `stats.json` | per-source hits, timings, errors, drop counts |
 | `chatter.json` / `chatter.md` | the buzz data |
 
-Example (1 Nov 2026): raw 1947 hits → 1696 after merge/dedupe → scored pool 1408 → 60 candidates + 15 reviews + 3 trials, in 37.6 s.
+Examples:
+- 1 Nov 2026: raw 1947 hits → 1696 after merge/dedupe → scored pool 1408 → 60 candidates + 15 reviews + 3 trials, in 37.6 s.
+- 8 Nov 2026 (first combined run): raw 1406 hits (PubMed 550, OpenAlex 358, bioRxiv 292, Europe PMC 112, medRxiv 73, arXiv 21, ClinicalTrials.gov 3) → 1280 after merge/dedupe → dropped 2 already covered, 6 errata/notices, 317 bulk preprints below threshold → scored pool 955 (796 primary, 159 reviews) → 60 candidates + 15 reviews + 3 trials, in 49.4 s, no source failures. The biorxiv-top November ranking was empty (no preprint had 15 days online yet), so the October ranking was used.
 
 **Chatter** (`chatter.py`, for "Buzz this week"):
 - Bluesky searchPosts uses several URL variants of each paper plus a quoted-title search, and excludes bot accounts. Hacker News uses Algolia.
@@ -272,6 +282,9 @@ The agent researches the same Monday–Sunday window by browsing. It covers:
 
 The bioRxiv-top tracker is **mandatory** (via the fallback chain). The aim is to find **what the database sweep missed**, not to re-read what it already found.
 
+### 5.2b Step 3b: Catch-up picks (runs after the web pass)
+The routine then chooses the 5 Catch-up papers for the final section. This is a separate search from the weekly window: it looks back about 10 years for must-read papers in this week's rotation of interest areas, checks each against the never-repeat logs, verifies it, and finds a "Since then" development and any public code/data. Full rules in §7.5. Catch-up papers are **not** part of the A/B/AB provenance counts.
+
 ### 5.3 Merge, dedupe, verify
 - Take the union of A and B, deduped by DOI, else by title.
 - Rank by relevance and study quality per the brief; the venue is only a small tie-break.
@@ -281,14 +294,15 @@ The bioRxiv-top tracker is **mandatory** (via the fallback chain). The aim is to
 ### 5.4 Provenance
 Save `/workspace/newsletter/ab/<date>/provenance.json`. It lists each included item with `found_by` = `"A"`, `"B"` or `"AB"`, plus a short note of the counts and of notable items that only one method found. It is used later to judge whether both methods are still pulling their weight.
 
-The routine fixes only those contents, not a schema. A suggested shape (*not yet produced; the first one is due 8 Nov 2026*):
+The routine fixes only those contents, not a schema. The first real file (Issue 003, 8 Nov 2026) has this shape, which later runs should keep:
 ```json
-{"date": "2026-11-08", "window": ["2026-11-02", "2026-11-08"],
- "counts": {"A": 0, "B": 0, "AB": 0, "total": 0},
- "items": [{"section": "EEG", "title": "...", "doi": "10.xxxx/...", "url": "https://doi.org/...", "found_by": "AB"}],
- "notes": "Notable single-method finds: ..."}
+{"issue": "003", "issue_date": "2026-11-08", "coverage": "2026-11-02 to 2026-11-08",
+ "counts": {"total_weekly": 31, "A_only": 4, "B_only": 26, "both": 1, "catchup": 5},
+ "note": "Free-text: what each method supplied, notable single-method finds, items A surfaced but excluded (and why), chatter summary.",
+ "items": [{"section": "The headline act", "title": "...", "doi": "10.xxxx/...", "url": "https://doi.org/...", "found_by": "B"}]}
 ```
-The same `found_by` value is written to each item's archive row.
+- `items` lists only the weekly (in-window) items; the 5 Catch-up papers are counted in `counts.catchup` but have no `found_by`.
+- The same `found_by` value is written to each weekly item's archive row. Catch-up rows instead carry `catchup: true` (§11.1).
 
 ## 6. Why combined? The A/B history
 
@@ -312,6 +326,7 @@ Issue 002 (window 26 Oct–1 Nov 2026) was sent as two separate emails and web p
 - **Effort:** A needed many searches and page fetches, with dead ends such as Cloudflare blocks and unverifiable trade-press claims, so it had a higher cost per useful item. B was one cheap pipeline run plus reading ~40 abstracts and hand-filtering noise.
 - **Decision (1 Nov 2026, Patrick):** "for now, i want the most thorough approach. i like what both A and B pull, so combining them both to capture the most complete picture would be great!" The routine was rewritten for combined issues from 8 Nov, and `found_by` is tracked so the decision can be revisited.
 - A possible future tweak, not yet implemented: give the pipeline a wider look-back or an ICYMI pass for big-venue items.
+- **First combined week (Issue 003, 2–8 Nov 2026):** 31 weekly items: **B-only 26, A-only 4, both 1** (plus 5 Catch-up papers). B supplied the headline (a medRxiv PET sub-study posted on the Sunday) and most methods papers; A's unique finds were an older paper resurfaced by press coverage (paired with the headline as "read it alongside"), a just-published journal paper, a regulatory news item and a journal spotlight. A also surfaced several items that were excluded as out of window or off-brief. Chatter was thin (3 of 45 papers had any Bluesky post), so Buzz got one intro line rather than a section.
 
 ## 7. Writing the issue
 
@@ -340,14 +355,16 @@ Issue 002 (window 26 Oct–1 Nov 2026) was sent as two separate emails and web p
 - **EEG gets its own dedicated section every issue, right after the headline act.** It collects EEG papers of every kind. Don't duplicate items: if the headline is an EEG paper, cross-reference it in one line.
 - **Weekly explainer:** one information-theory or computational-modelling concept (e.g. Phi-ID, Lempel-Ziv complexity, bifurcations, whole-brain models), ideally tied to a paper in the issue.
 - **"Buzz this week":** a short note from the chatter data (in-window counts) if worthwhile.
-- **"Best reviews of the week" is ALWAYS the final content section**, just before the sign-off:
-  - usually 2–5 reviews, perspectives or meta-analyses
+- **"Best reviews of the week" is the SECOND-TO-LAST content section** (since 4 Nov 2026; it was last before then):
+  - usually 2–5 reviews, perspectives or meta-analyses published that week
   - each with its scope, key takeaways, caveats (narrative vs systematic, the authors' own stake) and "Why it matters for you"
+  - archived with `item_type: "review"`
   - if there are none, say so in one line
+- **"Catch-up" is ALWAYS the FINAL content section**, just before the sign-off: exactly 5 key older papers (§7.5).
 - Sections are fluid. Include or drop them depending on the week, and say plainly when one is quiet. A genuinely quiet week still gets a shorter edition.
 - Length: a long, comprehensive Sunday read is welcome.
 
-### 7.3 Section order (as used in Issue 002)
+### 7.3 Section order (canonical; Issue 003 used 14 of these)
 1. The headline act ★
 2. EEG ∿
 3. Your own corner ⌂ (Centre for Psychedelic Research, Mediano group, collaborators; used in 001)
@@ -358,22 +375,57 @@ Issue 002 (window 26 Oct–1 Nov 2026) was sent as two separate emails and web p
 8. Brain–body coupling ♥
 9. Preclinical ⚗
 10. Critiques and nulls ∅ (used in 001)
-11. Wildcards ✦ (includes a bioRxiv most-read pick)
+11. Wildcards ✦ (includes a bioRxiv most-read pick; titled "Rogue picks" in Issue 003 — the brief uses both names for the same section)
 12. Datasets and tools ⚙
 13. Policy pulse ⚖ (FDA/EU regulation, big trial readouts, new psychedelic trial registrations)
 14. Conferences on the horizon ◎ (verified dates, locations, abstract/early-bird deadlines)
 15. Summer schools and training ✎
 16. Funding radar £ (UK-based 2nd-year PhD with ~2 years left: travel grants, small grants and awards now; postdoc and early-career fellowships to prepare for; UK/EU first, notable US/AU)
-17. Buzz this week
-18. **Best reviews of the week ≡** (always last)
+17. Buzz this week (Issue 003 folded it into the intro because chatter was thin)
+18. **Best reviews of the week ≡** (second-to-last)
+19. **Catch-up ↺** (always last)
 
-Brain stimulation appears only when warranted.
+Brain stimulation appears only when warranted. Issue 003's actual order: headline act (2), EEG (5), complexity and methods (4), weekly explainer (1), addiction (2), brain–body coupling (4), preclinical (2), critiques and nulls (2), rogue picks (2), policy pulse (4), conferences (1), funding radar (1), best reviews (3), Catch-up (5). The bioRxiv most-read pick sat in the EEG section that week.
 
 ### 7.4 Tone
 - Friendly, fun and interesting, written for PhD-level scientists.
 - **Neutral and accurate**: no overclaiming, no taking liberties, no oversimplifying.
 - Explain information theory and computational modelling accessibly without dumbing down the findings.
 - **Normal voice only, never the "bro" voice.** That voice was used once, for the unsent TEST edition, and is banned.
+
+### 7.5 The Catch-up section (since 4–5 Nov 2026; first run 8 Nov 2026)
+Purpose: make sure Patrick hasn't missed the field's critical publications. Patrick's words: "every week find 5 key papers from the last 5-10 years … add them to a final section called catch-up … never show me the same paper twice."
+
+**Selection rules**
+- **Exactly 5 papers** per issue, from roughly the **last 10 years** (2016 to present; landmark papers first; recent years fine).
+- **Now and then (at most about one a week)** a truly foundational **pre-2016** paper is allowed.
+- Aim for the must-reads: high-impact, well-cited or foundational methods/findings, not just any older paper.
+- **Rotate across interest areas** week to week so coverage spreads out. The rotation list: psychedelic/drug neuroimaging; EEG/MEG dynamics incl. travelling waves; aperiodic activity and waveform shape; DCM and whole-brain modelling; MMN/predictive coding; brain–body coupling; addiction/gambling cue reactivity; EEG/MEG generators and biophysics; treatment-outcome prediction; altered states/meditation/breathwork; sleep and consciousness; fMRI spatial autocorrelation. Record each pick's area in the log. Issue 003 covered: travelling waves, EEG generators, brain–body coupling, gambling cue reactivity, fMRI spatial autocorrelation (one per area).
+- **NEVER repeat a paper.** Before choosing, check `catchup-log.jsonl` **and** `archive/items.jsonl` **and** `sent-log.md` by DOI and by title, and skip anything already shown in any section of any issue (or logged as already known).
+- **Verify every paper** against its real source (DOI/publisher page, PubMed/Europe PMC). Never invent.
+- If Patrick replies that he **already knows** a pick, log it with `known: true` and lean toward less obvious picks.
+
+**Each item contains** (rendered as a normal `main` item, §8.3)
+- tags: publication status, year, article type, interest area (e.g. `PEER REVIEWED · 2018 · REVIEW · TRAVELLING WAVES`)
+- headline = the paper title; byline = authors · venue · year; DOI link in the ref row
+- a short summary of what it found/introduced, then "Why it mattered:" (its importance to the field)
+- caveats
+- "Why it matters for you", tied to his actual analyses (and, where natural, to a paper in this week's issue)
+- **Catch-up extras (approved 5 Nov 2026)**, as extra meta rows:
+  - (a) **SINCE THEN**: one verified line on what happened afterwards (replications, failed replications, key critiques, the toolbox/standard implementation), with a DOI link.
+  - (b) **READING LEVEL**: exactly one of "Skim the abstract", "Read the methods", "Worth a full read".
+  - (c) **CODE/DATA**: link public code or data he could reuse; **omit the row entirely if none was found** (Issue 003: 3 of 5 had one).
+
+**Monthly mechanics**
+- (d) **Themed week**, about once a month: all 5 papers form one connected story on a single theme (e.g. "the travelling-waves canon", "how the aperiodic exponent became an E/I proxy"), ordered so each builds on the last, with a one-line theme intro. Issue 003's email told Patrick a themed week was planned later in November.
+- (e) **Gap check**: in the **chat note of the first Sunday issue of each month**, ask Patrick for 2–3 papers he considers essential. Use his answers to adjust the rotation, and log them in `catchup-log.jsonl` with `known: true` so they are never "recommended" back to him.
+- (f) **Archive shelf**: Catch-up rows are archived with `section: "Catch-up"` and get their own tab/filter on the archive site (§11.3).
+
+**After the issue**: append one JSON line per Catch-up paper to `catchup-log.jsonl` (schema in §16), and archive each paper (§11.1).
+
+**Email**: the plain-text card body lists the 5 Catch-up papers (title, authors, venue, year, DOI link) and, while the section is new, invites Patrick to say if he already knows a pick or which areas he wants next.
+
+**Future (not yet):** Patrick may later ask for per-interest catch-up newsletters as separate products. Don't build these until he asks.
 
 ## 8. Visual rules and the HTML build
 
@@ -425,6 +477,7 @@ Brain stimulation appears only when warranted.
   | Summer schools | ✎ | sage #a6dc8f |
   | Funding | £ | honey #e7b97a |
   | Best reviews | ≡ | silver #b8c4d6 |
+  | Catch-up | ↺ | copper #d0a882 |
   | Fallback | ◆ | violet |
 
 - **Contents list:** every section links to its anchor (`s01`, `s02` … using both `id` and `<a name>`), and each section ends with "↑ contents". Anchors work in browsers, Apple Mail and Gmail web; Outlook and mobile apps may ignore them.
@@ -443,7 +496,7 @@ Brain stimulation appears only when warranted.
 - `content.py` (per issue) holds all the text. Start from [`content_template.py`](../tools/issue-build/content_template.py).
   - **Fields:** `NUM, SUBJECT, ISSUE_CODE, TITLE, TITLE_JP (English subtitle), TAGLINE, COVER, VIEW_URL, TOPRIGHT, STAMP, SPECLINE, PREHEADER, OUT_COMPACT, OUT_FULL, OUT_TXT, INTRO, KEY, SECTIONS, SIGNOFF_TITLE, SIGNOFF, DISCLAIMER, IMPRINT`.
   - **`SECTIONS`** is a list of `dict(title, sub, items)`. Item kinds:
-    - `main`: `tags` [(TEXT, 0/1/2)], `head`, `byline`, `body` [paras], `caveats`, `why`, `ref` [(label, url)]
+    - `main`: `tags` [(TEXT, 0/1/2)], `head`, `byline`, `body` [paras], `caveats`, `why`, `ref` [(label, url)], and optional `extra` [(LABEL, text)], extra meta rows rendered after "Why it matters for you" and before the ref row (used for Catch-up's SINCE THEN / READING LEVEL / CODE/DATA)
     - `short`: `label`, `text`
     - `explainer`: `paras`
   - **Inline links** use `[[text|url]]`; `<b>` and `<i>` are allowed.
@@ -452,8 +505,10 @@ Brain stimulation appears only when warranted.
   - `--full` writes the full web version as well.
 - `section_icons.py` holds the icon, accent colour, header background and brainwave strip for each section title.
 - `house_style.py` holds the sign-off name ("Mochi") and the two feedback addresses shown in the sign-off. They are placeholders in the public copy; fill them in locally and never commit them.
-- `check_issue.py` (added in `tools/`) runs pre-send checks: compact size ≤80 KB, no CJK characters, no barcode-like markup, no light backgrounds, no bro-voice markers, and the Best-reviews section present. The private build used similar checks in `verify.py`.
-- Original location: `/workspace/newsletter/issue-001/build/`. The routine copies these into a new `issue-<nnn>/build/` each week. In Issue 002 the A and B versions shared blocks through `ab/2026-11-01/shared002.py`.
+- `check_issue.py` (added in `tools/`) runs pre-send checks: compact size ≤80 KB, no CJK characters, no barcode-like markup, no light backgrounds, no bro-voice markers, the Best-reviews section present, the Catch-up section present and after Best reviews. The private build used similar checks in `verify.py`. (Issue 003: compact 77 KB, full 156 KB; both pass.)
+- **`extra` support:** `render.py` (full HTML and plain text) and `compact.py` gained the `extra` rows for Issue 003. The copies in `tools/issue-build/` are the Issue 003 versions; the older `issue-001/build/` copies silently ignore `extra`, so always start from the newest build folder or from `tools/`.
+- Original location: `/workspace/newsletter/issue-001/build/`. The routine copies these into a new `issue-<nnn>/build/` each week (Issue 003 copied them and added the `extra` rows). In Issue 002 the A and B versions shared blocks through `ab/2026-11-01/shared002.py`.
+- `render.py` writes to the absolute `OUT_*` paths set in `content.py`. When testing a template, change those paths first, or you will overwrite that issue's real outputs.
 
 ## 9. Sending
 
@@ -462,12 +517,21 @@ Brain stimulation appears only when warranted.
   - On Grok Bot, an email sent on the user's behalf may need explicit approval. The agent prepares a **draft card** in the chat (recipient, subject, body), and Patrick taps send.
   - The scheduled run therefore *prepares* the card. It does not assume it can send silently. Issue 002 went out this way at about 22:54 UK time on 1 Nov 2026, after the 19:00 target, because the cards waited for approval.
 - **Card limits:**
-  - Draft cards accept **only basic HTML**. Inline styles, tables, background colours and the dark-mode design do not survive.
-  - So the email body is a **condensed version**: short intro, the top items as short text entries with links, and a prominent **"Read the full issue in your browser"** link to `https://pattricksk.github.io/neurodynamics-digest/issues/<nnn>.html`.
-  - The full design lives on the web page. The compact HTML (<80 KB) and the plain text are still built: they are the fallback if a send path accepts full HTML, and the plain text feeds the condensed body.
+  - Draft cards accept **only basic HTML**. Inline styles, tables, background colours and the dark-mode design do not survive. Since Issue 002 the card body has been sent as **plain text** (Issue 003: `ab/2026-11-08/email/issue-003-email.txt`, about 8.7 KB; a basic-HTML twin `issue-003-email.html` is also kept).
+  - So the email body is a **condensed version**, in this order:
+    1. title line: `Neurodynamics Digest #<nnn>. <date>, covering <window>.`
+    2. `Full issue with caveats and why-it-matters notes: <web link>`
+    3. the intro ("Hi Patrick, this covers …") and the week's theme paragraph
+    4. each section as a numbered heading (`01 THE HEADLINE ACT`, `02 EEG`, …), with one bullet per item: headline (authors · venue · date) `<https://doi.org/...>`; short items get one line; the explainer says "(in the web issue)"
+    5. Best reviews, then the 5 Catch-up papers
+    6. a feedback line (replies from either recipient address and chat messages update the brief), the next-issue time, "— Mochi", and the disclaimer
+  - The web link is `https://pattricksk.github.io/neurodynamics-digest/issues/<nnn>.html`. The full design lives on the web page. The compact HTML (<80 KB) and the full plain text are still built: they are the fallback if a send path accepts full HTML, and the plain text feeds the condensed body.
 - **If publishing fails:** still send, drop the browser link, and say so in the chat note.
-- **Chat note after sending:** say it went out (or what blocked it), give the browser link, and add a 2–3 line summary that includes **how many items each method contributed** (A-only / B-only / both).
-- Issue 001 (27 Oct 2026) went out with the full HTML as an attachment, plus a resend to the alternate address. From Issue 002 the draft-card route was used.
+- **Chat note after the run:** say the issue is live and the card is ready (or what blocked it), give the browser link, and add a 2–3 line summary that includes **how many items each method contributed** (A-only / B-only / both). Also:
+  - **Usage flag** (§17): mention usage only if the run used roughly double the baseline or more.
+  - **Gap check** (§7.5 e): on the first Sunday issue of each month, ask for 2–3 essential papers.
+- **After Patrick presses Send:** mark the sent-log block `EMAIL STATUS: SENT <date> ~<time> UK time … via draft card (plain-text body)` (§16).
+- Issue 001 (27 Oct 2026) went out with the full HTML as an attachment, plus a resend to the alternate address. From Issue 002 the draft-card route was used; Issue 003 (8 Nov) went out the same way at about 22:28 UK time. Copies to the alternate address are only sent when Patrick asks (whether future issues should go to both addresses is an open question).
 - In the A/B week, the email files were kept in `ab/2026-11-01/email/` (`subject-*.txt`, `*-compact.html`, `*.txt`).
 
 ## 10. Publishing to GitHub Pages
@@ -477,7 +541,7 @@ Brain stimulation appears only when warranted.
 - **Structure:**
   ```
   index.html                 # issue list (newest first, after the "<!-- ISSUES (newest first) -->" marker) + "Search the archive" button
-  issues/<nnn>.html          # full HTML of each issue (001, 002a, 002b, then 003, ...)
+  issues/<nnn>.html          # full HTML of each issue (001, 002a, 002b, 003, ...)
   archive/index.html         # archive search UI (EEG canvas header hand-written here)
   archive/items.json         # built from archive/items.jsonl
   archive/shortlist.html / shortlist.json
@@ -489,6 +553,7 @@ Brain stimulation appears only when warranted.
   favicon.svg, favicon-32.png, favicon-16.png, apple-touch-icon.png   # tryptamine skeletal formula (build/favicon.py)
   robots.txt
   docs/PROCESS.md            # this file
+  docs/PROCESS_shared.md     # generic, shareable version (no interests, no design choices)
   tools/                     # sanitised copies of the code
   ```
 - **For each new issue:**
@@ -525,11 +590,18 @@ Append-only, one JSON object per item. Dedupe by DOI, else title (and skip exist
 | optional `notes` | Patrick's notes |
 | optional `relevance` | 1–3, overrides the derived value |
 | `ab_version` | "A"/"B", Issue 002 only. Decides whether the issue link goes to 002a or 002b |
-| `found_by` | **"A" / "B" / "AB"**, from combined issues onward |
+| `found_by` | **"A" / "B" / "AB"**, from combined issues onward (weekly items only; Issue 003: 26 B, 4 A, 1 AB) |
+| `catchup` | `true` on Catch-up rows (section "Catch-up"); these rows have no `found_by` |
+| `interest_area` | Catch-up rows: the rotation area, e.g. "EEG/MEG dynamics: travelling waves" |
+| `since_then` | Catch-up rows: the "Since then" line (plain text) |
+| `reading_level` | Catch-up rows: "Skim the abstract" / "Read the methods" / "Worth a full read" |
+| `code_data` | Catch-up rows: the code/data note, or empty |
+
+Section values are the issue's section titles as written, e.g. "Best reviews of the week", "Catch-up", "Rogue picks". The archive tabs key on these exact strings (§11.3).
 
 Correction (3 Nov 2026): the Issue 002 rows first had publication status stored in `stage`. They were fixed in place (backup `items.jsonl.bak-2026-11-03`, not in the repo): `stage` now holds Clinical / Pre-clinical and publication status moved to `pub_status`. Per-issue archive scripts must write the two separately.
 
-The routine's step 6 does this append. In practice it is a small per-issue script; Issue 002 used `ab/2026-11-01/build_records.py`. The older `issue-001/build/archive_items.py` depended on a temporary Crossref cache, so treat it as an example only.
+The routine's step 6 does this append. In practice it is a small per-issue script: Issue 002 used `ab/2026-11-01/build_records.py`; Issue 003 used `ab/2026-11-08/build_records.py`, which imports that week's `content.py`, strips `[[text|url]]` links and HTML to plain text, merges in a hand-written per-item metadata table (item_type, modality, drugs, populations, methods, topics, authors, venue, pub_date, pub_status, stage, found_by or interest_area), writes `records.json`, then appends the new rows (36 in Issue 003: 31 weekly + 5 Catch-up). The older `issue-001/build/archive_items.py` depended on a temporary Crossref cache, so treat it as an example only.
 
 ### 11.2 Build: `build/build_archive_site.py`
 Run it with `python3 /workspace/newsletter/build/build_archive_site.py`. It is safe to rerun. It:
@@ -557,7 +629,7 @@ Run it with `python3 /workspace/newsletter/build/build_archive_site.py`. It is s
 ### 11.3 Archive website (`site/archive/index.html`)
 Plain HTML/JS with no build step. It loads `items.json` and offers:
 - **Browsing:**
-  - tabs by section (with icon and colour)
+  - tabs by section (with icon and colour). The tab list is the `SECTIONS` array in `archive/index.html` (`[section title, tab label, icon, colour]`); a tab appears only once that section has items. **"Best reviews" (≡) and "Catch-up" (↺) tabs were added on 6 Nov 2026** (commit d826ff9), so Catch-up papers form their own shelf. When a new section name appears, add it to this array (the brief says "build_archive_site.py", but the tab list actually lives in index.html)
   - always-visible chip rows for Drug, Modality, Disorder/population, Clinical/Pre-clinical and Publication status (OR within a row, AND across rows); the graph view has the same rows
   - a small publication-status badge on each card (red for preprints), also on graph-view and shortlist cards and item pages
   - collapsible filters (method, population, month, venue, issue, PhD relevance)
@@ -676,15 +748,18 @@ Feedback reaches the agent in four ways:
 - Liked = STARRED, MORE LIKE THIS, READ (weak). Disliked = NOT INTERESTED.
 - Derived rules are added only after 2+ consistent signals, with the evidence cited.
 - The pipeline reads `preferences.md` automatically (liked ×10, disliked ×−6 similarity), and the writer reads it too.
-- As of 1 Nov 2026 **no signals had been logged yet**.
+- As of 9 Nov 2026 **no signals had been logged yet** (`stats.json` for 8 Nov: liked 0, disliked 0).
+- **Catch-up feedback:** "already know it" replies, and the papers named in the monthly gap check, go into `catchup-log.jsonl` with `known: true` (not into `preferences.md`), and steer the next picks toward less obvious papers.
 
 **How the emails trigger work:** a separate event-driven routine watches the sender inbox for these mails, accepted only from the recipient addresses, and carries out the steps above. **Unknown:** that routine's exact trigger configuration and prompt text are not recorded in the files this document was written from. If you rebuild, create an inbox-triggered routine filtered to the recipient addresses, whose prompt is the bullet list above.
 
 ## 16. sent-log, provenance, special editions
 
 - **`sent-log.md`:** one header per edition, e.g. `## Issue 002 · 1 Nov 2026 · … · STATUS: SENT …`, then one line per item: `- [NNN] Title — URL — date`. The TEST edition used `[TEST]` and Issue 002 used `[AB]`/version markers. Read it before choosing items, and append to it after sending (routine step 9).
+- Issue 003's header, for reference: `## Issue #003 — Neurodynamics Digest (built 8 Nov 2026; combined A+B issue; coverage 2–8 Nov 2026; published <web link> ; EMAIL STATUS: SENT 8 Nov 2026 ~22:28 UK time from <SENDER_INBOX> to <RECIPIENT_EMAIL> via draft card (plain-text body))`, then a `- Subject:` line, then items as `- [003|B] Title — URL — date` (the marker carries the found_by value; Catch-up items are listed too). Write the block when the issue is built and update the status once it is actually sent.
+- **`catchup-log.jsonl`:** append-only, one line per Catch-up paper: `{"date": "2026-11-08", "doi": "10.xxxx/...", "title": "...", "year": 2018, "interest_area": "...", "issue": "003"}`. Papers Patrick already knows (replies or gap-check answers) are added with `"known": true` (and no issue). It is one of the three never-repeat sources for Catch-up.
 - **Provenance:** `ab/<date>/provenance.json`, see §5.4. A/B weeks used `comparison.md` instead.
-- **Special editions:** Patrick would like occasional **on-request special editions** in a different style from the weekly digest, to catch up on big papers from past years he may have missed across his interests. None has been produced yet, and no format is fixed. Backfilling key older papers into the archive is deferred. A one-off "requested paper" item can also be added to a single issue; this was done for 1 Nov, and the instruction was then removed from the routine.
+- **Special editions:** Patrick would like occasional **on-request special editions** in a different style from the weekly digest, to catch up on big papers from past years he may have missed across his interests. None has been produced yet, and no format is fixed. Backfilling key older papers into the archive is deferred; the weekly Catch-up section now covers part of that need, and per-interest catch-up newsletters are a possible future product (not yet). A one-off "requested paper" item can also be added to a single issue; this was done for 1 Nov, and the instruction was then removed from the routine.
 
 ## 17. Other tools and cost
 
@@ -693,7 +768,8 @@ Feedback reaches the agent in four ways:
 - **Cost notes:**
   - Method B (the pipeline) is almost free in API terms: free APIs, and OpenAlex costs ~$0.015 per run against a ~$0.10/day keyless budget (a free key needs an email). Its agent cost is mainly reading ~40–60 candidates and writing.
   - Method A (web search) costs more per useful item: many searches and fetches, and dead ends.
-  - The weekly routine was observed at roughly **4% of a 30-day usage window**, measured only at the routine level. **Unknown:** an exact per-method split. The combined method will cost more than either alone; check with the usage tools after a few combined runs.
+  - The weekly routine was observed at roughly **4% of a 30-day usage window** (the 1 Nov A/B run), measured only at the routine level. **Unknown:** an exact per-method split. The combined method plus Catch-up costs more than either method alone.
+  - **Usage-flag rule (4 Nov 2026):** after each Sunday run, check usage (routine share by day, last 7/30 days). If the newsletter run used **dramatically more than the baseline (roughly double, ~8% or more of 30-day usage)**, say so plainly in the chat note with the numbers from the usage report; **otherwise say nothing about usage**.
   - The archive site, search, graph and sync cost the agent nothing (all client-side, GitHub Pages is free).
 
 ## 18. Rebuild from scratch
@@ -711,7 +787,7 @@ What you need:
    - `tools/pipeline/*` → `pipeline/`
    - `tools/archive/*` → `build/`
    - `tools/issue-build/*` → `issue-template/build/` (on the original box, `issue-001/build/` plays this role)
-3. **Brief.** Start from `tools/brief/brief.sanitised.md` → `brief.md`. Fill in the real addresses, and add the reader's private project details back privately. Create `preferences.md` from the template and an empty `sent-log.md`.
+3. **Brief.** Start from `tools/brief/brief.sanitised.md` → `brief.md`. Fill in the real addresses, and add the reader's private project details back privately. Create `preferences.md` from the template, an empty `sent-log.md` and an empty `catchup-log.jsonl`.
 4. **Placeholders:**
    - Set `NDD_MAILTO` (or edit `pipeline/common.py`) to the sender inbox; it is used as the polite-pool contact for APIs.
    - Set the feedback addresses in `house_style.py`.
@@ -722,26 +798,33 @@ What you need:
 8. **Test.** Run `python3 pipeline/fetch_candidates.py --start <Mon> --end <Sun>` and check that `stats.json` shows no failures. Then copy `content_template.py` to `content.py` in a test build folder, fill it in, run `python3 render.py --full`, then `python3 check_issue.py <files>`.
 9. **Schedule.** Create a weekly routine for Sunday 19:00 Europe/London (start it ~1 h early) using the prompt in Appendix A. Swap in your paths, addresses and repo.
 10. **Feedback routine.** Create an inbox-triggered routine on the sender inbox, accepting mail only from the recipient addresses, that handles the four email types in §15.
-11. **First run.** Watch the first run end to end: pipeline → web pass → merge/verify → build → archive append → publish → draft card → sent-log → chat note.
+11. **First run.** Watch the first run end to end: pipeline → web pass → Catch-up picks → merge/verify → build → provenance → archive append (+ catchup-log) → publish → draft card → chat note → sent-log after send.
 
 ## 19. Weekly run checklist
 
-- [ ] Read `brief.md` (latest), `preferences.md` and `sent-log.md`.
+- [ ] Read `brief.md` (latest), `preferences.md`, `sent-log.md` and `catchup-log.jsonl`.
 - [ ] Run the pipeline and chatter for Monday–Sunday; check `stats.json` for failures.
 - [ ] Do the web pass (journals, preprints, named researchers, policy/trials, conferences, funding, schools, ICYMI), including the **biorxiv-top** check.
+- [ ] Pick 5 **Catch-up** papers: rotate interest areas (or a themed week ~monthly), ≤1 pre-2016, never-repeat check vs `catchup-log.jsonl` + `archive/items.jsonl` + `sent-log.md`, verify each, find Since then / reading level / code-data.
 - [ ] Merge, dedupe (DOI, else title), rank and **verify every item**.
-- [ ] Write `content.py`: EEG second, explainer, Buzz, **Best reviews last**, and "Why it matters for you" on every paper. Normal voice.
-- [ ] `render.py --full`, then `check_issue.py` (compact <80 KB, dark, no CJK, no barcodes) and the plain text.
+- [ ] Write `content.py` (start from the newest build folder): EEG second, explainer, Buzz, **Best reviews second-to-last, Catch-up last**, and "Why it matters for you" on every paper. Normal voice.
+- [ ] `render.py --full`, then `check_issue.py` (compact <80 KB, dark, no CJK, no barcodes, Best reviews + Catch-up) and the plain text.
 - [ ] `ab/<date>/provenance.json` with found_by.
-- [ ] Append to `archive/items.jsonl` (with found_by; dedupe; append only).
+- [ ] Append to `archive/items.jsonl` (found_by on weekly items; `catchup: true` + extras on Catch-up rows; stage and pub_status separate; dedupe; append only).
+- [ ] Append 5 lines to `catchup-log.jsonl`.
 - [ ] In `site/`: `git pull --rebase`, add `issues/<nnn>.html` with favicons, update `index.html`, run `build_archive_site.py`, commit, push `main` (no force; never touch `user-state`).
-- [ ] Prepare the email draft card: condensed basic-HTML body plus the link to the web issue.
-- [ ] Append to `sent-log.md`.
-- [ ] Post the chat note: sent/blocked status, link, 2–3 line summary with per-method counts.
+- [ ] Prepare the email draft card: condensed plain-text body plus the link to the web issue.
+- [ ] Write the `sent-log.md` block; mark it SENT once Patrick presses Send.
+- [ ] Check usage; flag only if ~2× baseline.
+- [ ] Post the chat note: live/card-ready status, link, 2–3 line summary with per-method counts; gap-check question if it is the first Sunday of the month.
 
 ## 20. Known gaps and unknowns
 
-- `provenance.json` has no fixed schema yet (first one due 8 Nov 2026).
+- `provenance.json` has a de-facto schema from Issue 003 (§5.4) but no formal spec.
+- Usage of the first combined run (8 Nov) is not recorded in the files this update was written from.
+- The routine prompt still points at `issue-001/build/` as the template, whose render scripts lack `extra` rows; the run copied and patched them. Starting from `tools/issue-build/` avoids this.
+- The usage-flag rule lives in the brief only, not in the routine prompt text.
+- The live routine prompt can only be read inside the agent's routine settings; Appendix A is the saved copy (5 Nov 2026).
 - The exact trigger configuration and prompt of the feedback email routine: **unknown** (not in the source files).
 - Undermind query texts and any Edison plans: **unknown / not stored**.
 - Exact cost per method: **unknown**; only a routine-level figure (~4% of 30 days) was observed.
@@ -753,18 +836,18 @@ What you need:
 
 ## Appendix A: the current routine prompt (verbatim)
 
-This is the exact text of the scheduled Sunday routine as of 1 Nov 2026 (`/workspace/newsletter/docs/routine-prompt.txt`). The only change is that the two email addresses are replaced with `<SENDER_INBOX>` and `<RECIPIENT_EMAIL>`.
+This is the text of the scheduled Sunday routine as saved on 5 Nov 2026 (`/workspace/newsletter/docs/routine-prompt.txt`), after Catch-up was added. The only change is that the two email addresses are replaced with `<SENDER_INBOX>` and `<RECIPIENT_EMAIL>`. Everything else (Catch-up extras, the usage flag, the gap check) comes from the brief, which step 1 tells the run to follow.
 
 ````text
 Write and send Patrick's weekly science newsletter, so it lands in his inbox by 19:00 UK time on Sunday evening. Patrick wants the MOST THOROUGH approach: discovery uses BOTH methods (A: web search, B: database pipeline), merged into ONE combined issue for the most complete picture. (The A/B test is over; the 1 Nov 2026 issue was the last two-version issue.)
 
-1. Read the current brief at /workspace/newsletter/brief.md. It is the source of truth for his interests (including his current analyses list and scope clarifications), priorities, sections (including the dedicated EEG section, the narrowed addiction scope and the FINAL "Best reviews of the week" section), the rule that every paper gets "Why it matters for you", tone, format model, visual style, source-access notes, archive rules and sync notes, and it changes over time, so always follow the latest version. Also read /workspace/newsletter/sent-log.md so you don't repeat items already covered. Reuse the build scripts in /workspace/newsletter/issue-001/build/ (content.py, render.py --full, compact.py, archive_items.py, section_icons.py) and the 1 Nov A/B build in /workspace/newsletter/ab/2026-11-01/ as templates.
+1. Read the current brief at /workspace/newsletter/brief.md. It is the source of truth for his interests (including his current analyses list and scope clarifications), priorities, sections (including the dedicated EEG section, the narrowed addiction scope, "Best reviews of the week", and the FINAL "Catch-up" section), the rule that every paper gets "Why it matters for you", tone, format model, visual style, source-access notes, archive rules and sync notes, and it changes over time, so always follow the latest version. Also read /workspace/newsletter/sent-log.md so you don't repeat items already covered. Reuse the build scripts in /workspace/newsletter/issue-001/build/ (content.py, render.py --full, compact.py, archive_items.py, section_icons.py) and the 1 Nov A/B build in /workspace/newsletter/ab/2026-11-01/ as templates.
 
 2. DATABASE SWEEP (method B). Run `cd /workspace/newsletter/pipeline && python3 fetch_candidates.py --start <Monday> --end <Sunday>` then `python3 chatter.py --date <Sunday> --top 30` (see pipeline/README.md). Read out/<Sunday>/candidates.md (papers, reviews, trials, biorxiv-top) and chatter.md (use in-window counts as the weekly buzz signal). Shortlist the relevant items; ignore obvious pipeline noise (e.g. non-neuro 'MEG' acronym hits).
 
 3. WEB PASS (method A). Research the past 7 days (Monday to Sunday) as before: journals (especially high-profile journals that index slowly in databases), preprint servers, researchers named in the brief, policy/trials news, ClinicalTrials.gov, conference and funding sources, summer schools, plus notable slightly older catch-up papers he may have missed. MANDATORY: the bioRxiv top neuro tracker (RobertoDF/biorxiv-top data branch usage.json, fallback chain in the brief). Aim to find what the database sweep missed rather than re-reading what it already found.
 
-4. MERGE into one issue: union of both, deduped by DOI else title, ranked by relevance and study quality per the brief (venue only a small tie-breaking bump). Verify every item against its real source; never invent papers, authors, findings, numbers, deadlines or links. Write to the brief's format model (friendly, accurate, no overclaiming, normal voice only, never the bro voice), "Why it matters for you" on every paper tied to his actual analyses, a short "Buzz this week" note from the chatter data if worthwhile, and the Best reviews section last. Build email-safe HTML in the brief's visual style, a compact version under 80KB, and a plain-text fallback. Don't label items by method in the issue itself.
+4. MERGE into one issue: union of both, deduped by DOI else title, ranked by relevance and study quality per the brief (venue only a small tie-breaking bump). Verify every item against its real source; never invent papers, authors, findings, numbers, deadlines or links. Write to the brief's format model (friendly, accurate, no overclaiming, normal voice only, never the bro voice), "Why it matters for you" on every paper tied to his actual analyses, a short "Buzz this week" note from the chatter data if worthwhile, Best reviews second-to-last, and Catch-up last (exactly 5 key papers from roughly the last 10 years per the brief; check catchup-log.jsonl, archive/items.jsonl and sent-log.md so nothing repeats; after the issue append one JSON line per Catch-up item to /workspace/newsletter/catchup-log.jsonl). Build email-safe HTML in the brief's visual style, a compact version under 80KB, and a plain-text fallback. Don't label items by method in the issue itself.
 
 5. Provenance (internal, for judging the methods later): save /workspace/newsletter/ab/<date>/provenance.json listing each included item with found_by "A", "B" or "AB", plus a short note of counts and which notable items only one method found.
 
@@ -786,12 +869,13 @@ Result goes to Patrick by email at <RECIPIENT_EMAIL>; also post a short note in 
 | `tools/pipeline/fetch_candidates.py`, `sources.py`, `biorxiv_top.py`, `chatter.py`, `README.md` | `pipeline/` | none |
 | `tools/pipeline/common.py` | `pipeline/common.py` | `MAILTO` now read from env `NDD_MAILTO` (placeholder default) instead of the real inbox |
 | `tools/pipeline/queries.json` | `pipeline/queries.json` | `_why` comments describing the reader's specific current projects replaced by a generic note; queries, keywords and weights unchanged |
-| `tools/issue-build/render.py`, `compact.py`, `section_icons.py` | `issue-001/build/` (identical in `issue-002b/build/`) | none |
+| `tools/issue-build/render.py`, `compact.py` | `issue-003/build/` (9 Nov 2026 refresh) | none; these versions render the optional `extra` rows (Catch-up) |
+| `tools/issue-build/section_icons.py` | `issue-001/build/` / `issue-003/build/` (identical) | includes the Catch-up ↺ copper mapping |
 | `tools/issue-build/house_style.py` | same | feedback addresses replaced by placeholders |
-| `tools/issue-build/content_template.py` | new | skeleton `content.py` with every field and the section order (tested with render.py) |
-| `tools/issue-build/check_issue.py` | new | pre-send checks (size, CJK, barcodes, light backgrounds, voice, Best reviews) |
+| `tools/issue-build/content_template.py` | new | skeleton `content.py` with every field, the section order (Best reviews second-to-last, Catch-up last) and an example Catch-up item with `extra` rows (tested with render.py) |
+| `tools/issue-build/check_issue.py` | new | pre-send checks (size, CJK, barcodes, light backgrounds, voice, Best reviews, Catch-up present and last) |
 | `tools/archive/build_archive_site.py`, `tag_map.json`, `favicon.py` | `build/` | none |
-| `tools/brief/brief.sanitised.md` | `brief.md` | addresses replaced; specifics of unpublished projects removed or generalised |
+| `tools/brief/brief.sanitised.md` | `brief.md` (refreshed 9 Nov 2026: Best reviews second-to-last, Catch-up rules and extras, usage flag, 3 Nov archive fix, Catch-up icon/colour) | addresses replaced; specifics of unpublished projects removed or generalised |
 | `tools/brief/preferences.template.md` | `preferences.md` | addresses replaced |
 
 Not copied: pipeline outputs (`out/`), caches, per-issue drafts, the TEST "bro" edition files, A/B email files, the Issue 001 `archive_items.py` (depends on a temporary cache), any credentials.

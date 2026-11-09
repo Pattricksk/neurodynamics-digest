@@ -42,7 +42,7 @@ def main_item(it, code, A):
 <p style="margin:0 0 12px 0;font-family:{MONO};font-size:12px;line-height:18px;color:{META};">{html.escape(it["byline"])}</p>
 {body}</td></tr>
 <tr><td style="padding:0 16px 14px 16px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
-{meta_row("CAVEATS",it["caveats"],A)}{meta_row("WHY IT<br>MATTERS<br>FOR YOU",it["why"],A)}{meta_row("REF / ID",refs,A)}</table></td></tr>
+{meta_row("CAVEATS",it["caveats"],A)}{meta_row("WHY IT<br>MATTERS<br>FOR YOU",it["why"],A)}{"".join(meta_row(k,v,A) for k,v in it.get("extra",[]))}{meta_row("REF / ID",refs,A)}</table></td></tr>
 </table></td></tr>'''
 def section(i, s):
     num=f"{i:02d}"; A=color_for(s["title"])
@@ -153,6 +153,7 @@ for i,s in enumerate(C.SECTIONS):
             for p in it["body"]: out.append(W(p))
             out.append(W("Caveats: "+it["caveats"]))
             out.append(W("Why it matters for you: "+it["why"]))
+            for k,v in it.get("extra",[]): out.append(W(k.replace("<br>"," ").title()+": "+v))
             out.append("Links: "+" | ".join(f"{t} <{u}>" for t,u in it["ref"])+"\n")
         elif it["kind"]=="short":
             out.append(W(f"<b>{it['label']}</b> {it['text']}","  ").replace("  ","  ",1).replace("  ","- ",1))

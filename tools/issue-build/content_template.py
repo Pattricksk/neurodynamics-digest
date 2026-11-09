@@ -39,8 +39,18 @@ EXAMPLE_SHORT = dict(kind="short", label="Short item headline (venue, date).",
   text="Authors. One paragraph incl. a <i>Why it matters for you</i> clause. [[doi:10.xxxx/yyyy|https://doi.org/10.xxxx/yyyy]]")
 QUIET = dict(kind="short", label="Quiet week.", text="Nothing verified worth your time this week.")
 
+# Catch-up item (one of exactly 5): a "main" item plus the Catch-up extras rendered as extra meta rows.
+EXAMPLE_CATCHUP = dict(kind="main", tags=[("PEER REVIEWED", 1), ("<YEAR>", 0), ("<TYPE>", 0), ("<INTEREST AREA>", 0)],
+    head="<Paper title>", byline="<Authors> \u00b7 <Venue> \u00b7 <Year>",
+    body=["What it found or introduced ...", "Why it mattered: ..."],
+    caveats="...", why="Tied to the reader's actual analyses ...",
+    extra=[("SINCE THEN", "One verified line on what happened next [[doi:...|https://doi.org/...]]"),
+           ("READING LEVEL", "Skim the abstract | Read the methods | Worth a full read"),
+           ("CODE/DATA", "[[repo name|https://...]] (omit this row if none found)")],
+    ref=[("<Journal>, <Year> \u00b7 doi:...", "https://doi.org/...")])
+
 # Order used since Issue 002. Drop sections with nothing to say; EEG always comes right after the headline act;
-# "Best reviews of the week" is ALWAYS the last section.
+# "Best reviews of the week" is second-to-last; "Catch-up" (5 older must-reads, since 8 Nov 2026) is ALWAYS the final section.
 SECTIONS = [
  dict(title="The headline act", sub="", items=[EXAMPLE_MAIN]),
  dict(title="EEG", sub="your core modality", items=[EXAMPLE_SHORT]),
@@ -60,6 +70,7 @@ SECTIONS = [
  dict(title="Funding radar", sub="", items=[QUIET]),
  dict(title="Buzz this week", sub="what got shared", items=[]),
  dict(title="Best reviews of the week", sub="syntheses worth your time", items=[]),
+ dict(title="Catch-up", sub="five must-reads from the last decade", items=[EXAMPLE_CATCHUP]),
 ]
 SECTIONS = [s for s in SECTIONS if s["items"]]
 
